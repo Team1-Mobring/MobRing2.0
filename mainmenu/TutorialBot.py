@@ -1,5 +1,6 @@
 import Cards
 
+# Button cords
 main_menu_x = 70
 fed_x = 495
 maffia_x = 1125
@@ -8,6 +9,22 @@ box_y = 550
 box_width = 300
 box_height = 100
 box_x = 0
+
+# Player card sets
+player_deck =  set()
+player_graveyard = set()
+player_held_cards = set()
+player_mobster_field_cards = set()
+player_job_field_cards = set()
+player_trap_field_cards = set()
+# Bot card sets
+bot_deck = set()
+bot_graveyard = set()
+bot_held_cards = set()
+bot_mobster_field_cards = set()
+bot_job_field_cards = set()
+bot_trap_field_cards = set()
+
 
 def setup():
     size(1920, 1080)
