@@ -40,10 +40,6 @@ class TrapJob():
 
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
 
-# Lists origins voor card selector
-fed_origins = [origin_China_Blue, origin_Japan_Blue, origin_Netherlands_Blue, origin_Colombia_Blue, origin_Italy_Blue, origin_Russia_Blue]
-maffia_origins = [origin_China_Red, origin_Japan_Red, origin_Netherlands_Red, origin_Colombia_Red, origin_Italy_Red, origin_Russia_Red]
-
 #Mobsters
 aivd1 = Mobster("Mobster", "AIVD1", "Netherlands", 6, 6, 6, "AIVD1.jpg")
 aivd2 = Mobster("Mobster", "AIVD2", "Netherlands", 7, 9, 6, "AIVD2.jpg")
@@ -53,10 +49,10 @@ bratva1 = Mobster("Mobster", "Bratva1", "Russia", 7, 8, 8, "Bratva1.jpg")
 bratva2 = Mobster("Mobster", "Bratva2", "Russia", 0, 9, 9, "Bratva2.jpg")
 bratva3 = Mobster("Mobster", "Bratva3", "Russia", 0, 9, 10, "Bratva3.jpg")
 bratva4 = Mobster("Mobster", "Bratva4", "Russia", 0, 10, 10, "Bratva4.jpg")
-cosaNosta1 = Mobster("Mobster", "CosaNostra1", "Italy", 7, 6, 9, "CosaNostra1.jpg")
-cosaNosta2 = Mobster("Mobster", "CosaNostra2", "Italy", 0, 9, 10, "CosaNostra2.jpg")
-cosaNosta3 = Mobster("Mobster", "CosaNostra3", "Italy", 0, 4, 5, "CosaNostra3.jpg")
-cosaNosta4 = Mobster("Mobster", "CosaNostra4", "Italy", 0, 11, 0, "CosaNostra4.jpg")
+cosaNostra1 = Mobster("Mobster", "CosaNostra1", "Italy", 7, 6, 9, "CosaNostra1.jpg")
+cosaNostra2 = Mobster("Mobster", "CosaNostra2", "Italy", 0, 9, 10, "CosaNostra2.jpg")
+cosaNostra3 = Mobster("Mobster", "CosaNostra3", "Italy", 0, 4, 5, "CosaNostra3.jpg")
+cosaNostra4 = Mobster("Mobster", "CosaNostra4", "Italy", 0, 11, 0, "CosaNostra4.jpg")
 dni1 = Mobster("Mobster", "DNI1", "Colombia", 5, 6, 6, "DNI1.jpg")
 dni2 = Mobster("Mobster", "DNI2", "Colombia", 0, 9, 5, "DNI2.jpg")
 dni3 = Mobster("Mobster", "DNI3", "Colombia", 0, 10, 4, "DNI3.jpg")
@@ -69,10 +65,10 @@ fsb1 = Mobster("Mobster", "FSB1", "Russia", 7, 8, 8, "FSB1.jpg")
 fsb2 = Mobster("Mobster", "FSB2", "Russia", 0, 9, 9, "FSB2.jpg")
 fsb3 = Mobster("Mobster", "FSB3", "Russia", 0, 9, 10, "FSB3.jpg")
 fsb4 = Mobster("Mobster", "FSB4", "Russia", 0, 10, 10, "FSB4.jpg")
-CaliKartel1 = Mobster("Mobster", "CaliKartel1", "Colombia", 5, 6, 6, "KaliKartel1.jpg")
-CaliKartel2 = Mobster("Mobster", "CaliKartel2", "Colombia", 0, 9, 5, "KaliKartel2.jpg")
-CaliKartel3 = Mobster("Mobster", "CaliKartel3", "Colombia", 0, 4, 10, "KaliKartel3.jpg")
-CaliKartel4 = Mobster("Mobster", "CaliKartel4", "Colombia", 0, 3, 0, "KaliKartel4.jpg")
+caliKartel1 = Mobster("Mobster", "CaliKartel1", "Colombia", 5, 6, 6, "KaliKartel1.jpg")
+caliKartel2 = Mobster("Mobster", "CaliKartel2", "Colombia", 0, 9, 5, "KaliKartel2.jpg")
+caliKartel3 = Mobster("Mobster", "CaliKartel3", "Colombia", 0, 4, 10, "KaliKartel3.jpg")
+caliKartel4 = Mobster("Mobster", "CaliKartel4", "Colombia", 0, 3, 0, "KaliKartel4.jpg")
 mss1 = Mobster("Mobster", "MSS1", "China", 8, 8, 8, "MSS1.jpg")
 mss2 = Mobster("Mobster", "MSS2", "China", 5, 6, 7, "MSS2.jpg")
 mss3 = Mobster("Mobster", "MSS3", "China", 0, 9, 4, "MSS3.jpg")
@@ -96,7 +92,7 @@ yakuza4 = Mobster("Mobster", "Yakuza4", "Japan", 0, 3, 0, "Yakuza4.jpg")
 
 #origins
 origin_China_Red = Origin("Origin", "Origin_China_Red", "OriginChina.jpg")
-origin_China_Blue  = Origin("Origin", "Origin_China_Blue", "OriginChinaFED.jpg")
+origin_China_Blue = Origin("Origin", "Origin_China_Blue", "OriginChinaFED.jpg")
 origin_Japan_Red = Origin("Origin", "Origin_Japan_Red", "OriginJapan.jpg")
 origin_Japan_Blue = Origin("Origin", "Origin_Japan_Blue", "OriginJapanFED.jpg")
 origin_Colombia_Red = Origin("Origin", "Origin_Colombia_Red", "OriginColombia.jpg")
@@ -171,3 +167,23 @@ sniped_Red1 = TrapJob("Trap", "Sniped_Red", 1, 1, "When the enemy plays a Mobste
 sniped_Red2 = TrapJob("Trap", "Sniped_Red", 1, 1, "When the enemy plays a Mobster, damage one of his hp", "TrapSniped.jpg")
 sniped_Blue1 = TrapJob("Trap", "Sniped_Blue", 1, 1, "When the enemy plays a Mobster, damage one of his hp", "TrapSnipedFED.jpg")
 sniped_Blue2 = TrapJob("Trap", "Sniped_Blue", 1, 1, "When the enemy plays a Mobster, damage one of his hp", "TrapSnipedFED.jpg")
+
+# Lists mobsters in blue origins
+china_Blue = [origin_China_Blue, mss1, mss2, mss3, mss4]
+japan_Blue = [origin_Japan_Blue, psia1, psia2, psia3, psia4]
+netherlands_Blue = [origin_Netherlands_Blue, aivd1, aivd2, aivd3, aivd4]
+colombia_Blue = [origin_Colombia_Blue, dni1, dni2, dni3, dni4]
+italy_Blue = [origin_Italy_Blue, sismi1, sismi2, sismi3, sismi4]
+russia_Blue = [origin_Russia_Blue, fsb1, fsb2, fsb3, fsb4]
+
+# Lists mobsters in red origins
+china_Red = [origin_China_Red, triad1, triad2, triad3, triad4]
+japan_Red = [origin_Japan_Red, yakuza1, yakuza2, yakuza3, yakuza4]
+netherlands_Red = [origin_Netherlands_Red, farmer1, farmer2, farmer3, farmer4]
+colombia_Red = [origin_Colombia_Red, caliKartel1, caliKartel2, caliKartel3, caliKartel4]
+italy_Red = [origin_Italy_Red, cosaNostra1, cosaNostra2, cosaNostra3, cosaNostra4]
+russia_Red = [origin_Russia_Red, bratva1, bratva2, bratva3, bratva4]
+
+# Lists origins to select voor card selector
+fed_origins = [china_Blue, japan_Blue, netherlands_Blue, colombia_Blue, italy_Blue, russia_Blue]
+maffia_origins = [china_Red, japan_Red, netherlands_Red, colombia_Red, italy_Red, russia_Red]

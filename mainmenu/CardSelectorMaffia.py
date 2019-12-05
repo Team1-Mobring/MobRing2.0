@@ -1,7 +1,7 @@
 import Cards, TutorialBot
 
 def setup():
-    pass
+    background(0)
     
 def draw():
-    pass\
+    pass
