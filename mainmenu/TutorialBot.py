@@ -11,19 +11,19 @@ box_height = 100
 box_x = 0
 
 # Player card sets
-player_deck =  set()
-player_graveyard = set()
-player_held_cards = set()
-player_mobster_field_cards = set()
-player_job_field_cards = set()
-player_trap_field_cards = set()
+player_deck =  []
+player_graveyard = []
+player_held_cards = []
+player_mobster_field_cards = []
+player_job_field_cards = []
+player_trap_field_cards = []
 # Bot card sets
-bot_deck = set()
-bot_graveyard = set()
-bot_held_cards = set()
-bot_mobster_field_cards = set()
-bot_job_field_cards = set()
-bot_trap_field_cards = set()
+bot_deck = []
+bot_graveyard = []
+bot_held_cards = []
+bot_mobster_field_cards = []
+bot_job_field_cards = []
+bot_trap_field_cards = []
 
 
 def setup():

@@ -168,6 +168,18 @@ sniped_Red2 = TrapJob("Trap", "Sniped_Red", 1, 1, "When the enemy plays a Mobste
 sniped_Blue1 = TrapJob("Trap", "Sniped_Blue", 1, 1, "When the enemy plays a Mobster, damage one of his hp", "TrapSnipedFED.jpg")
 sniped_Blue2 = TrapJob("Trap", "Sniped_Blue", 1, 1, "When the enemy plays a Mobster, damage one of his hp", "TrapSnipedFED.jpg")
 
+#lists Trap cards blue
+traps_Blue = [ambushed_Blue1, ambushed_Blue2, dodge_Blue1, dodge_Blue2, revive_Blue1, revive_Blue2, ricochet_Blue1, ricochet_Blue2, sniped_Blue1, sniped_Blue2]
+
+#lists Trap cards red
+traps_Red = [ambushed_Red1, ambushed_Red2, dodge_Red1, dodge_Red2, revive_Red1, revive_Red2, ricochet_Red1, ricochet_Red2, sniped_Red1, sniped_Red2]
+
+#lists Job cards blue
+jobs_Blue = [anti_Hit_Blue1, anti_Hit_Blue2, clairevoyance_Blue1, clairevoyance_Blue2, prophecy_Blue1, prophecy_Blue2, reroll_Blue1, reroll_Blue2, retaliate_Blue1, retaliate_Blue2, reveal_Blue1, reveal_Blue2, sacrifice_Blue1, sacrifice_Blue2, small_Hit_Blue1, small_Hit_Blue2, stun_Blue1, stun_Blue2, the_Odds_Are_Against_You_Blue1, the_Odds_Are_Against_You_Blue2]
+
+#lists Job cards red
+jobs_Red = [anti_Hit_Red1, anti_Hit_Red2, clairevoyance_Red1, clairevoyance_Red2, prophecy_Red1, prophecy_Red2, reroll_Red1, reroll_Red2, retaliate_Red1, retaliate_Red2, reveal_Red1, reveal_Red2, sacrifice_Red1, sacrifice_Red2, small_Hit_Red1, small_Hit_Red2, stun_Red1, stun_Red2, the_Odds_Are_Against_You_Red1, the_Odds_Are_Against_You_Red2]
+
 # Lists mobsters in blue origins
 china_Blue = [origin_China_Blue, mss1, mss2, mss3, mss4]
 japan_Blue = [origin_Japan_Blue, psia1, psia2, psia3, psia4]
