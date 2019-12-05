@@ -5,5 +5,3 @@ def setup():
     
 def draw():
     pass\
-    
-# Test testsetsetsetestsetsetsetset
