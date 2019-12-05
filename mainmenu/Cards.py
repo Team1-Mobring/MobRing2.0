@@ -40,6 +40,10 @@ class TrapJob():
 
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
 
+# Lists origins voor card selector
+fed_origins = [origin_China_Blue, origin_Japan_Blue, origin_Netherlands_Blue, origin_Colombia_Blue, origin_Italy_Blue, origin_Russia_Blue]
+maffia_origins = [origin_China_Red, origin_Japan_Red, origin_Netherlands_Red, origin_Colombia_Red, origin_Italy_Red, origin_Russia_Red]
+
 #Mobsters
 aivd1 = Mobster("Mobster", "AIVD1", "Netherlands", 6, 6, 6, "AIVD1.jpg")
 aivd2 = Mobster("Mobster", "AIVD2", "Netherlands", 7, 9, 6, "AIVD2.jpg")
