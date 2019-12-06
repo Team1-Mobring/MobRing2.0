@@ -179,12 +179,12 @@ jobs_Red = [anti_Hit_Red1, anti_Hit_Red2, clairevoyance_Red1, clairevoyance_Red2
 
 # Lists mobsters in blue origins
 empty = ""
-china_Blue = [empty, origin_China_Blue, mss1, mss2, mss3, mss4]
-japan_Blue = [empty, origin_Japan_Blue, psia1, psia2, psia3, psia4]
-netherlands_Blue = [empty, origin_Netherlands_Blue, aivd1, aivd2, aivd3, aivd4]
-colombia_Blue = [empty, origin_Colombia_Blue, dni1, dni2, dni3, dni4]
-italy_Blue = [empty, origin_Italy_Blue, sismi1, sismi2, sismi3, sismi4]
-russia_Blue = [empty, origin_Russia_Blue, fsb1, fsb2, fsb3, fsb4]
+china_Blue = [origin_China_Blue, mss1, mss2, mss3, mss4]
+japan_Blue = [origin_Japan_Blue, psia1, psia2, psia3, psia4]
+netherlands_Blue = [origin_Netherlands_Blue, aivd1, aivd2, aivd3, aivd4]
+colombia_Blue = [origin_Colombia_Blue, dni1, dni2, dni3, dni4]
+italy_Blue = [origin_Italy_Blue, sismi1, sismi2, sismi3, sismi4]
+russia_Blue = [origin_Russia_Blue, fsb1, fsb2, fsb3, fsb4]
 
 # Lists mobsters in red origins
 china_Red = [origin_China_Red, triad1, triad2, triad3, triad4]
@@ -207,6 +207,6 @@ def DrawFedOriginCards():
         return fed_origins[i]
     for i in range(len(fed_origins)):
         k = GetOrigin(i)
-        k[1].display(x, y)
+        k[0].display(x, y)
         x = x + 700
         
