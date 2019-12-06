@@ -1,5 +1,5 @@
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia
-
+# Dit is een test voor git
 handleidingY = 360
 tutorialY = 420
 randomDeckGeneratorY = 480
