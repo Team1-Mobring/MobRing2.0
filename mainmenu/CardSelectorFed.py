@@ -2,6 +2,8 @@ import Cards, TutorialBot
 
 def setup():
     background(0)
-    
-def draw():
     Cards.DrawFedOriginCards()
+    Cards.DrawFedTrapCards()
+    Cards.DrawFedJobCards()
+def draw():
+    pass

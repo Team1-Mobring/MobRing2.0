@@ -8,9 +8,11 @@ class Mobster():
         self.hp3 = hp3
         self.img = img
         
-    def display(self):
+    def display(self, x, y):
+        self.x = x
+        self.y = y
         rimg = loadImage(self.img)
-        image(rimg, 100, 100)
+        image(rimg, x, y)
         
 class Origin():
     def __init__(self, type, name, img):
@@ -19,6 +21,8 @@ class Origin():
         self.img = img
         
     def display(self, x, y):
+        self.x = x
+        self.y = y
         rimg = loadImage(self.img)
         image(rimg, x, y)
         
@@ -31,9 +35,11 @@ class TrapJob():
         self.effect = effect
         self.img = img
         
-    def display(self):
+    def display(self, x, y):
+        self.x = x
+        self.y = y
         rimg = loadImage(self.img)
-        image(rimg, 100, 100)
+        image(rimg, x, y)
 
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
 
@@ -198,10 +204,10 @@ russia_Red = [origin_Russia_Red, bratva1, bratva2, bratva3, bratva4]
 fed_origins = [china_Blue, japan_Blue, netherlands_Blue, colombia_Blue, italy_Blue, russia_Blue]
 maffia_origins = [china_Red, japan_Red, netherlands_Red, colombia_Red, italy_Red, russia_Red]
 
-#draw blue origin cards
+# Draw blue origin cards
 def DrawFedOriginCards():
-    x = 100
-    y = 100
+    x = 0
+    y = 0
     scale(0.3)
     def GetOrigin(i):
         return fed_origins[i]
@@ -210,10 +216,10 @@ def DrawFedOriginCards():
         k[0].display(x, y)
         x = x + 700
 
-#draw red origin cards
+# Draw red origin cards
 def DrawMaffiaOriginCards():
-    x = 100
-    y = 100
+    x = 0
+    y = 0
     scale(0.3)
     def GetOrigin(i):
         return maffia_origins[i]
@@ -221,3 +227,54 @@ def DrawMaffiaOriginCards():
         k = GetOrigin(i)
         k[0].display(x, y)
         x = x + 700
+
+# Draw blue trap cards
+def DrawFedTrapCards():
+    x = 0
+    y = 800
+    def GetTrap(i):
+        return traps_Blue[i]
+    for i in range(len(traps_Blue)):
+        traps_Blue[i].display(x, y)
+        x = x + 700
+        
+# Draw red trap cards
+def DrawMaffiaTrapCards():
+    x = 0
+    y = 800
+    def GetTrap(i):
+        return traps_Red[i]
+    for i in range(len(taps_Red)):
+        traps_Red[i].display(x, y)
+        x = x + 700
+        
+# Draw blue job cards
+def DrawFedJobCards():
+    x = 0
+    y = 1600
+    def GetJob(i):
+        return jobs_Blue[i]
+    for i in range(len(jobs_Blue)):
+        jobs_Blue[i].display(x, y)
+        x = x + 700
+
+# Draw red job cards
+def DrawMaffiaJobCards():
+    x = 0
+    y = 1600
+    def GetJob(i):
+        return jobs_Red[i]
+    for i in range(len(jobs_Red)):
+        jobs_Red[i].display(x, y)
+        x = x + 700
+
+# Adding fed cards to deck
+def DeckAddderFed(c):
+    TutorialBot.player_deck.append(c)
+    fed_origins.remove(c)
+    
+# Adding maffia cards to deck
+def DeckAddderFed(c):
+    TutorialBot.player_deck.append(c)
+    maffia_origins.remove(c)
+    

@@ -29,7 +29,6 @@ bot_trap_field_cards = []
 def setup():
     size(1920, 1080)
     background(255)
-    Cards.test_card.display()
 def draw():
     fill(180)
     main_menu = rect(main_menu_x, box_y, box_width, box_height)
