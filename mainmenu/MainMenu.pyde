@@ -1,5 +1,6 @@
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia
 # Dit is een test voor git
+# Dit is comment 1
 handleidingY = 360
 tutorialY = 420
 randomDeckGeneratorY = 480
