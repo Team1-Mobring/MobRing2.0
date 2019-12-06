@@ -149,14 +149,14 @@ def keyReleased():
             if keyCode == 8:
                 Timer.user_input_1 = Timer.user_input_1 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_1) <= 10:
+            elif len(Timer.user_input_1) <= 11:
                 Timer.user_input_1 += key
         
         if Timer.step_count == 1:
             if keyCode == 8:
                 Timer.user_input_2 = Timer.user_input_2 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_2) <= 10:
+            elif len(Timer.user_input_2) <= 11:
                 Timer.user_input_2 += key
             
         # "Enter" functie in de timer /is tijdelijk.
@@ -180,6 +180,9 @@ def mousePressed():
         else:
             return False
         
+    # Testing purposes!
+    print(mouseX, mouseY)
+    
     if current_page == "Tutorial_Bot" and tutorial_load == True:
         # box clicker
         
@@ -210,13 +213,14 @@ def mousePressed():
 
     if current_page == "Timer" and timer_load == True:     
         # Home menu button
-        if isMouseWithinSpace(100, 100, 200, 100):
+        if isMouseWithinSpace(36, 35, 270, 90):
             current_page = "Main_Menu"
             main_menu_load = False
             timer_load = False
+            
         
         # 10 minute timer button
-        if isMouseWithinSpace(630, 765, 200, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(845, 65, 228, 122) and Timer.step_count == 2:
             Timer.time_left = 300000
             Timer.time_left_2 = 300000
             Timer.timer_start = False
@@ -225,7 +229,7 @@ def mousePressed():
     
         
         # 20 minute timer button
-        if isMouseWithinSpace(1090, 765, 200, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(1175, 65, 228, 122) and Timer.step_count == 2:
             Timer.time_left = 6000
             Timer.time_left_2 = 6000
             Timer.timer_start = False
@@ -233,7 +237,7 @@ def mousePressed():
             Timer.time_mode_choosen = 2
             
         # 4 minute timer button
-        if isMouseWithinSpace(860, 765, 200, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
             Timer.time_left = 120000
             Timer.time_left_2 = 120000
             Timer.timer_start = False
@@ -241,9 +245,9 @@ def mousePressed():
             Timer.time_mode_choosen = 3 
             
         # Reset score button
-        if isMouseWithinSpace(910, 300, 100, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(813, 380, 268, 87) and Timer.step_count == 2:
             Timer.score_player_1 = 0
-            Timer.score_player_2 = 0        
+            Timer.score_player_2 = 0 
             
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    

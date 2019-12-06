@@ -4,9 +4,14 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen
-    background(240)
+            step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
+            mainmenu2_img, background_img, pauzeknop_img
     rect(100, 200, 100, 200)
+    
+    background_img = loadImage("TimerDesign.jpg")
+    mainmenu2_img = loadImage("MainMenu2.png")
+    pauzeknop_img = loadImage("PauzeKnop.jpg")
+    image(background_img, 0, 0)
     
     last_millis = millis()    
     last_millis_2 = millis()
@@ -31,42 +36,23 @@ def draw():
             running_2, timer_start, user_input_1, user_input_2, step_count, score_player_1, score_player_2, \
             time_mode_choosen
         
-    background(240)
-    # Player name fields    
-    fill(120, 134, 171)
-    rect(500, 300, 325, 100)
-    rect(1090, 300, 325, 100)
-    # Menu button
-    fill(200)
-    rect(100, 100, 200, 100)
-    functions.drawText3("Main Menu", 200, 160, 0, 0, 0, 30)
-    # Score reset button
-    fill(200)
-    rect(910, 300, 100, 100)
-    functions.drawText3("Reset\nScore", 923, 338, 0, 0, 0, 27)
-    # Timer modes buttons
-    fill(200)
-    rect(860, 765, 200, 100) # 4 minutes
-    rect(630, 765, 200, 100) # 10 minutes
-    rect(1090, 765, 200, 100) # 20 minutes
-    functions.drawText3("4 Mins + 15", 885, 830, 0, 0, 0, 30)
-    functions.drawText3("10 Mins", 675, 830, 0, 0, 0, 30)
-    functions.drawText3("20 Mins", 1135, 830, 0, 0, 0, 30)
-    
+    #Background
+    image(background_img, 0, 0)    
+
     # User Input prints
-    if step_count == 0:
-        functions.drawText3("Please input the \nname of Player 1", 530, 200, 0, 0, 0, 35)
-    elif step_count == 1:
-        functions.drawText3("Please input the \nname of Player 2", 1120, 200, 0, 0, 0, 35)
-    elif step_count == 2 and not timer_start:
-        functions.drawText3("Pick a time mode!", 770, 200, 0, 0, 0, 48)
+    #if step_count == 0:
+        #functions.drawText3("Please input the \nname of Player 1", 530, 200, 0, 0, 0, 35)
+    #elif step_count == 1:
+        #functions.drawText3("Please input the \nname of Player 2", 1120, 200, 0, 0, 0, 35)
+    #elif step_count == 2 and not timer_start:
+        #functions.drawText3("Pick a time mode!", 770, 200, 0, 0, 0, 48)
 
     # Draws the user name/score on the screen.
-    functions.drawText3(user_input_1, 530, 365, 0, 0, 0, 48)
-    functions.drawText3(score_player_1, 835, 365, 0, 0, 0, 60)
+    functions.drawScore(user_input_1, 555, 440, 0, 0, 0, 60)
+    functions.drawScore(score_player_1, 266, 445, 0, 0, 0, 60)
     
-    functions.drawText3(user_input_2, 1120, 365, 0, 0, 0, 48)
-    functions.drawText3(score_player_2, 1055, 365, 0, 0, 0, 60)
+    functions.drawScore(user_input_2, 1337, 440, 0, 0, 0, 60)
+    functions.drawScore(score_player_2, 1624, 445, 0, 0, 0, 60)
     
     # Timer code
     if timer_start:
@@ -90,21 +76,16 @@ def draw():
             if running_2:
                 score_player_1 += 1
             
-        # Pauze knop!   
-        fill(0, 100, 0)
-        rect(860, 610, 200, 100) 
-        functions.drawText3("Switch!", 910, 670, 0, 0, 0, 30)
-        functions.drawText3("'Spacebar'", 910, 690, 0, 0, 0, 20)
-        functions.drawText3("Press 'Enter' to pause", 865, 730, 0, 0, 0, 20)
+        # Pauze knop!   Hier moet "Pauze" komen in het rood
+        
+        image(pauzeknop_img, 1141, 815)
         
             
     # Voor de pauze knop "Enter"       
     elif step_count == 2:
-        # Start knop! (Visueel)
-        fill(100, 0, 0)
-        rect(860, 610, 200, 100) 
-        functions.drawText3("Start!", 910, 670, 0, 0, 0, 30)
-        functions.drawText3("Press 'Enter' to start", 860, 730, 0, 0, 0, 20)
+        pass
+        # Start knop! (Visueel) Hier moet "Start" komen in het groen
+
         
     # Millis worden bijgeteld, ookal staat de timer op pauze.
     last_millis = millis()
@@ -112,8 +93,22 @@ def draw():
 
     # Draws the timer value
     if time_mode_choosen >= 1:
-        functions.drawText2(functions.convertSeconds(time_left), width*0.37, height/2, 0, 0, 0, 48)
-        functions.drawText2(str(functions.showMilliseconds(time_left % 1000)), 810, 560, 0, 0, 0, 20)
-        functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
-        functions.drawText2(str(functions.showMilliseconds(time_left_2 % 1000)), 1194, 560, 0, 0, 0, 20)
-        
+        if running:
+            functions.drawTextTimer2(functions.convertSeconds(time_left), 798, 660, 52, 189, 235, 150)
+            functions.drawText2(str(functions.showMilliseconds(time_left % 1000)), 750, 697, 52, 189, 235, 40)
+            
+        if running_2:           
+            functions.drawTextTimer1(functions.convertSeconds(time_left_2), 1096, 660, 52, 189, 235, 150)       
+            functions.drawText2(str(functions.showMilliseconds(time_left_2 % 1000)), 1142, 697, 52, 189, 235, 40)
+
+        if not running:
+            functions.drawTextTimer2(functions.convertSeconds(time_left), 798, 660, 0, 0, 0, 98)
+            functions.drawText2(str(functions.showMilliseconds(time_left % 1000)), 770, 680, 0, 0, 0, 20)
+            
+        if not running_2:
+            functions.drawTextTimer1(functions.convertSeconds(time_left_2), 1096, 660, 0, 0 ,0, 98) 
+            functions.drawText2(str(functions.showMilliseconds(time_left_2 % 1000)), 1120, 680, 0, 0, 0, 20)
+            
+            
+    
+     
