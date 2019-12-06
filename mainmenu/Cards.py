@@ -209,4 +209,15 @@ def DrawFedOriginCards():
         k = GetOrigin(i)
         k[0].display(x, y)
         x = x + 700
-        
+
+#draw red origin cards
+def DrawMaffiaOriginCards():
+    x = 100
+    y = 100
+    scale(0.3)
+    def GetOrigin(i):
+        return maffia_origins[i]
+    for i in range(len(maffia_origins)):
+        k = GetOrigin(i)
+        k[0].display(x, y)
+        x = x + 700

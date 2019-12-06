@@ -173,7 +173,7 @@ def keyReleased():
                     
 # mouseclcik registrater    
 def mousePressed():
-    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load
+    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load, handleiding_load, card_selector_maffia_load, card_selector_fed_load
     def isMouseWithinSpace(x, y, w, h):
         if x < mouseX < x + w and y < mouseY < y + h:
             return True
@@ -189,12 +189,21 @@ def mousePressed():
             tutorial_load = False
         elif isMouseWithinSpace(TutorialBot.fed_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
             current_page = "Card_selector_fed"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_fed_load = False
             print("click2")
         elif isMouseWithinSpace(TutorialBot.maffia_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            curret_page = "Card_selector_maffia"
+            current_page = "Card_selector_maffia"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_maffia_load = False
             print("click3")
         elif isMouseWithinSpace(TutorialBot.help_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
             current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
             print("click4")
         else:
             print("wrong!")

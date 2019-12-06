@@ -60,7 +60,6 @@ def mousePressed():
     elif isMouseWithinSpace(maffia_x, box_y, box_width, box_height):
         print("click3")
     elif isMouseWithinSpace(help_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click4")
     else:
         print("wrong!")
