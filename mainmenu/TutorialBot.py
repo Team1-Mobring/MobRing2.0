@@ -54,13 +54,10 @@ def isMouseWithinSpace(x, y, w, h):
 def mousePressed():
     global box_width, box_height, box_x, box_y
     if isMouseWithinSpace(main_menu_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click")
     elif isMouseWithinSpace(fed_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click2")
     elif isMouseWithinSpace(maffia_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click3")
     elif isMouseWithinSpace(help_x, box_y, box_width, box_height):
         background(140,200,180)

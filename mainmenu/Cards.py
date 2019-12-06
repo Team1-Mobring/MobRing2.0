@@ -10,7 +10,6 @@ class Mobster():
         
     def display(self):
         rimg = loadImage(self.img)
-        scale(0.3)
         image(rimg, 100, 100)
         
 class Origin():
@@ -19,10 +18,9 @@ class Origin():
         self.name = name
         self.img = img
         
-    def display(self):
+    def display(self, x, y):
         rimg = loadImage(self.img)
-        scale(0.3)
-        image(rimg, 100, 100)
+        image(rimg, x, y)
         
 class TrapJob():
     def __init__(self, type, name, hp1, hp2, effect, img):
@@ -35,7 +33,6 @@ class TrapJob():
         
     def display(self):
         rimg = loadImage(self.img)
-        scale(0.3)
         image(rimg, 100, 100)
 
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
@@ -99,8 +96,8 @@ origin_Colombia_Red = Origin("Origin", "Origin_Colombia_Red", "OriginColombia.jp
 origin_Colombia_Blue = Origin("Origin", "Origin_Colombia_Blue", "OriginColombiaFED.jpg")
 origin_Italy_Red = Origin("Origin", "Origin_Italy_Red", "OriginItaly.jpg")
 origin_Italy_Blue = Origin("Origin", "Origin_Italy_Blue", "OriginItalyFED.jpg")
-origin_Netherlands_Red = Origin("Origin", "Origin_Netherlands_Red", "OriginNetherlands.jpg")
-origin_Netherlands_Blue = Origin("Origin", "Origin_Netherlands_Blue", "OriginNetherlandsFED.jpg")
+origin_Netherlands_Red = Origin("Origin", "Origin_Netherlands_Red", "OriginNederland.jpg")
+origin_Netherlands_Blue = Origin("Origin", "Origin_Netherlands_Blue", "OriginNederlandFED.jpg")
 origin_Russia_Red = Origin("Origin", "Origin_Russia_Red", "OriginRussia.jpg")
 origin_Russia_Blue = Origin("Origin", "Origin_Russia_Blue", "OriginRussiaFED.jpg")
 
@@ -181,12 +178,13 @@ jobs_Blue = [anti_Hit_Blue1, anti_Hit_Blue2, clairevoyance_Blue1, clairevoyance_
 jobs_Red = [anti_Hit_Red1, anti_Hit_Red2, clairevoyance_Red1, clairevoyance_Red2, prophecy_Red1, prophecy_Red2, reroll_Red1, reroll_Red2, retaliate_Red1, retaliate_Red2, reveal_Red1, reveal_Red2, sacrifice_Red1, sacrifice_Red2, small_Hit_Red1, small_Hit_Red2, stun_Red1, stun_Red2, the_Odds_Are_Against_You_Red1, the_Odds_Are_Against_You_Red2]
 
 # Lists mobsters in blue origins
-china_Blue = [origin_China_Blue, mss1, mss2, mss3, mss4]
-japan_Blue = [origin_Japan_Blue, psia1, psia2, psia3, psia4]
-netherlands_Blue = [origin_Netherlands_Blue, aivd1, aivd2, aivd3, aivd4]
-colombia_Blue = [origin_Colombia_Blue, dni1, dni2, dni3, dni4]
-italy_Blue = [origin_Italy_Blue, sismi1, sismi2, sismi3, sismi4]
-russia_Blue = [origin_Russia_Blue, fsb1, fsb2, fsb3, fsb4]
+empty = ""
+china_Blue = [empty, origin_China_Blue, mss1, mss2, mss3, mss4]
+japan_Blue = [empty, origin_Japan_Blue, psia1, psia2, psia3, psia4]
+netherlands_Blue = [empty, origin_Netherlands_Blue, aivd1, aivd2, aivd3, aivd4]
+colombia_Blue = [empty, origin_Colombia_Blue, dni1, dni2, dni3, dni4]
+italy_Blue = [empty, origin_Italy_Blue, sismi1, sismi2, sismi3, sismi4]
+russia_Blue = [empty, origin_Russia_Blue, fsb1, fsb2, fsb3, fsb4]
 
 # Lists mobsters in red origins
 china_Red = [origin_China_Red, triad1, triad2, triad3, triad4]
@@ -199,3 +197,16 @@ russia_Red = [origin_Russia_Red, bratva1, bratva2, bratva3, bratva4]
 # Lists origins to select voor card selector
 fed_origins = [china_Blue, japan_Blue, netherlands_Blue, colombia_Blue, italy_Blue, russia_Blue]
 maffia_origins = [china_Red, japan_Red, netherlands_Red, colombia_Red, italy_Red, russia_Red]
+
+#draw blue origin cards
+def DrawFedOriginCards():
+    x = 100
+    y = 100
+    scale(0.3)
+    def GetOrigin(i):
+        return fed_origins[i]
+    for i in range(len(fed_origins)):
+        k = GetOrigin(i)
+        k[1].display(x, y)
+        x = x + 700
+        
