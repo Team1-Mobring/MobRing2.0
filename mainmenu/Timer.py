@@ -64,22 +64,17 @@ def draw():
             time_left_2 = (time_left_2 - (millis() - last_millis_2))
         else:
             pass    
-
         # Timer stopt zodra die onder 1 seconden komt.
         if time_left < 25:
             timer_start = False
             if running:
                 score_player_2 += 1
-            
         if time_left_2 < 25:
             timer_start = False
             if running_2:
                 score_player_1 += 1
-            
         # Pauze knop!   Hier moet "Pauze" komen in het rood
-        
         image(pauzeknop_img, 1141, 815)
-        
             
     # Voor de pauze knop "Enter"       
     elif step_count == 2:
