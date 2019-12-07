@@ -238,16 +238,16 @@ def mousePressed():
         
         # 20 minute timer button
         if isMouseWithinSpace(1175, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 6000
-            Timer.time_left_2 = 6000
+            Timer.time_left = 600000
+            Timer.time_left_2 = 600000
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 2
             
-        # 4 minute timer button
+        # 5 minute timer button
         if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 120000
-            Timer.time_left_2 = 120000
+            Timer.time_left = 150000
+            Timer.time_left_2 = 150000
             Timer.timer_start = False
             Timer.four_timer = True   
             Timer.time_mode_choosen = 3 
