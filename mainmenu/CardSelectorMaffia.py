@@ -3,7 +3,9 @@ import Cards, TutorialBot
 def setup():
     background(0)
     Cards.DrawMaffiaOriginCards()
-    Cards.DrawMaffiaTrapCards()
-    Cards.DrawMaffiaJobCards()
+    
 def draw():
-    pass
+    if len(TutorialBot.player_deck) > 8:
+        Cards.DrawMaffiaTrapCards()
+    if len(TutorialBot.player_deck) > 11:
+        Cards.DrawMaffiaJobCards()
