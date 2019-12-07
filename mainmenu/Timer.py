@@ -5,12 +5,17 @@ def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
             step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
-            mainmenu2_img, background_img, pauzeknop_img
+            mainmenu2_img, background_img, pauzeknop_img, playerinput1_img, playerinput2_img, \
+            entername1_img, entername2_img
     rect(100, 200, 100, 200)
     
     background_img = loadImage("TimerDesign.jpg")
     mainmenu2_img = loadImage("MainMenu2.png")
     pauzeknop_img = loadImage("PauzeKnop.jpg")
+    playerinput1_img = loadImage("PlayerInput1.png")
+    playerinput2_img = loadImage("PlayerInput2.png")
+    entername1_img = loadImage("EnterName1.png")
+    entername2_img = loadImage("EnterName2.png")
     image(background_img, 0, 0)
     
     last_millis = millis()    
@@ -37,7 +42,15 @@ def draw():
             time_mode_choosen
         
     #Background
-    image(background_img, 0, 0)    
+    image(background_img, 0, 0)  
+
+    #Step count, highlight player input.
+    if step_count == 0:
+        image(playerinput1_img, -458.8, -157.5)
+        image(entername1_img, 0, 0)
+    elif step_count == 1:
+        image(playerinput2_img, 0, 0)
+        image(entername2_img, 0, 0)
 
     # User Input prints
     #if step_count == 0:
@@ -105,5 +118,6 @@ def draw():
             functions.drawText2(str(functions.showMilliseconds(time_left_2 % 1000)), 1120, 680, 0, 0, 0, 20)
             
             
-    
+
+        
      
