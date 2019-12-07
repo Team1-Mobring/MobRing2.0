@@ -1,6 +1,5 @@
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia
-# Dit is een test voor git
-# Dit is comment 2
+import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards
+
 handleidingY = 360
 tutorialY = 420
 randomDeckGeneratorY = 480
@@ -183,6 +182,14 @@ def mousePressed():
         
     # Testing purposes!
     print(mouseX, mouseY)
+    
+#    if current_page == "Card_selector_fed":
+#        if isMouseWithinSpace(0, 0, 700, 900):
+#            Cards.DeckAdderFed(Cards.fed_origins[0])
+            
+    if current_page == "Card_selector_maffia":
+        if isMouseWithinSpace(70, 550, 300, 100):
+            pass
     
     if current_page == "Tutorial_Bot" and tutorial_load == True:
         # box clicker
