@@ -6,7 +6,8 @@ def setup():
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
             step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
             mainmenu2_img, background_img, pauzeknop_img, playerinput1_img, playerinput2_img, \
-            entername1_img, entername2_img, highlight10, highlight5, highlight20, highlightMenu, highlightReset
+            entername1_img, entername2_img, highlight10, highlight5, highlight20, highlightMenu, highlightReset, \
+            highlightPauze, highlightStart, highlightSpatie
     rect(100, 200, 100, 200)
     
     background_img = loadImage("TimerDesign.jpg")
@@ -21,6 +22,9 @@ def setup():
     highlight20 = loadImage("20MinuteHighlight.png")
     highlightMenu = loadImage("MainMenuHighlight.png")
     highlightReset = loadImage("ResetScoreHighlight.png")
+    highlightPauze = loadImage("PauzeHighlight.png")
+    highlightStart = loadImage("StartHighlight.png")
+    highlightSpatie = loadImage("SpatieHighlight.png")
     image(background_img, 0, 0)
     
     last_millis = millis()    

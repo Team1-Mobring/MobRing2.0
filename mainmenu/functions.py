@@ -29,7 +29,13 @@ def showMilliseconds(x):
         return "000"
     else:
         return x
-    
+
+# If shift is pressed return True
+def isShiftPressed():
+    def keyPressed():
+        if keyCode == 16:
+            return True
+        
 # Draws sexy text
 def drawText(word, x, y):
     fill(255)

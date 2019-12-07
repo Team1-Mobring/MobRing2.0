@@ -145,19 +145,24 @@ def keyReleased():
                 if Timer.four_timer:
                     Timer.time_left += 15000
             
+        #  De "and keyCode != 16" zorgt ervoor dat de unicode voor "Shift" niet  bij user_input wordt opgeteld.
         if Timer.step_count == 0:
             if keyCode == 8:
                 Timer.user_input_1 = Timer.user_input_1 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_1) <= 11:
+            elif len(Timer.user_input_1) <= 11 and keyCode != 16:
                 Timer.user_input_1 += key
         
         if Timer.step_count == 1:
             if keyCode == 8:
                 Timer.user_input_2 = Timer.user_input_2 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_2) <= 11:
-                Timer.user_input_2 += key
+            # Checkt if shift is pressed, then capitalize the key
+            elif len(Timer.user_input_2) <= 11 and keyCode != 16:
+                if functions.isShiftPressed():
+                    Timer.user_input += key.capitalize()
+                else:
+                    Timer.user_input_2 += key
             
         # "Enter" functie in de timer /is tijdelijk.
         if keyCode == 10 and Timer.step_count == 2 and Timer.time_left > 25 and Timer.time_left_2 > 25:
@@ -170,7 +175,8 @@ def keyReleased():
     # TO exit the program!.
     if keyCode == 27:
         key == " "
-                    
+
+
 # mouseclcik registrater    
 def mousePressed():
     global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load, handleiding_load, card_selector_maffia_load, card_selector_fed_load
@@ -179,9 +185,6 @@ def mousePressed():
             return True
         else:
             return False
-        
-    # Testing purposes!
-    print(mouseX, mouseY)
     
 #    if current_page == "Card_selector_fed":
 #        if isMouseWithinSpace(0, 0, 700, 900):
