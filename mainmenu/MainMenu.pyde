@@ -20,12 +20,17 @@ card_selector_fed_load = False
 card_selector_maffia_load = False
 
 def setup():
-    global f
+    global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu
     fullScreen()
     
     # f = createFont('arial',32)
-    img3 = loadImage('MainMenuafb.png')
-    image(img3, 0, 0)
+    highlightQuit = loadImage("QuitHighlight.png")
+    highlightTutorial = loadImage("TutorialBotHighlight.png")
+    highlightManual = loadImage("ManualHighlight.png")
+    highlightRandomDeck = loadImage("RandomDeckHighlight.png")
+    highlightTimer = loadImage("TimedModeHighlight.png")
+    backgroundMenu = loadImage('MainMenuafb.png')
+    image(backgroundMenu, 0, 0)
     # fill(0, 0, 255)
     # textFont(f,150)
     # text('MOB', 150, 450)    
@@ -63,8 +68,26 @@ def setup():
 
 def draw():
     global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load
-
+    
+    
     if current_page == "Main_Menu":
+        image(backgroundMenu, 0, 0)
+        # Manual highlight
+        if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
+            image(highlightManual, 0, 0)
+        #Tutorial Bot highlight
+        if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
+            image(highlightTutorial, 0, 0)
+        #  Deck generator highlight
+        if ((1048 <= mouseX <= 1536) and (761 <= mouseY <= 915)):
+            image(highlightRandomDeck, 0, 0)
+        # Timer button highlight
+        if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
+            image(highlightTimer, 0, 0)
+        #Exit button highlight
+        if ((1746  <= mouseX <= 1818) and (72 <= mouseY <= 172)):
+            image(highlightQuit, 0, 0)  
+            
         if main_menu_load == False:
             setup()
             main_menu_load = True
@@ -113,6 +136,8 @@ def draw():
             card_selector_maffia_load = True
         else:
             CardSelectorMaffia.draw()
+      
+  
     
 # Timer.py keys registratie
 def keyReleased():
@@ -274,25 +299,20 @@ def mousePressed():
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
         if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
-            rect(x, handleidingY, w, h) and fill(0, 100)
-            #current_page = "Handleiding"
-            print("Yes")
-            
-            
+            #rect(x, handleidingY, w, h) and fill(0, 100)
+            current_page = "Handleiding"
+        
         if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
-            rect(x, tutorialY, w, h) and fill(0, 100)
-            #current_page = "Tutorial_Bot"  #Current page veranderd.
-            print("Yes")
+            #rect(x, tutorialY, w, h) and fill(0, 100)
+            current_page = "Tutorial_Bot"  #Current page veranderd.
         
         if ((1048 <= mouseX <= 1536) and (761 <= mouseY <= 915)):
-            rect(x, randomDeckGeneratorY, w, h) and fill(0, 100)
-            #current_page = "Random Deck Generator"
-            print("Yes")
-            
+            #rect(x, randomDeckGeneratorY, w, h) and fill(0, 100)
+            current_page = "Random Deck Generator"
+        
         if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
-            rect(x, timedGameplayY, w, h) and fill(0, 100)
-            #current_page = "Timer"
-            print("Yes")
+            #rect(x, timedGameplayY, w, h) and fill(0, 100)
+            current_page = "Timer"
             
         if isMouseWithinSpace(1746, 72, 100, 100):
             exit()
