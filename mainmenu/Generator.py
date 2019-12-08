@@ -1,5 +1,4 @@
-
-import functions
+import functions, Cards
 
 def setup():
     global font1

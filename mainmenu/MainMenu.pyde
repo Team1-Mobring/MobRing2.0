@@ -1,4 +1,4 @@
-import TutorialBot, functions, Generator, Timer, Handleiding
+import TutorialBot, functions, Generator, Timer, Handleiding, Generator2, Generator3
 
 handleidingY = 360
 tutorialY = 420
@@ -15,6 +15,8 @@ tutorial_load = False
 generator_load = False
 timer_load = False
 handleiding_load = False
+generator2_load = False
+generator3_load = False
 
 def setup():
     global f
@@ -59,7 +61,7 @@ def setup():
     fill(0 ,100)
 
 def draw():
-    global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load
+    global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, generator2_load, generator3_load
 
     if current_page == "Main_Menu":
         if main_menu_load == False:
@@ -83,6 +85,20 @@ def draw():
         else:
             Generator.draw(f)
             
+    if current_page == "Random Deck Generator 2":
+        if generator2_load == False:
+            Generator2.setup()
+            generator2_load = True
+        else:
+            Generator2.draw()
+            
+    if current_page == "Random Deck Generator 3":
+        if generator3_load == False:
+            Generator3.setup()
+            generator3_load = True
+        else:
+            Generator3.draw()
+               
     if current_page == "Timer":
         if timer_load == False:
             Timer.setup()
@@ -239,3 +255,15 @@ def mousePressed():
         if ((1250 < mouseX < 1450) and (900 <= mouseY <= 950)):
             rect(x, timedGameplayY, w, h) and fill(0, 100)
             current_page = "Timer"
+            
+            
+    if current_page == "Random Deck Generator" and generator_load == True:
+        if ((1160 < mouseX < 1260) and (640 <= mouseY <= 740)):
+            current_page = "Random Deck Generator 2"
+        if ((660 < mouseX < 760) and (640 <= mouseY <= 740)):
+            current_page = "Random Deck Generator 2"
+            
+    if current_page == "Random Deck Generator 2" and generator2_load == True:
+        if ((910 < mouseX < 1010) and (600 <= mouseY <= 700)):
+            current_page = "Random Deck Generator 3"
+        
