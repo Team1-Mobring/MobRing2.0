@@ -7,7 +7,7 @@ def setup():
             step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
             mainmenu2_img, background_img, pauzeknop_img, playerinput1_img, playerinput2_img, \
             entername1_img, entername2_img, highlight10, highlight5, highlight20, highlightMenu, highlightReset, \
-            highlightPauze, highlightStart, highlightSpatie
+            highlightPauze, highlightStart, highlightSpatie, pickmode_img, pickmode
     rect(100, 200, 100, 200)
     
     background_img = loadImage("TimerDesign.jpg")
@@ -17,6 +17,7 @@ def setup():
     playerinput2_img = loadImage("PlayerInput2.png")
     entername1_img = loadImage("EnterName1.png")
     entername2_img = loadImage("EnterName2.png")
+    pickmode_img = loadImage("PickModePointer.png")
     highlight10 = loadImage("10MinuteHighlight.png")
     highlight5 = loadImage("5MinuteHighlight.png")
     highlight20 = loadImage("20MinuteHighlight.png")
@@ -25,6 +26,7 @@ def setup():
     highlightPauze = loadImage("PauzeHighlight.png")
     highlightStart = loadImage("StartHighlight.png")
     highlightSpatie = loadImage("SpatieHighlight.png")
+    
     image(background_img, 0, 0)
     
     last_millis = millis()    
@@ -44,6 +46,7 @@ def setup():
     step_count = 0
     spatie = 1
     time_mode_choosen = 0
+    pickmode = False
     
 def draw():
     global time_left, last_millis, running, start_timer, time_left_2, last_millis_2, \
@@ -60,18 +63,20 @@ def draw():
     elif step_count == 1:
         image(playerinput2_img, 0, 0)
         image(entername2_img, 0, 0)
+    elif step_count == 2 and not pickmode:
+        image(pickmode_img, 0, 0)
         
     #All button highlights.
     # "5 Min" button
-    if functions.isMouseWithinSpace2(499, 65, 228, 122):
+    if functions.isMouseWithinSpace2(499, 65, 228, 122) and step_count == 2:
         image(highlight5, 0, 0)
         
     # "10 Min" button
-    if functions.isMouseWithinSpace2(845, 65, 228, 122):
+    if functions.isMouseWithinSpace2(845, 65, 228, 122) and step_count == 2:
         image(highlight10, 0, 0)
         
     # "20 Min" button
-    if functions.isMouseWithinSpace2(1175, 65, 228, 122):
+    if functions.isMouseWithinSpace2(1175, 65, 228, 122) and step_count == 2:
         image(highlight20, 0, 0)
             
     # "Main Menu" button
@@ -81,6 +86,7 @@ def draw():
     # "Reset Score" button
     if functions.isMouseWithinSpace2(813, 380, 268, 87):
         image(highlightReset, 0, 0)        
+        
 
     # User Input prints
     #if step_count == 0:

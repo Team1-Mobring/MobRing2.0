@@ -237,6 +237,7 @@ def mousePressed():
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 1
+            Timer.pickmode = True
     
         
         # 20 minute timer button
@@ -246,6 +247,7 @@ def mousePressed():
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 2
+            Timer.pickmode = True
             
         # 5 minute timer button
         if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
@@ -254,6 +256,7 @@ def mousePressed():
             Timer.timer_start = False
             Timer.four_timer = True   
             Timer.time_mode_choosen = 3 
+            Timer.pickmode = True
             
         # Reset score button
         if isMouseWithinSpace(813, 380, 268, 87) and Timer.step_count == 2:
