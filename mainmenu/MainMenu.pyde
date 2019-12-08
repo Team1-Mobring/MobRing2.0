@@ -8,6 +8,7 @@ x = 200
 w = 200
 h = 50
 timer_reset = 0
+bonus_mode = False
 
 current_page = "Main_Menu"
 main_menu_load = False
@@ -115,7 +116,7 @@ def draw():
     
 # Timer.py keys registratie
 def keyReleased():
-    global timer_code, timer_reset
+    global timer_code, timer_reset, bonus_mode
     
     if current_page == "Timer" and timer_load == True:
         # Zorgt ervoor dat "Spatie" niet timer 2 start, wanneer je een andere timed mode begint.
@@ -137,8 +138,10 @@ def keyReleased():
                 # Even getal, gaat de eerste keer af.
                 Timer.running = not Timer.running
                 #Als de 4 minute timer aan staat komt er X seconden bij.
-                if Timer.four_timer: 
+                if Timer.four_timer and bonus_mode: 
                     Timer.time_left_2 += 15000
+                    print("Its doing it")
+                    bonus_mode = False
             else:
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
@@ -238,6 +241,7 @@ def mousePressed():
             Timer.four_timer = False
             Timer.time_mode_choosen = 1
             Timer.pickmode = True
+            bonus_mode = False
     
         
         # 20 minute timer button
@@ -248,6 +252,7 @@ def mousePressed():
             Timer.four_timer = False
             Timer.time_mode_choosen = 2
             Timer.pickmode = True
+            bonus_mode = False
             
         # 5 minute timer button
         if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
@@ -257,6 +262,7 @@ def mousePressed():
             Timer.four_timer = True   
             Timer.time_mode_choosen = 3 
             Timer.pickmode = True
+            bonus_mode = True
             
         # Reset score button
         if isMouseWithinSpace(813, 380, 268, 87) and Timer.step_count == 2:
