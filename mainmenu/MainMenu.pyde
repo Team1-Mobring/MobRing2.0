@@ -23,43 +23,43 @@ def setup():
     global f
     fullScreen()
     
-    f = createFont('arial',32)
+    # f = createFont('arial',32)
     img3 = loadImage('MainMenuafb.png')
-    image(img3, 0, 0, 1920, 1200)
-    fill(0, 0, 255)
-    textFont(f,150)
-    text('MOB', 150, 450)    
+    image(img3, 0, 0)
+    # fill(0, 0, 255)
+    # textFont(f,150)
+    # text('MOB', 150, 450)    
     
-    fill(2500, 0, 0)
-    text('RING', 1500, 450)
-    stroke(255)
-    textFont(f, 28)
+    # fill(2500, 0, 0)
+    # text('RING', 1500, 450)
+    # stroke(255)
+    # textFont(f, 28)
     
-    # knop handleiding
-    fill(255,)
-    rect(500, 900, w, h)
-    fill(0,)
-    textFont(f, 25)    
-    text("Manual Course", 510, 935)      
+    # # knop handleiding
+    # fill(255,)
+    # rect(500, 900, w, h)
+    # fill(0,)
+    # textFont(f, 25)    
+    # text("Manual Course", 510, 935)      
     
-    # knop tutorial
-    fill(255, 255, 255)
-    rect(750, 900, w, h)
-    fill(0)
-    text("Tutorial", 760, 935)
+    # # knop tutorial
+    # fill(255, 255, 255)
+    # rect(750, 900, w, h)
+    # fill(0)
+    # text("Tutorial", 760, 935)
         
-    #Random deck generator
-    fill(255, 255, 255)
-    rect(1000, 900, w, h)
-    fill(0)
-    text("Random deck", 1010, 935)
+    # #Random deck generator
+    # fill(255, 255, 255)
+    # rect(1000, 900, w, h)
+    # fill(0)
+    # text("Random deck", 1010, 935)
         
-    #Timed gameplay 
-    fill(255, 255, 255)
-    rect(1250, 900, w, h)
-    fill(0)
-    text("Timed Gameplay", 1255, 935)
-    fill(0 ,100)
+    # #Timed gameplay 
+    # fill(255, 255, 255)
+    # rect(1250, 900, w, h)
+    # fill(0)
+    # text("Timed Gameplay", 1255, 935)
+    # fill(0 ,100)
 
 def draw():
     global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load
@@ -189,6 +189,8 @@ def mousePressed():
         else:
             return False
     
+    print(mouseX, mouseY)
+    
 #    if current_page == "Card_selector_fed":
 #        if isMouseWithinSpace(0, 0, 700, 900):
 #            Cards.DeckAdderFed(Cards.fed_origins[0])
@@ -271,19 +273,27 @@ def mousePressed():
             
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
-        if ((500 < mouseX < 700) and (900 <= mouseY <= 950)):
+        if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
             rect(x, handleidingY, w, h) and fill(0, 100)
-            current_page = "Handleiding"
+            #current_page = "Handleiding"
+            print("Yes")
             
-        if ((750 < mouseX < 950) and (900 <= mouseY <= 950)):
+            
+        if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
             rect(x, tutorialY, w, h) and fill(0, 100)
-            current_page = "Tutorial_Bot"  #Current page veranderd.
-      
+            #current_page = "Tutorial_Bot"  #Current page veranderd.
+            print("Yes")
         
-        if ((1000 < mouseX < 1200) and (900 <= mouseY <= 950)):
+        if ((1048 <= mouseX <= 1536) and (761 <= mouseY <= 915)):
             rect(x, randomDeckGeneratorY, w, h) and fill(0, 100)
-            current_page = "Random Deck Generator"
+            #current_page = "Random Deck Generator"
+            print("Yes")
             
-        if ((1250 < mouseX < 1450) and (900 <= mouseY <= 950)):
+        if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
             rect(x, timedGameplayY, w, h) and fill(0, 100)
-            current_page = "Timer"
+            #current_page = "Timer"
+            print("Yes")
+            
+        if isMouseWithinSpace(1746, 72, 100, 100):
+            exit()
+            
