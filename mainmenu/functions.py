@@ -5,7 +5,6 @@ origin_colombia_active = False
 selected_dice = ""
 x = 0
 
-# Timer Functions !!
 def isMouseWithinSpace2(x, y, w, h):
     if x < mouseX < x + w and y < mouseY < y + h:
         return True
@@ -16,7 +15,6 @@ def fillZero(time):
     if len(str(time)) < 2:
         time = "0" + str(time)
     return time    
-    
 
 def convertSeconds(m):
     s = m / 1000
@@ -30,13 +28,11 @@ def showMilliseconds(x):
     else:
         return x
 
-# If shift is pressed return True
 def isShiftPressed():
     def keyPressed():
         if keyCode == 16:
             return True
         
-# Draws sexy text
 def drawText(word, x, y):
     fill(255)
     #textFont(font)
@@ -82,9 +78,7 @@ def drawScore(word, x, y, r, g, b, size):
     textAlign(CENTER)
     text(word, x, y)
 
-
-    
-# function to attack with dices
+# Function to attack with dices
 def roll():
     white_dice = int(random(1,6))
     red_dice = int(random(1,6))
@@ -93,7 +87,7 @@ def roll():
     text(white_dice, 100, 100)
     text(red_dice, 100, 200)
     
-# function part two of attack reroll(with origin effects)
+# Function part two of attack reroll(with origin effects)
 def reroll():
     if origin_netherlands_active == True:
         fill(87, 99, 211)
@@ -111,26 +105,19 @@ def reroll():
                 text(red_dice, 100, 200)
     else:
         text(red_dice, 100, 200)
-
-            
-# buttons in the bot tutorial menu
+        
+# Buttons in the bot tutorial menu
 def main_menu():
     global main_menu_x, box_x, box_y, box_width, box_height
     box_x = main_menu_x
-        
-        
+            
 def fed():
     global fed_x, box_x, box_y, box_width, box_height
     box_x = fed_x
-    
-
         
 def maffia():
     global maffia_x, box_x, box_y, box_width, box_height
     box_x = maffia_x
-    
-
-
         
 def help():
     global help_x, box_x, box_y, box_width, box_height
