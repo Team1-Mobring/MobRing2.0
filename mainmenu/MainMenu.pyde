@@ -4,13 +4,7 @@ import TutorialBot, functions, Generator, Timer, Handleiding, Generator2, Genera
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards
 
 
-handleidingY = 360
-tutorialY = 420
-randomDeckGeneratorY = 480
-timedGameplayY = 540
-x = 200
-w = 200
-h = 50
+
 timer_reset = 0
 bonus_mode = False
 
@@ -30,6 +24,7 @@ card_selector_maffia_load = False
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu
+
     fullScreen()
     
     # f = createFont('arial',32)
@@ -193,8 +188,8 @@ def keyReleased():
                 #Als de 4 minute timer aan staat komt er X seconden bij.
                 if Timer.four_timer and bonus_mode: 
                     Timer.time_left_2 += 15000
-                    print("Its doing it")
-                    bonus_mode = False
+                else:
+                    bonus_mode = True
             else:
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
@@ -327,7 +322,6 @@ def mousePressed():
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
         if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
-            #rect(x, handleidingY, w, h) and fill(0, 100)
             current_page = "Handleiding"
         
         if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
