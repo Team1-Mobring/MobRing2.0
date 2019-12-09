@@ -1,4 +1,8 @@
+
 import TutorialBot, functions, Generator, Timer, Handleiding, Generator2, Generator3
+
+import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards
+
 
 handleidingY = 360
 tutorialY = 420
@@ -8,6 +12,7 @@ x = 200
 w = 200
 h = 50
 timer_reset = 0
+bonus_mode = False
 
 current_page = "Main_Menu"
 main_menu_load = False
@@ -15,55 +20,88 @@ tutorial_load = False
 generator_load = False
 timer_load = False
 handleiding_load = False
+
 generator2_load = False
 generator3_load = False
 
+card_selector_fed_load = False
+card_selector_maffia_load = False
+
+
 def setup():
-    global f
+    global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu
     fullScreen()
     
-    f = createFont('arial',32)
-    img3 = loadImage('MainMenuafb.png')
-    image(img3, 0, 0, 1920, 1200)
-    fill(0, 0, 255)
-    textFont(f,150)
-    text('MOB', 150, 450)    
+    # f = createFont('arial',32)
+    highlightQuit = loadImage("QuitHighlight.png")
+    highlightTutorial = loadImage("TutorialBotHighlight.png")
+    highlightManual = loadImage("ManualHighlight.png")
+    highlightRandomDeck = loadImage("RandomDeckHighlight.png")
+    highlightTimer = loadImage("TimedModeHighlight.png")
+    backgroundMenu = loadImage('MainMenuafb.png')
+    image(backgroundMenu, 0, 0)
+    # fill(0, 0, 255)
+    # textFont(f,150)
+    # text('MOB', 150, 450)    
     
-    fill(2500, 0, 0)
-    text('RING', 1500, 450)
-    stroke(255)
-    textFont(f, 28)
+    # fill(2500, 0, 0)
+    # text('RING', 1500, 450)
+    # stroke(255)
+    # textFont(f, 28)
     
-    # knop handleiding
-    fill(255,)
-    rect(500, 900, w, h)
-    fill(0,)
-    textFont(f, 25)    
-    text("Manual Course", 510, 935)      
+    # # knop handleiding
+    # fill(255,)
+    # rect(500, 900, w, h)
+    # fill(0,)
+    # textFont(f, 25)    
+    # text("Manual Course", 510, 935)      
     
-    # knop tutorial
-    fill(255, 255, 255)
-    rect(750, 900, w, h)
-    fill(0)
-    text("Tutorial", 760, 935)
+    # # knop tutorial
+    # fill(255, 255, 255)
+    # rect(750, 900, w, h)
+    # fill(0)
+    # text("Tutorial", 760, 935)
         
-    #Random deck generator
-    fill(255, 255, 255)
-    rect(1000, 900, w, h)
-    fill(0)
-    text("Random deck", 1010, 935)
+    # #Random deck generator
+    # fill(255, 255, 255)
+    # rect(1000, 900, w, h)
+    # fill(0)
+    # text("Random deck", 1010, 935)
         
-    #Timed gameplay 
-    fill(255, 255, 255)
-    rect(1250, 900, w, h)
-    fill(0)
-    text("Timed Gameplay", 1255, 935)
-    fill(0 ,100)
+    # #Timed gameplay 
+    # fill(255, 255, 255)
+    # rect(1250, 900, w, h)
+    # fill(0)
+    # text("Timed Gameplay", 1255, 935)
+    # fill(0 ,100)
 
 def draw():
+
     global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, generator2_load, generator3_load
 
+
+    global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load
+    
+    
+
     if current_page == "Main_Menu":
+        image(backgroundMenu, 0, 0)
+        # Manual highlight
+        if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
+            image(highlightManual, 0, 0)
+        #Tutorial Bot highlight
+        if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
+            image(highlightTutorial, 0, 0)
+        #  Deck generator highlight
+        if ((1048 <= mouseX <= 1536) and (761 <= mouseY <= 915)):
+            image(highlightRandomDeck, 0, 0)
+        # Timer button highlight
+        if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
+            image(highlightTimer, 0, 0)
+        #Exit button highlight
+        if ((1746  <= mouseX <= 1818) and (72 <= mouseY <= 172)):
+            image(highlightQuit, 0, 0)  
+            
         if main_menu_load == False:
             setup()
             main_menu_load = True
@@ -113,9 +151,25 @@ def draw():
         else:
             Handleiding.draw()
         
+    if current_page == "Card_selector_fed":
+        if card_selector_fed_load == False:
+            CardSelectorFed.setup()
+            card_selector_fed_load = True
+        else:
+            CardSelectorFed.draw()
+    
+    if current_page == "Card_selector_maffia":
+        if card_selector_maffia_load == False:
+            CardSelectorMaffia.setup()
+            card_selector_maffia_load = True
+        else:
+            CardSelectorMaffia.draw()
+      
+  
+    
 # Timer.py keys registratie
 def keyReleased():
-    global timer_code, timer_reset
+    global timer_code, timer_reset, bonus_mode
     
     if current_page == "Timer" and timer_load == True:
         # Zorgt ervoor dat "Spatie" niet timer 2 start, wanneer je een andere timed mode begint.
@@ -137,27 +191,34 @@ def keyReleased():
                 # Even getal, gaat de eerste keer af.
                 Timer.running = not Timer.running
                 #Als de 4 minute timer aan staat komt er X seconden bij.
-                if Timer.four_timer: 
+                if Timer.four_timer and bonus_mode: 
                     Timer.time_left_2 += 15000
+                    print("Its doing it")
+                    bonus_mode = False
             else:
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
                 if Timer.four_timer:
                     Timer.time_left += 15000
             
+        #  De "and keyCode != 16" zorgt ervoor dat de unicode voor "Shift" niet  bij user_input wordt opgeteld.
         if Timer.step_count == 0:
             if keyCode == 8:
                 Timer.user_input_1 = Timer.user_input_1 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_1) <= 10:
+            elif len(Timer.user_input_1) <= 11 and keyCode != 16:
                 Timer.user_input_1 += key
         
         if Timer.step_count == 1:
             if keyCode == 8:
                 Timer.user_input_2 = Timer.user_input_2 [0:-1]
             # De naam mag 10 characters lang zijn.
-            elif len(Timer.user_input_2) <= 10:
-                Timer.user_input_2 += key
+            # Checkt if shift is pressed, then capitalize the key
+            elif len(Timer.user_input_2) <= 11 and keyCode != 16:
+                if functions.isShiftPressed():
+                    Timer.user_input += key.capitalize()
+                else:
+                    Timer.user_input_2 += key
             
         # "Enter" functie in de timer /is tijdelijk.
         if keyCode == 10 and Timer.step_count == 2 and Timer.time_left > 25 and Timer.time_left_2 > 25:
@@ -170,17 +231,27 @@ def keyReleased():
     # TO exit the program!.
     if keyCode == 27:
         key == " "
-                    
+
+
 # mouseclcik registrater    
 def mousePressed():
-    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, \
-    timer_load
+    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load, handleiding_load, card_selector_maffia_load, card_selector_fed_load
     def isMouseWithinSpace(x, y, w, h):
         if x < mouseX < x + w and y < mouseY < y + h:
             return True
         else:
             return False
-        
+    
+    print(mouseX, mouseY)
+    
+#    if current_page == "Card_selector_fed":
+#        if isMouseWithinSpace(0, 0, 700, 900):
+#            Cards.DeckAdderFed(Cards.fed_origins[0])
+            
+    if current_page == "Card_selector_maffia":
+        if isMouseWithinSpace(70, 550, 300, 100):
+            pass
+    
     if current_page == "Tutorial_Bot" and tutorial_load == True:
         # box clicker
         
@@ -189,73 +260,89 @@ def mousePressed():
             main_menu_load = False
             tutorial_load = False
         elif isMouseWithinSpace(TutorialBot.fed_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            background(140,200,180)
+            current_page = "Card_selector_fed"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_fed_load = False
             print("click2")
         elif isMouseWithinSpace(TutorialBot.maffia_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            background(140,200,180)
+            current_page = "Card_selector_maffia"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_maffia_load = False
             print("click3")
         elif isMouseWithinSpace(TutorialBot.help_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            background(140,200,180)
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
             print("click4")
         else:
             print("wrong!")
 
     if current_page == "Timer" and timer_load == True:     
         # Home menu button
-        if isMouseWithinSpace(100, 100, 200, 100):
+        if isMouseWithinSpace(36, 35, 270, 90):
             current_page = "Main_Menu"
             main_menu_load = False
             timer_load = False
+            
         
         # 10 minute timer button
-        if isMouseWithinSpace(630, 765, 200, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(845, 65, 228, 122) and Timer.step_count == 2:
             Timer.time_left = 300000
             Timer.time_left_2 = 300000
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 1
+            Timer.pickmode = True
+            bonus_mode = False
     
         
         # 20 minute timer button
-        if isMouseWithinSpace(1090, 765, 200, 100) and Timer.step_count == 2:
-            Timer.time_left = 6000
-            Timer.time_left_2 = 6000
+        if isMouseWithinSpace(1175, 65, 228, 122) and Timer.step_count == 2:
+            Timer.time_left = 600000
+            Timer.time_left_2 = 600000
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 2
+            Timer.pickmode = True
+            bonus_mode = False
             
-        # 4 minute timer button
-        if isMouseWithinSpace(860, 765, 200, 100) and Timer.step_count == 2:
-            Timer.time_left = 120000
-            Timer.time_left_2 = 120000
+        # 5 minute timer button
+        if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
+            Timer.time_left = 150000
+            Timer.time_left_2 = 150000
             Timer.timer_start = False
             Timer.four_timer = True   
             Timer.time_mode_choosen = 3 
+            Timer.pickmode = True
+            bonus_mode = True
             
         # Reset score button
-        if isMouseWithinSpace(910, 300, 100, 100) and Timer.step_count == 2:
+        if isMouseWithinSpace(813, 380, 268, 87) and Timer.step_count == 2:
             Timer.score_player_1 = 0
-            Timer.score_player_2 = 0        
+            Timer.score_player_2 = 0 
             
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
-        if ((500 < mouseX < 700) and (900 <= mouseY <= 950)):
-            rect(x, handleidingY, w, h) and fill(0, 100)
+        if ((384 <= mouseX <= 873) and (517 <= mouseY <= 671)):
+            #rect(x, handleidingY, w, h) and fill(0, 100)
             current_page = "Handleiding"
-            
-        if ((750 < mouseX < 950) and (900 <= mouseY <= 950)):
-            rect(x, tutorialY, w, h) and fill(0, 100)
-            current_page = "Tutorial_Bot"  #Current page veranderd.
-      
         
-        if ((1000 < mouseX < 1200) and (900 <= mouseY <= 950)):
-            rect(x, randomDeckGeneratorY, w, h) and fill(0, 100)
+        if ((1048 <= mouseX <= 1536) and (517 <= mouseY <= 671)):
+            #rect(x, tutorialY, w, h) and fill(0, 100)
+            current_page = "Tutorial_Bot"  #Current page veranderd.
+        
+        if ((1048 <= mouseX <= 1536) and (761 <= mouseY <= 915)):
+            #rect(x, randomDeckGeneratorY, w, h) and fill(0, 100)
             current_page = "Random Deck Generator"
-            
-        if ((1250 < mouseX < 1450) and (900 <= mouseY <= 950)):
-            rect(x, timedGameplayY, w, h) and fill(0, 100)
+        
+        if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
+            #rect(x, timedGameplayY, w, h) and fill(0, 100)
             current_page = "Timer"
             
+
             
     if current_page == "Random Deck Generator" and generator_load == True:
         if ((1160 < mouseX < 1260) and (640 <= mouseY <= 740)):
@@ -267,3 +354,7 @@ def mousePressed():
         if ((910 < mouseX < 1010) and (600 <= mouseY <= 700)):
             current_page = "Random Deck Generator 3"
         
+
+        if isMouseWithinSpace(1746, 72, 100, 100):
+            exit()
+            

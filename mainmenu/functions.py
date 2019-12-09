@@ -29,7 +29,13 @@ def showMilliseconds(x):
         return "000"
     else:
         return x
-    
+
+# If shift is pressed return True
+def isShiftPressed():
+    def keyPressed():
+        if keyCode == 16:
+            return True
+        
 # Draws sexy text
 def drawText(word, x, y):
     fill(255)
@@ -38,6 +44,7 @@ def drawText(word, x, y):
     textAlign(CENTER)
     
 def drawText2(word, x, y, r, g, b, size):
+    textAlign(CENTER)
     textSize(size)
     #textFont(font)
     fill(r, g, b)
@@ -50,6 +57,32 @@ def drawText3(word, x, y, r, g, b, size):
     fill(r, g, b)
     text(word, x, y)
     textAlign(LEFT)
+    
+def drawTextTimer1(word, x, y, r, g, b, size):
+    font = loadFont("OCRAExtended-100.vlw")
+    textFont(font)
+    textSize(size)
+    fill(r, g, b)
+    textAlign(LEFT)
+    text(word, x, y)
+    
+def drawTextTimer2(word, x, y, r, g, b, size):
+    font = loadFont("OCRAExtended-100.vlw")
+    textFont(font)
+    textSize(size)
+    fill(r, g, b)
+    textAlign(RIGHT)
+    text(word, x, y)
+    
+def drawScore(word, x, y, r, g, b, size):
+    font = loadFont("OCRAExtended-100.vlw")
+    textFont(font)
+    textSize(size)
+    fill(r, g, b)
+    textAlign(CENTER)
+    text(word, x, y)
+
+
     
 # function to attack with dices
 def roll():

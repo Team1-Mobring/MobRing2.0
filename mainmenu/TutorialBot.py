@@ -29,7 +29,6 @@ bot_trap_field_cards = []
 def setup():
     size(1920, 1080)
     background(255)
-    Cards.test_card.display()
 def draw():
     fill(180)
     main_menu = rect(main_menu_x, box_y, box_width, box_height)
@@ -54,16 +53,12 @@ def isMouseWithinSpace(x, y, w, h):
 def mousePressed():
     global box_width, box_height, box_x, box_y
     if isMouseWithinSpace(main_menu_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click")
     elif isMouseWithinSpace(fed_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click2")
     elif isMouseWithinSpace(maffia_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click3")
     elif isMouseWithinSpace(help_x, box_y, box_width, box_height):
-        background(140,200,180)
         print("click4")
     else:
         print("wrong!")
