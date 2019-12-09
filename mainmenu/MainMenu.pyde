@@ -345,7 +345,7 @@ def mousePressed():
         if isMouseWithinSpace(1746, 72, 100, 100):
             exit()            
 
-            
+#interactieve knoppen voor Random Deck        
     if current_page == "Random Deck Generator" and generator_load == True:
         if ((1160 < mouseX < 1260) and (640 <= mouseY <= 740)):
             current_page = "Random Deck Generator 2"

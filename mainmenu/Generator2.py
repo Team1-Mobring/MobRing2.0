@@ -1,9 +1,10 @@
 import functions, Cards 
+#setup
 def setup():
-    global font1
+    global font
     
     font1 = [24, createFont("Ariel", 24)]
-
+#Dit geeft de interactieve interface weer
 def draw():
     background(0)
     
