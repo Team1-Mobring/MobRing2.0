@@ -176,6 +176,18 @@ def mousePressed():
             return True
         else:
             return False
+        
+    if current_page == "Handleing":
+        Handleing.text1()
+        
+    if current_page == "Handleing":
+        Handleing.text2()
+        
+    if current_page == "Handleing":
+        Handleing.text3()
+    
+    if current_page == "Handleing":
+        Handleing.text4()
     
 #    if current_page == "Card_selector_fed":
 #        if isMouseWithinSpace(0, 0, 700, 900):
