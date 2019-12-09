@@ -244,17 +244,38 @@ def mousePressed():
     
     print(mouseX, mouseY)
     
-#    if current_page == "Card_selector_fed":
-#        if isMouseWithinSpace(0, 0, 700, 900):
-#            Cards.DeckAdderFed(Cards.fed_origins[0])
+    # Voegt kaarten toe aan de player_deck
+    if current_page == "Card_selector_fed":
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[4])
+        if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[5])
             
+     # Voegt kaarten toe aan de player_deck       
     if current_page == "Card_selector_maffia":
-        if isMouseWithinSpace(70, 550, 300, 100):
-            pass
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[4])
+        if len(Cards.maffia_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[5])
     
-    if current_page == "Tutorial_Bot" and tutorial_load == True:
+    if current_page == "Tutorial_Bot" and tutorial_load == True:    
         # box clicker
-        
         if isMouseWithinSpace(70, 550, 300, 100):
             current_page = "Main_Menu"
             main_menu_load = False

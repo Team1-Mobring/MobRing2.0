@@ -1,3 +1,5 @@
+import TutorialBot
+# Base code voor mobster karten
 class Mobster():
     def __init__(self, type, name, origin, hp1, hp2, hp3, img):
         self.type = type
@@ -13,7 +15,7 @@ class Mobster():
         self.y = y
         rimg = loadImage(self.img)
         image(rimg, x, y)
-        
+# Base code voor origin kaarten        
 class Origin():
     def __init__(self, type, name, img):
         self.type = type
@@ -25,7 +27,7 @@ class Origin():
         self.y = y
         rimg = loadImage(self.img)
         image(rimg, x, y)
-        
+# Base code voor trap en job kaarten      
 class TrapJob():
     def __init__(self, type, name, hp1, hp2, effect, img):
         self.type = type
@@ -269,12 +271,12 @@ def DrawMaffiaJobCards():
         x = x + 700
 
 # Adding fed cards to deck
-def DeckAddderFed(c):
+def DeckAdderFed(c):
     TutorialBot.player_deck.append(c)
     fed_origins.remove(c)
     
 # Adding maffia cards to deck
-def DeckAddderFed(c):
+def DeckAdderMaffia(c):
     TutorialBot.player_deck.append(c)
     maffia_origins.remove(c)
     
