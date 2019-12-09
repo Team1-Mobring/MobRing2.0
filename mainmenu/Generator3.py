@@ -1,5 +1,5 @@
 import functions, Cards
-#Setup
+
 def setup():
     font1 = [24, createFont("Ariel", 24)]
 
