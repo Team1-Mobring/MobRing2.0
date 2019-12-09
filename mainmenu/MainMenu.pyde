@@ -341,7 +341,9 @@ def mousePressed():
         if ((384 <= mouseX <= 873) and (761 <= mouseY <= 915)):
             #rect(x, timedGameplayY, w, h) and fill(0, 100)
             current_page = "Timer"
-            
+
+        if isMouseWithinSpace(1746, 72, 100, 100):
+            exit()            
 
             
     if current_page == "Random Deck Generator" and generator_load == True:
@@ -355,6 +357,5 @@ def mousePressed():
             current_page = "Random Deck Generator 3"
         
 
-        if isMouseWithinSpace(1746, 72, 100, 100):
-            exit()
+
             
