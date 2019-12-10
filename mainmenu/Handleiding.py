@@ -12,7 +12,7 @@ def text1():
     background(0)
     textSize(30)
     fill(50);
-    text(g, 500, 400, 70, 80);  // Text wraps within text box
+    text(g, 500, 400, 70, 80)# Text wraps within text box
     
 def text2():
     background(0)
@@ -22,7 +22,7 @@ def text2():
     d = "4. Both players choose 6 Job cards."
     e = "5.  Both players choose 3 Trap cards."
     f = "6.  Put all your choosen cards in a pile and shake them. This is now your Deck. Apart from the Origin cards, place them somewhere else so you can see what your bonus is"
-    g = "7.  Take the top 5 cards from your deck and hold them in your hand, turn the rest upside down on the "Deck" space on the field.  If you do not have 2 Mobsters in your hand, repeat step 7"
+    g = "7.  Take the top 5 cards from your deck and hold them in your hand, turn the rest upside down on the 'Deck' space on the field.  If you do not have 2 Mobsters in your hand, repeat step 7"
     
     textSize(30)
     text(a, 960, 900)
@@ -60,7 +60,7 @@ def text4():
     p = "The game is played in turns, where player 1 is determined by rolling the dice. Mobsters can be placed on the field and can then be attacked by your opponent. As soon as TWO of the same Origin's Mobsters are on your field, this Origin's bonus is active! When no Mobsters are left on your field, you lose"
     textSize(30)
     fill(50);
-    text(p, 500, 700, 70, 80);  // Text wraps within text box
+    text(p, 500, 700, 70, 80)  # Text wraps within text box
     
     q = "1. Player 1 starts to fill their field with at least one Mobster."
     r = "2. Player 2 then also fills their field with at least one Mobster."

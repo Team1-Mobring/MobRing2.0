@@ -177,17 +177,25 @@ def mousePressed():
         else:
             return False
         
-    if current_page == "Handleing":
-        Handleing.text1()
+    if current_page == "Handleiding":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text1()
+            current_page = "Handleiding 1"
         
-    if current_page == "Handleing":
-        Handleing.text2()
+    if current_page == "Handleding 1":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text2()
+            current_page = "Handleiding 2"
         
-    if current_page == "Handleing":
-        Handleing.text3()
+    if current_page == "Handleding 2":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text3()
+            current_page = "Handleiding 3"
     
-    if current_page == "Handleing":
-        Handleing.text4()
+    if current_page == "Handleding 3":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text4()
+            current_page = "Handleiding 4"
     
     # Voegt kaarten toe aan de player_deck
     if current_page == "Card_selector_fed":
