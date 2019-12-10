@@ -233,17 +233,22 @@ def DrawMaffiaOriginCards():
 # Draw blue trap cards
 def DrawFedTrapCards():
     x = 0
-    y = 800
+    y = 0
+    scale(0.3)
     def GetTrap(i):
         return traps_Blue[i]
     for i in range(len(traps_Blue)):
+        if i == 5:
+            x = 0
+            y = 1100
         traps_Blue[i].display(x, y)
         x = x + 700
         
 # Draw red trap cards
 def DrawMaffiaTrapCards():
     x = 0
-    y = 800
+    y = 0
+    scale(0.3)
     def GetTrap(i):
         return traps_Red[i]
     for i in range(len(taps_Red)):
@@ -253,7 +258,8 @@ def DrawMaffiaTrapCards():
 # Draw blue job cards
 def DrawFedJobCards():
     x = 0
-    y = 1600
+    y = 0
+    scale(0.3)
     def GetJob(i):
         return jobs_Blue[i]
     for i in range(len(jobs_Blue)):
@@ -263,7 +269,8 @@ def DrawFedJobCards():
 # Draw red job cards
 def DrawMaffiaJobCards():
     x = 0
-    y = 1600
+    y = 0
+    scale(0.3)
     def GetJob(i):
         return jobs_Red[i]
     for i in range(len(jobs_Red)):
@@ -272,7 +279,8 @@ def DrawMaffiaJobCards():
 
 # Adding fed cards to deck
 def DeckAdderFed(c):
-    TutorialBot.player_deck.append(c)
+    for i in range(len(c)):
+        TutorialBot.player_deck.append(i)
     fed_origins.remove(c)
     
 # Adding maffia cards to deck
