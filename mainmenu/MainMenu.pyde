@@ -176,16 +176,106 @@ def mousePressed():
             return True
         else:
             return False
+    print(mouseX, mouseY)
+      
+    if current_page == "Handleiding":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text1()
+            current_page = "Handleiding 1"
+        
+    if current_page == "Handleding 1":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text2()
+            current_page = "Handleiding 2"
+        
+    if current_page == "Handleding 2":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text3()
+            current_page = "Handleiding 3"
     
-#    if current_page == "Card_selector_fed":
-#        if isMouseWithinSpace(0, 0, 700, 900):
-#            Cards.DeckAdderFed(Cards.fed_origins[0])
+    if current_page == "Handleding 3":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text4()
+            current_page = "Handleiding 4"
+    
+    # Voegt origin + mobster kaarten toe aan de player_deck
+    if current_page == "Card_selector_fed":
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[4])
+        if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.fed_origins[5])
             
+     # Voegt origin + mobster kaarten toe aan de player_deck       
     if current_page == "Card_selector_maffia":
-        if isMouseWithinSpace(70, 550, 300, 100):
-            pass
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[4])
+        if len(Cards.maffia_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.maffia_origins[5])
     
-    if current_page == "Tutorial_Bot" and tutorial_load == True:
+    # Voegt trap kaarten toe aan de player_deck
+    if CardSelectorFed.current_page == "Card_selector_fed_trap":
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[4])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[5])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[6])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[7])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[8])
+        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFed(Cards.traps_Blue[9])
+
+            
+     # Voegt  trap kaarten toe aan de player_deck       
+    if CardSelectorMaffia.current_page == "Card_selector_maffia_trap":
+        if isMouseWithinSpace(0, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[0])
+        if isMouseWithinSpace(210, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[1])
+        if isMouseWithinSpace(420, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[2])
+        if isMouseWithinSpace(630, 0, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[3])
+        if isMouseWithinSpace(840, 0, 205, 310):
+            Cards.DeckAdderMaffia(traps_Red[4])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[5])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[6])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[7])
+        if isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[8])
+        if len(Cards.Traps_Red) == 10 and isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderMaffia(Cards.traps_Red[9])
+            
+    if current_page == "Tutorial_Bot" and tutorial_load == True:    
         # box clicker
         if isMouseWithinSpace(70, 550, 300, 100):
             current_page = "Main_Menu"
