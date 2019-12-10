@@ -2,10 +2,9 @@ import functions, Cards
 
 def setup():
     global font1
-    
     font1 = [24, createFont("Ariel", 24)]
 
-
+#Dit gedeelte zorgt ervoor dat het scherm wordt weergegeven
 def draw(font1):
     background(0)
     
