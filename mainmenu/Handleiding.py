@@ -1,3 +1,5 @@
+import functions
+
 def setup():
     background(0)
     fill(255)
@@ -9,10 +11,11 @@ def draw():
 
 def text1():
     g = "The goal of the game is to eliminate all of your opponent's Mobsters on their side of the playing field. This is done by attacking your opponent's Mobsters with your dice outcome If the sum of your dice corresponds to a Ring of your opponent's Mobster, you can attack the Ring and hide it with a Ring Container You can also use Jobs and Traps to attack/remove cards of your opponent";
-    background(0)
-    textSize(30)
-    fill(50);
-    text(g, 500, 400, 70, 80)# Text wraps within text box
+    background(240)
+    #textSize(30)
+    #fill(50);
+    functions.drawText2(g, 500, 400, 0, 0, 0, 20)
+    #text(g, 500, 400, 70, 80)# Text wraps within text box
     
 def text2():
     background(0)
