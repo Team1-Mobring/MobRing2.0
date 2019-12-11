@@ -199,19 +199,19 @@ def mousePressed():
             current_page = "Handleiding 4"
     
     # Voegt origin + mobster kaarten toe aan de player_deck
-    if current_page == "Card_selector_fed":
+    if CardSelectorFed.current_card_page == "":
         if isMouseWithinSpace(0, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[0])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[0])
         if isMouseWithinSpace(210, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[1])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[1])
         if isMouseWithinSpace(420, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[2])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[2])
         if isMouseWithinSpace(630, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[3])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[3])
         if isMouseWithinSpace(840, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[4])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[4])
         if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.fed_origins[5])
+            Cards.DeckAdderFedOrigins(Cards.fed_origins[5])
             
      # Voegt origin + mobster kaarten toe aan de player_deck       
     if current_page == "Card_selector_maffia":
@@ -229,27 +229,27 @@ def mousePressed():
             Cards.DeckAdderMaffia(Cards.maffia_origins[5])
     
     # Voegt trap kaarten toe aan de player_deck
-    if CardSelectorFed.current_page == "Card_selector_fed_trap":
+    if CardSelectorFed.current_card_page == "Card_selector_fed_trap":
         if isMouseWithinSpace(0, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[0])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[0])
         if isMouseWithinSpace(210, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[1])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[1])
         if isMouseWithinSpace(420, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[2])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[2])
         if isMouseWithinSpace(630, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[3])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[3])
         if isMouseWithinSpace(840, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[4])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[4])
         if isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[5])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[5])
         if isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[6])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[6])
         if isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[7])
-        if isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[8])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[7])
+        if len(Cards.traps_Blue) == 9 and isMouseWithinSpace(0, 325, 205, 310):
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[8])
         if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[9])
+            Cards.DeckAdderFedTraps(Cards.traps_Blue[9])
 
             
      # Voegt  trap kaarten toe aan de player_deck       
@@ -275,48 +275,48 @@ def mousePressed():
         if len(Cards.Traps_Red) == 10 and isMouseWithinSpace(840, 325, 205, 310):
             Cards.DeckAdderMaffia(Cards.traps_Red[9])
 
-    # Voegt trap kaarten toe aan de player_deck
-    if CardSelectorFed.current_page == "Card_selector_fed_trap":
+    # Voegt job kaarten toe aan de player_deck
+    if CardSelectorFed.current_card_page == "Card_selector_fed_job":
         if isMouseWithinSpace(0, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[0])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[0])
         if isMouseWithinSpace(210, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[1])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[1])
         if isMouseWithinSpace(420, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.traps_Blue[2])
+            Cards.DeckAdderFedJobs(Cards.traps_Blue[2])
         if isMouseWithinSpace(630, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[3])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[3])
         if isMouseWithinSpace(840, 0, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[4])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[4])
+        if isMouseWithinSpace(1050, 0, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[5])
+        if isMouseWithinSpace(1260, 0, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[6])
+        if isMouseWithinSpace(1470, 0, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[7])
+        if isMouseWithinSpace(1680, 0, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[8])
         if isMouseWithinSpace(0, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[5])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[9])
         if isMouseWithinSpace(210, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[6])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[10])
         if isMouseWithinSpace(420, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[7])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[11])
         if isMouseWithinSpace(630, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[8])
-        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(840, 325, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[9])
-        if isMouseWithinSpace(0, 650, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[10])
-        if isMouseWithinSpace(210, 650, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[11])
-        if isMouseWithinSpace(420, 650, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[12])
-        if isMouseWithinSpace(630, 650, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[13])
-        if len(Cards.traps_Blue) == 15 and isMouseWithinSpace(840, 650, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[14])
-        if len(Cards.traps_Blue) == 16 and isMouseWithinSpace(0, 975, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[15])
-        if len(Cards.traps_Blue) == 17 and isMouseWithinSpace(210, 975, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[16])
-        if len(Cards.traps_Blue) == 18 and isMouseWithinSpace(420, 975, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[17])
-        if len(Cards.traps_Blue) == 19 and isMouseWithinSpace(630, 975, 205, 310):
-            Cards.DeckAdderFed(Cards.jobs_Blue[18])
-        if len(Cards.traps_Blue) == 20 and isMouseWithinSpace(840, 975, 205, 310):
-            Cards.DeckAdderFed(Cards.job_Blue[19])
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[12])
+        if isMouseWithinSpace(840, 325, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[13])
+        if len(Cards.traps_Blue) == 15 and isMouseWithinSpace(1050, 325, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[14])
+        if len(Cards.traps_Blue) == 16 and isMouseWithinSpace(1260, 325, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[15])
+        if len(Cards.traps_Blue) == 17 and isMouseWithinSpace(1470, 325, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[16])
+        if len(Cards.traps_Blue) == 18 and isMouseWithinSpace(1680, 325, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[17])
+        if len(Cards.traps_Blue) == 19 and isMouseWithinSpace(0, 650, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.jobs_Blue[18])
+        if len(Cards.traps_Blue) == 20 and isMouseWithinSpace(210, 650, 205, 310):
+            Cards.DeckAdderFedJobs(Cards.job_Blue[19])
         
     if current_page == "Tutorial_Bot" and tutorial_load == True:    
         # box clicker

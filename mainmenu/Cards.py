@@ -252,7 +252,7 @@ def DrawMaffiaTrapCards():
     scale(0.3)
     def GetTrap(i):
         return traps_Red[i]
-    for i in range(len(taps_Red)):
+    for i in range(len(traps_Red)):
         if i == 5:
             x = 0
             y = 1100
@@ -293,22 +293,25 @@ def DrawMaffiaJobCards():
         jobs_Red[i].display(x, y)
         x = x + 700
 
-# Adding fed cards to deck
-def DeckAdderFed(c):
-    if c == jobs_Blue[0] or c == jobs_Blue[1] or c == jobs_Blue[2] or c == jobs_Blue[3] or c == jobs_Blue[4] or c == jobs_Blue[5] or c == jobs_Blue[6] or c == jobs_Blue[7] or c == jobs_Blue[8] or c == jobs_Blue[9] or c == jobs_Blue[10] or c == jobs_Blue[11] or c == jobs_Blue[12] or c == jobs_Blue[13] or c == jobs_Blue[14] or c == jobs_Blue[15] or c == jobs_Blue[16] or c == jobs_Blue[17] or c == jobs_Blue[18] or c == jobs_Blue[19]:
-        TutorialBot.player_deck.append(c)
-        jobs_Blue.remove(c)
-    elif c <= traps_Blue[0] or c == traps_Blue[1] or c == traps_Blue[2] or c == traps_Blue[3] or c == traps_Blue[4] or c == traps_Blue[5] or c == traps_Blue[6] or c == traps_Blue[7] or c == traps_Blue[8] or c == traps_Blue[9]:
-        TutorialBot.player_deck.append(c)
-        traps_Blue.remove(c)
-    elif c == fed_origins[0] or fed_origins[1] or fed_origins[2] or fed_origins[3] or fed_origins[4]:
-        for i in range(len(c)):
-            TutorialBot.player_deck.append(i)
-        fed_origins.remove(c)
+# Adding fed origin cards to deck
+def DeckAdderFedOrigins(c):
+    k = c
+    for i in range(len(c)):
+        TutorialBot.player_deck.append(k[i])
+    fed_origins.remove(c)
     
-    
+# Adding fed job cards to deck
+def DeckAdderFedJobs(c):
+    TutorialBot.player_deck.append(c)
+    jobs_Blue.remove(c)
+
+# Adding fed trap cards to deck
+def DeckAdderFedTraps(c):
+    TutorialBot.player_deck.append(c)
+    traps_Blue.remove(c)
+
 # Adding maffia cards to deck
-def DeckAdderMaffia(c):
+def DeckAdderMaffiaOrigins(c):
     TutorialBot.player_deck.append(c)
     maffia_origins.remove(c)
     
