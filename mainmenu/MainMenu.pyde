@@ -128,15 +128,32 @@ def keyReleased():
                 # Even getal, gaat de eerste keer af.
                 Timer.running = not Timer.running
                 #Als de 4 minute timer aan staat komt er X seconden bij.
-                if Timer.four_timer and Timer.bonus_mode: 
-                    Timer.time_left_2 += 15000
+                if Timer.timer_10 and Timer.bonus_mode: 
+                    Timer.time_left_2 += 10000
                 else:
                     Timer.bonus_mode = True
+                    
+                if Timer.timer_15 and Timer.bonus_mode_2: 
+                    Timer.time_left_2 += 15000
+                else:
+                    Timer.bonus_mode_2 = True
+                    
+                if Timer.timer_20 and Timer.bonus_mode_3: 
+                    Timer.time_left_2 += 20000
+                else:
+                    Timer.bonus_mode_3 = True
+                    
             else:
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
-                if Timer.four_timer:
+                if Timer.timer_10:
+                    Timer.time_left += 10000
+                    
+                if Timer.timer_15:
                     Timer.time_left += 15000
+    
+                if Timer.timer_20:
+                    Timer.time_left += 20000
             
         #  De "and keyCode != 16" zorgt ervoor dat de unicode voor "Shift" niet  bij user_input wordt opgeteld.
         if Timer.step_count == 0:
@@ -351,36 +368,48 @@ def mousePressed():
             current_page = "Main_Menu"
             main_menu_load = False
             timer_load = False
-        
-        # 10 minute timer button
-        if isMouseWithinSpace(845, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 60000#300000
-            Timer.time_left_2 = 60000#300000
-            Timer.timer_start = False
-            Timer.four_timer = False
-            Timer.time_mode_choosen = 1
-            Timer.pickmode = True
-            Timer.bonus_mode = False
-        
-        # 20 minute timer button
-        if isMouseWithinSpace(1175, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 600000
-            Timer.time_left_2 = 600000
-            Timer.timer_start = False
-            Timer.four_timer = False
-            Timer.time_mode_choosen = 2
-            Timer.pickmode = True
-            Timer.bonus_mode = False
-            
-        # 5 minute timer button
+ 
+        # 10 seconds timer button
         if isMouseWithinSpace(499, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 150000
-            Timer.time_left_2 = 150000
+            Timer.time_left = 60000
+            Timer.time_left_2 = 60000
             Timer.timer_start = False
-            Timer.four_timer = True   
             Timer.time_mode_choosen = 3 
             Timer.pickmode = True
             Timer.bonus_mode = False
+            Timer.bonus_mode_2 = False
+            Timer.bonus_mode_3 = False
+            Timer.timer_10 = True
+            Timer.timer_15 = False
+            Timer.timer_20 = False
+                           
+        # 15 seconds timer button
+        if isMouseWithinSpace(845, 65, 228, 122) and Timer.step_count == 2:
+            Timer.time_left = 60000
+            Timer.time_left_2 = 60000
+            Timer.timer_start = False
+            Timer.time_mode_choosen = 1
+            Timer.pickmode = True
+            Timer.bonus_mode = False
+            Timer.bonus_mode_2 = False
+            Timer.bonus_mode_3 = False    
+            Timer.timer_10 = False
+            Timer.timer_15 = True
+            Timer.timer_20 = False
+        
+        # 20 seconds timer button
+        if isMouseWithinSpace(1175, 65, 228, 122) and Timer.step_count == 2:
+            Timer.time_left = 60000
+            Timer.time_left_2 = 60000
+            Timer.timer_start = False
+            Timer.time_mode_choosen = 2
+            Timer.pickmode = True
+            Timer.bonus_mode = False
+            Timer.bonus_mode_2 = False
+            Timer.bonus_mode_3 = False            
+            Timer.timer_10 = False
+            Timer.timer_15 = False
+            Timer.timer_20 = True
             
         # Reset score button
         if isMouseWithinSpace(813, 380, 268, 87) and Timer.step_count == 2:

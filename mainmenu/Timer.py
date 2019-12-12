@@ -4,7 +4,7 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
+            step_count, typing, timer_10, score_player_1, score_player_2, time_mode_choosen, \
             mainmenu2_img, background_img, pauzeknop_img, playerinput1_img, playerinput2_img, \
             entername1_img, entername2_img, highlight10, highlight15, highlight20, highlightMenu, highlightReset, \
             highlightPauze, highlightStart, highlightSpatie, pickmode_img, pickmode, timer_reset, bonus_mode
@@ -40,7 +40,9 @@ def setup():
     running = False
     running_2 = False   
     timer_start = False                 
-    four_timer = False
+    timer_10 = False
+    timer_15 = False
+    timer_20 = False
     typing = True
     step_count = 0
     spatie = 1
