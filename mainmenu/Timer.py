@@ -9,7 +9,7 @@ def setup():
             entername1_img, entername2_img, highlight10, highlight5, highlight20, highlightMenu, highlightReset, \
             highlightPauze, highlightStart, highlightSpatie, pickmode_img, pickmode, timer_reset, bonus_mode
     
-    background_img = loadImage("TimerDesign.jpg")
+    background_img = loadImage("TimerDesign.png")
     mainmenu2_img = loadImage("MainMenu2.png")
     pauzeknop_img = loadImage("PauzeKnop.jpg")
     playerinput1_img = loadImage("PlayerInput1.png")
