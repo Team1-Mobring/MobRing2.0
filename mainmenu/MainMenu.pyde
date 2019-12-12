@@ -199,7 +199,7 @@ def mousePressed():
             current_page = "Handleiding 4"
     
     # Voegt origin + mobster kaarten toe aan de player_deck
-    if CardSelectorFed.current_card_page == "":
+    if current_page == "Card_selector_maffia" and CardSelectorFed.current_card_page == "":
         if isMouseWithinSpace(0, 0, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[0])
         if isMouseWithinSpace(210, 0, 205, 310):
@@ -242,13 +242,13 @@ def mousePressed():
             Cards.DeckAdderFedTraps(Cards.traps_Blue[4])
         if isMouseWithinSpace(0, 325, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[5])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(210, 325, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[6])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(420, 325, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[7])
-        if len(Cards.traps_Blue) == 9 and isMouseWithinSpace(0, 325, 205, 310):
+        if len(Cards.traps_Blue) == 9 and isMouseWithinSpace(630, 325, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[8])
-        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(0, 325, 205, 310):
+        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(840, 325, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[9])
 
             
@@ -354,8 +354,8 @@ def mousePressed():
         
         # 10 minute timer button
         if isMouseWithinSpace(845, 65, 228, 122) and Timer.step_count == 2:
-            Timer.time_left = 300000
-            Timer.time_left_2 = 300000
+            Timer.time_left = 60000#300000
+            Timer.time_left_2 = 60000#300000
             Timer.timer_start = False
             Timer.four_timer = False
             Timer.time_mode_choosen = 1
