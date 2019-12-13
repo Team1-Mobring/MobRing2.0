@@ -140,7 +140,7 @@ sacrifice_Red2 = TrapJob("Job","Sacrifice_Red", 1, 0, "Sacrifice a non damaged M
 sacrifice_Blue1 = TrapJob("Job","Sacrifice_Blue", 1, 0, "Sacrifice a non damaged Mobster to kill an enemy Mobster", "JobSacrificeFED.png")
 sacrifice_Blue2 = TrapJob("Job","Sacrifice_Blue", 1, 0, "Sacrifice a non damaged Mobster to kill an enemy Mobster", "JobSacrificeFED.png")
 small_Hit_Red1 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobSmallHit.png")
-small_Hit_Red2 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobASmallHit.png")
+small_Hit_Red2 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobSmallHit.png")
 small_Hit_Blue1 = TrapJob("Job","Small_Hit_Blue", 1, 0, "+2 dmg", "JobSmallHitFED.png")
 small_Hit_Blue2 = TrapJob("Job","Small_Hit_Blue", 1, 0, "+2 dmg", "JobSmallHitFED.png")
 stun_Red1 = TrapJob("Job","Stun_Red", 1, 0, "Your enemy can't attack with their dice next turn", "JobStun.png")
@@ -312,6 +312,15 @@ def DeckAdderFedTraps(c):
 
 # Adding maffia cards to deck
 def DeckAdderMaffiaOrigins(c):
-    TutorialBot.player_deck.append(c)
+    k = c
+    for i in range(len(c)):
+        TutorialBot.player_deck.append(c)
     maffia_origins.remove(c)
+
+def DeckAdderMaffiaTraps(c):
+    TutorialBot.player_deck.append(c)
+    traps_Red.remove(c)
     
+def DeckAdderMaffiaJobs(c):
+    TutorialBot.player_deck.append(c)
+    jobs_Red.remove(c)
