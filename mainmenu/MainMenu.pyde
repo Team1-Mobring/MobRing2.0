@@ -216,11 +216,7 @@ def mousePressed():
             current_page = "Handleiding 4"
     
     # Voegt origin + mobster kaarten toe aan de player_deck
-<<<<<<< HEAD
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
-=======
-    if current_page == "Card_selector_maffia" and CardSelectorFed.current_card_page == "":
->>>>>>> b64f5857750b5943f74208f49a2ad4212ced4093
         if isMouseWithinSpace(0, 0, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[0])
         if isMouseWithinSpace(210, 0, 205, 310):
