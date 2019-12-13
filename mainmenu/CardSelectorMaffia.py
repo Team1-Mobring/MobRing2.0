@@ -18,3 +18,6 @@ def draw():
     if len(TutorialBot.player_deck) > 12 and len(TutorialBot.player_deck) < 19:
         current_card_page = "Card_selector_maffia_job"
         Cards.DrawMaffiaJobCards()
+        
+    if len(TutorialBot.player_deck) == 19:
+        current_card_page = "Blue_bot"

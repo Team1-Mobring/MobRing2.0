@@ -1,9 +1,10 @@
 
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
+import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\
-    tutorial_load, generator_load, timer_load, handleiding_load, generator2_load, generator3_load, card_selector_fed_load, card_selector_maffia_load
+    tutorial_load, generator_load, timer_load, handleiding_load, generator2_load, generator3_load, card_selector_fed_load, card_selector_maffia_load,\
+    botai_load
 
     fullScreen()
     
@@ -17,6 +18,7 @@ def setup():
     generator3_load = False
     card_selector_fed_load = False
     card_selector_maffia_load = False 
+    botai_load = False
     highlightQuit = loadImage("QuitHighlight.png")
     highlightTutorial = loadImage("TutorialBotHighlight.png")
     highlightManual = loadImage("ManualHighlight.png")
@@ -26,7 +28,7 @@ def setup():
     image(backgroundMenu, 0, 0)
 
 def draw():
-    global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load, generator2_load, generator3_load
+    global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load, generator2_load, generator3_load, botai_load
 
     if current_page == "Main_Menu":
         image(backgroundMenu, 0, 0)
@@ -108,7 +110,20 @@ def draw():
             card_selector_maffia_load = True
         else:
             CardSelectorMaffia.draw()
-
+    
+    if CardSelectorMaffia.current_card_page == "Blue-bot":
+        current_page = "Bot"
+    
+    if  CardSelectorFed.current_card_page == "Red_bot":
+        current_page = "Bot"
+    
+    if current_page == "Bot":
+        if botai_load == False:
+            BotAI.setup()
+            botai_load = True
+        else:
+            BotAI.draw()
+            
 def keyReleased():    
     if current_page == "Timer" and timer_load == True:
         # Zorgt ervoor dat "Spatie" niet timer 2 start, wanneer je een andere timed mode begint.
