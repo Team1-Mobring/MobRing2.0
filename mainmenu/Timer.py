@@ -4,12 +4,12 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen, \
+            step_count, typing, timer_10, score_player_1, score_player_2, time_mode_choosen, \
             mainmenu2_img, background_img, pauzeknop_img, playerinput1_img, playerinput2_img, \
-            entername1_img, entername2_img, highlight10, highlight5, highlight20, highlightMenu, highlightReset, \
+            entername1_img, entername2_img, highlight10, highlight15, highlight20, highlightMenu, highlightReset, \
             highlightPauze, highlightStart, highlightSpatie, pickmode_img, pickmode, timer_reset, bonus_mode
     
-    background_img = loadImage("TimerDesign.jpg")
+    background_img = loadImage("TimerDesign.png")
     mainmenu2_img = loadImage("MainMenu2.png")
     pauzeknop_img = loadImage("PauzeKnop.jpg")
     playerinput1_img = loadImage("PlayerInput1.png")
@@ -17,9 +17,11 @@ def setup():
     entername1_img = loadImage("EnterName1.png")
     entername2_img = loadImage("EnterName2.png")
     pickmode_img = loadImage("PickModePointer.png")
-    highlight10 = loadImage("10MinuteHighlight.png")
-    highlight5 = loadImage("5MinuteHighlight.png")
-    highlight20 = loadImage("20MinuteHighlight.png")
+    
+    highlight10 = loadImage("Timer10sHighlight.png")
+    highlight15 = loadImage("Timer15sHighlight.png")
+    highlight20 = loadImage("Timer20sHighlight.png")
+    
     highlightMenu = loadImage("MainMenuHighlight.png")
     highlightReset = loadImage("ResetScoreHighlight.png")
     highlightPauze = loadImage("PauzeHighlight.png")
@@ -38,7 +40,9 @@ def setup():
     running = False
     running_2 = False   
     timer_start = False                 
-    four_timer = False
+    timer_10 = False
+    timer_15 = False
+    timer_20 = False
     typing = True
     step_count = 0
     spatie = 1
@@ -67,10 +71,10 @@ def draw():
     #__ All button highlights __
     # "5 Min" button
     if functions.isMouseWithinSpace2(499, 65, 228, 122) and step_count == 2:
-        image(highlight5, 0, 0)
+        image(highlight10, 0, 0)
     # "10 Min" button
     if functions.isMouseWithinSpace2(845, 65, 228, 122) and step_count == 2:
-        image(highlight10, 0, 0)
+        image(highlight15, 0, 0)
     # "20 Min" button
     if functions.isMouseWithinSpace2(1175, 65, 228, 122) and step_count == 2:
         image(highlight20, 0, 0)
