@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
-=======
-
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
->>>>>>> 93001d1ff93383c05f6a0203f820341f14158c72
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\

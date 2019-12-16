@@ -237,8 +237,6 @@ def DrawFedTrapCards():
     x = 0
     y = 0
     scale(0.3)
-    def GetTrap(i):
-        return traps_Blue[i]
     for i in range(len(traps_Blue)):
         if i == 5:
             x = 0
@@ -251,8 +249,6 @@ def DrawMaffiaTrapCards():
     x = 0
     y = 0
     scale(0.3)
-    def GetTrap(i):
-        return traps_Red[i]
     for i in range(len(traps_Red)):
         if i == 5:
             x = 0
@@ -265,8 +261,6 @@ def DrawFedJobCards():
     x = 0
     y = 0
     scale(0.3)
-    def GetJob(i):
-        return jobs_Blue[i]
     for i in range(len(jobs_Blue)):
         if i == 9:
             x = 0
@@ -282,8 +276,6 @@ def DrawMaffiaJobCards():
     x = 0
     y = 0
     scale(0.3)
-    def GetJob(i):
-        return jobs_Red[i]
     for i in range(len(jobs_Red)):
         if i == 9:
             x = 0
