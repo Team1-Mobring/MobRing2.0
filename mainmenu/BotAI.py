@@ -8,7 +8,7 @@ def setup():
     image(loadImage(background_colour_image), 0, 0)    
 
 def draw():
-    if CardSelectorMaffia.current_card_page == "Blue-bot":
+    if CardSelectorMaffia.current_card_page == "Blue_bot":
         image(loadImage("TutorialBotDesignFed.png"), 0, 0)
     if CardSelectorFed.current_card_page == "Red_bot":
         image(loadImage("TutorialBotDesignMafia.png"), 0, 0)
