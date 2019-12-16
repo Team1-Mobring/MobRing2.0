@@ -1,4 +1,3 @@
-
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
 
 def setup():
@@ -362,11 +361,16 @@ def mousePressed():
 
 # Interactieve knoppen voor Random Deck        
     if current_page == "Random Deck Generator" and generator_load == True:
-        if ((1160 < mouseX < 1260) and (640 <= mouseY <= 740)):
+        if ((510 < mouseX < 870) and (470 <= mouseY <= 660)):
             current_page = "Random Deck Generator 2"
-        if ((660 < mouseX < 760) and (640 <= mouseY <= 740)):
+        if ((1070 < mouseX < 1440) and (470 <= mouseY <= 670)):
             current_page = "Random Deck Generator 2"
-            
+    if current_page == "Random Deck Generator" and generator_load == True:
+        if ((30 < mouseX < 320) and (30 <= mouseY <= 120)):
+            current_page = "Main_Menu"
+    if current_page == "Random Deck Generator" and generator_load == True:
+        if ((1700 < mouseX < 1870) and (920 <= mouseY <= 1035)):
+            current_page = "Handleiding"
     if current_page == "Random Deck Generator 2" and generator2_load == True:
         if ((910 < mouseX < 1010) and (600 <= mouseY <= 700)):
             current_page = "Random Deck Generator 3"            

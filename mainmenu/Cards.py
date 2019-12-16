@@ -208,6 +208,7 @@ maffia_origins = [china_Red, japan_Red, netherlands_Red, colombia_Red, italy_Red
 
 # Draw blue origin cards
 def DrawFedOriginCards():
+    global fed_origins
     x = 0
     y = 0
     scale(0.3)
