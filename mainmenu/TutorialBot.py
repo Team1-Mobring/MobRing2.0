@@ -11,7 +11,7 @@ box_height = 100
 box_x = 0
 
 # Player card sets
-player_deck =  []
+player_deck = []
 player_graveyard = []
 player_held_cards = []
 player_mobster_field_cards = []

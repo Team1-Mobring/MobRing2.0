@@ -1,4 +1,5 @@
 import TutorialBot
+
 # Base code voor mobster karten
 class Mobster():
     def __init__(self, type, name, origin, hp1, hp2, hp3, img):
@@ -139,7 +140,7 @@ sacrifice_Red2 = TrapJob("Job","Sacrifice_Red", 1, 0, "Sacrifice a non damaged M
 sacrifice_Blue1 = TrapJob("Job","Sacrifice_Blue", 1, 0, "Sacrifice a non damaged Mobster to kill an enemy Mobster", "JobSacrificeFED.png")
 sacrifice_Blue2 = TrapJob("Job","Sacrifice_Blue", 1, 0, "Sacrifice a non damaged Mobster to kill an enemy Mobster", "JobSacrificeFED.png")
 small_Hit_Red1 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobSmallHit.png")
-small_Hit_Red2 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobASmallHit.png")
+small_Hit_Red2 = TrapJob("Job","Small_Hit_Red", 1, 0, "+2 dmg", "JobSmallHit.png")
 small_Hit_Blue1 = TrapJob("Job","Small_Hit_Blue", 1, 0, "+2 dmg", "JobSmallHitFED.png")
 small_Hit_Blue2 = TrapJob("Job","Small_Hit_Blue", 1, 0, "+2 dmg", "JobSmallHitFED.png")
 stun_Red1 = TrapJob("Job","Stun_Red", 1, 0, "Your enemy can't attack with their dice next turn", "JobStun.png")
@@ -252,7 +253,10 @@ def DrawMaffiaTrapCards():
     scale(0.3)
     def GetTrap(i):
         return traps_Red[i]
-    for i in range(len(taps_Red)):
+    for i in range(len(traps_Red)):
+        if i == 5:
+            x = 0
+            y = 1100
         traps_Red[i].display(x, y)
         x = x + 700
         
@@ -264,6 +268,12 @@ def DrawFedJobCards():
     def GetJob(i):
         return jobs_Blue[i]
     for i in range(len(jobs_Blue)):
+        if i == 9:
+            x = 0
+            y = 1100
+        if i == 18:
+            x = 0
+            y = 2200
         jobs_Blue[i].display(x, y)
         x = x + 700
 
@@ -275,17 +285,43 @@ def DrawMaffiaJobCards():
     def GetJob(i):
         return jobs_Red[i]
     for i in range(len(jobs_Red)):
+        if i == 9:
+            x = 0
+            y = 1100
+        if i == 18:
+            x = 0
+            y = 2200
         jobs_Red[i].display(x, y)
         x = x + 700
 
-# Adding fed cards to deck
-def DeckAdderFed(c):
+# Adding fed origin cards to deck
+def DeckAdderFedOrigins(c):
+    k = c
     for i in range(len(c)):
-        TutorialBot.player_deck.append(i)
+        TutorialBot.player_deck.append(k[i])
     fed_origins.remove(c)
     
-# Adding maffia cards to deck
-def DeckAdderMaffia(c):
+# Adding fed job cards to deck
+def DeckAdderFedJobs(c):
     TutorialBot.player_deck.append(c)
+    jobs_Blue.remove(c)
+
+# Adding fed trap cards to deck
+def DeckAdderFedTraps(c):
+    TutorialBot.player_deck.append(c)
+    traps_Blue.remove(c)
+
+# Adding maffia cards to deck
+def DeckAdderMaffiaOrigins(c):
+    k = c
+    for i in range(len(c)):
+        TutorialBot.player_deck.append(c)
     maffia_origins.remove(c)
+
+def DeckAdderMaffiaTraps(c):
+    TutorialBot.player_deck.append(c)
+    traps_Red.remove(c)
     
+def DeckAdderMaffiaJobs(c):
+    TutorialBot.player_deck.append(c)
+    jobs_Red.remove(c)
