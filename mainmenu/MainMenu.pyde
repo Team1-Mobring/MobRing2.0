@@ -233,6 +233,24 @@ def mousePressed():
         if isMouseWithinSpace(0, 0, 1920, 1080):
             Handleiding.text4()
             current_page = "Handleiding 4"
+            
+    if current_page == "Handleding 4":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text5()
+            current_page = "Handleiding 5"
+            
+    if current_page == "Handleding 5":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text6()
+            current_page = "Handleiding 6"
+        
+    if current_page == "Handleding 6":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text7()
+            current_page = "Handleiding 7"
+
+            
+          
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
