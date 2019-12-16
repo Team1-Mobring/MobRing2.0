@@ -111,7 +111,7 @@ def draw():
         else:
             CardSelectorMaffia.draw()
     
-    if CardSelectorMaffia.current_card_page == "Blue-bot":
+    if CardSelectorMaffia.current_card_page == "Blue_bot":
         current_page = "Bot"
     
     if  CardSelectorFed.current_card_page == "Red_bot":
