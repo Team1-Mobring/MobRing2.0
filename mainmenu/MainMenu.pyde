@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+ #<<<<<<< HEAD
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
-=======
+#=======
 
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
->>>>>>> 93001d1ff93383c05f6a0203f820341f14158c72
+#>>>>>> 93001d1ff93383c05f6a0203f820341f14158c72
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\
@@ -507,4 +507,19 @@ def mousePressed():
             current_page = "Handleiding"
     if current_page == "Random Deck Generator 2" and generator2_load == True:
         if ((910 < mouseX < 1010) and (600 <= mouseY <= 700)):
-            current_page = "Random Deck Generator 3"            
+            current_page = "Random Deck Generator 3"
+    if current_page == "Random Deck Generator 2" and generator_load == True:
+        if ((30 < mouseX < 320) and (30 <= mouseY <= 120)):
+            current_page = "Main_Menu"
+    if current_page == "Random Deck Generator 2" and generator_load == True:
+        if ((790 < mouseX < 1160) and (540 <= mouseY <= 750)):
+            current_page = "Random Deck Generator 3"    
+    if current_page == "Random Deck Generator 3" and generator_load == True:
+        if ((30 < mouseX < 320) and (30 <= mouseY <= 120)):
+            current_page = "Main_Menu"   
+    if current_page == "Random Deck Generator 3" and generator_load == True:
+        if ((530 < mouseX < 901) and (800 <= mouseY <= 1005)):
+            current_page = "Tutorial_Bot"      
+    if current_page == "Random Deck Generator 3" and generator_load == True:
+        if ((1080 < mouseX < 1445) and (800 <= mouseY <= 1010)):
+            current_page = "Random Deck Generator 2" 

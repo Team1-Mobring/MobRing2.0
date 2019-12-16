@@ -17,16 +17,22 @@ randomJob6 = random.choice(jobs)
 
 
 def setup():
+    global background_img, highlightMenu
     font1 = [24, createFont("Ariel", 24)]
+    background_img = loadImage("DeckGenerate2.png")
+    highlightMenu = loadImage("MainMenuHighlight.png")
 
 #Dit gedeelte zorgt ervoor dat het scherm wordt weergegeven    
 def draw():
+    image(background_img, 0, 0)
     
     functions.drawText("Your deck has been Generated!", 960, 200)
     functions.drawText("Your origins drawn are " + randomOrigin + ' and ' + randomOrigin2, 960, 250)
     functions.drawText("Your traps drawn are " + randomTrap + ', ' + randomTrap2 + ' and ' + randomTrap3, 960, 300)
     functions.drawText("Your jobs drawn are " + randomJob + ', ' + randomJob2 + ', ' + randomJob3 + ', ' + randomJob4 + ', ' + randomJob5 + ' and ' + randomJob6, 960, 350)
     
+    if functions.isMouseWithinSpace2(30, 30, 280, 90):
+        image(highlightMenu, 0, 0)
     
 
 #
