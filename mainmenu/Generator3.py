@@ -17,16 +17,28 @@ randomJob6 = random.choice(jobs)
 
 
 def setup():
+    global background_img, highlightMenu, highlightGen, highlightTut
     font1 = [24, createFont("Ariel", 24)]
+    background_img = loadImage("DeckGenerate2.png")
+    highlightMenu = loadImage("MainMenuHighlight.png")
+    highlightGen = loadImage("GenerateDeckHighlight2.png")
+    highlightTut = loadImage("PlayTutorialBotHighlight.png")
 
 #Dit gedeelte zorgt ervoor dat het scherm wordt weergegeven    
 def draw():
+    image(background_img, 0, 0)
     
-    functions.drawText("Your deck has been Generated!", 960, 200)
-    functions.drawText("Your origins drawn are " + randomOrigin + ' and ' + randomOrigin2, 960, 250)
-    functions.drawText("Your traps drawn are " + randomTrap + ', ' + randomTrap2 + ' and ' + randomTrap3, 960, 300)
-    functions.drawText("Your jobs drawn are " + randomJob + ', ' + randomJob2 + ', ' + randomJob3 + ', ' + randomJob4 + ', ' + randomJob5 + ' and ' + randomJob6, 960, 350)
+    functions.drawScore("Your deck has been Generated!", 960, 200, 255, 255, 255, 40)
+    functions.drawScore("Your origins drawn are " + randomOrigin + ' and ' + randomOrigin2, 960, 350, 255, 255, 255, 23)
+    functions.drawScore("Your traps drawn are " + randomTrap + ', ' + randomTrap2 + ' and ' + randomTrap3, 960, 400, 255, 255, 255, 23)
+    functions.drawScore("Your jobs drawn are " + randomJob + ', ' + randomJob2 + ', ' + randomJob3 + ', ' + randomJob4 + ', ' + randomJob5 + ' and ' + randomJob6, 960, 450, 255, 255, 255, 20)
     
+    if functions.isMouseWithinSpace2(30, 30, 280, 90):
+        image(highlightMenu, 0, 0)
+    if functions.isMouseWithinSpace2(1070, 800, 400, 200):
+        image(highlightGen, 0, 0)
+    if functions.isMouseWithinSpace2(530, 800, 400, 200):
+        image(highlightTut, 0, 0)
     
 
 #
