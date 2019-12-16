@@ -8,8 +8,11 @@ def setup():
     background_colour_image = "MainMenuafb2.png"
     image(loadImage(background_colour_image), 0, 0)
 def draw():
+<<<<<<< HEAD
     
     # Loads in the correct board for the Bot, playerboard will be the physical board of his choosing
+=======
+>>>>>>> f191143391bc443f7455e49fe1690b64cad7150c
     if CardSelectorMaffia.current_card_page == "Blue_bot":
         image(loadImage("TutorialBotDesignFed.png"), 0, 0)
     if CardSelectorFed.current_card_page == "Red_bot":
