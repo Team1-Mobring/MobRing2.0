@@ -1,7 +1,7 @@
 import functions
 
 def setup():
-    global background_image, goal_image, setup_image, setup1_image, rules_image, start_image, \
+    global background_image, goal_image, setup_image, setup2_image, rules_image, start_image, \
     course_image, course2_image
     
     background_image = loadImage("ManualMenu.png")
