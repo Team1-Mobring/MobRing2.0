@@ -55,7 +55,7 @@ class TrapJob():
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
 
 #Mobsters
-aivd1 = Mobster("Mobster", "AIVD1", "Netherlands", 6, 6, 6, "AIVD1.png")
+aivd1 = Mobster("Mobster", "AIVD1", "Netherlands", 0, 6, 6, "AIVD1.png")
 aivd2 = Mobster("Mobster", "AIVD2", "Netherlands", 7, 9, 6, "AIVD2.png")
 aivd3 = Mobster("Mobster", "AIVD3", "Netherlands", 0, 10, 5, "AIVD3.png")
 aivd4 = Mobster("Mobster", "AIVD4", "Netherlands", 0, 11, 0, "AIVD4.png")
