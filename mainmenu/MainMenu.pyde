@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
-=======
+
 
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
->>>>>>> 93001d1ff93383c05f6a0203f820341f14158c72
+
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\
@@ -218,11 +218,13 @@ def mousePressed():
         if isMouseWithinSpace(0, 0, 1920, 1080):
             Handleiding.text1()
             current_page = "Handleiding 1"
-        
+            print("test1")
+                    
     if current_page == "Handleding 1":
         if isMouseWithinSpace(0, 0, 1920, 1080):
             Handleiding.text2()
             current_page = "Handleiding 2"
+            print("test")
         
     if current_page == "Handleding 2":
         if isMouseWithinSpace(0, 0, 1920, 1080):
@@ -233,6 +235,23 @@ def mousePressed():
         if isMouseWithinSpace(0, 0, 1920, 1080):
             Handleiding.text4()
             current_page = "Handleiding 4"
+            
+    if current_page == "Handleding 4":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text5()
+            current_page = "Handleiding 5"
+            
+    if current_page == "Handleding 5":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text6()
+            current_page = "Handleiding 6"
+        
+    if current_page == "Handleding 6":
+        if isMouseWithinSpace(0, 0, 1920, 1080):
+            Handleiding.text7()
+            current_page = "Handleiding 7"
+
+            
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
