@@ -11,7 +11,7 @@ def setup():
     
     background_img = loadImage("TimerDesign.png")
     mainmenu2_img = loadImage("MainMenu2.png")
-    pauzeknop_img = loadImage("PauzeKnop.jpg")
+    pauzeknop_img = loadImage("PauzeKnop.png")
     playerinput1_img = loadImage("PlayerInput1.png")
     playerinput2_img = loadImage("PlayerInput2.png")
     entername1_img = loadImage("EnterName1.png")
@@ -111,7 +111,7 @@ def draw():
             if running_2:
                 score_player_1 += 1
         # Pauze knop!   Hier moet "Pauze" komen in het rood
-        image(pauzeknop_img, 1141, 815)
+        image(pauzeknop_img, 0, 0)
     # Voor de pauze knop "Enter"       
     elif step_count == 2:
         pass
