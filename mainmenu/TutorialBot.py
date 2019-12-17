@@ -1,4 +1,4 @@
-import Cards
+import Cards, functions
 
 # Button cords
 main_menu_x = 70
@@ -25,22 +25,39 @@ bot_mobster_field_cards = []
 bot_job_field_cards = []
 bot_trap_field_cards = []
 
+tutbotbackground = loadImage("ChooseSide.png")
+Mafia_Highlight = loadImage("MafiaButtonHighlight.png")
+Fed_Highlight = loadImage("FedButtonHighlight.png")
+highlightMenu = loadImage("MainMenuHighlight.png")
+Help_Highlight = loadImage("HelpButtonHighlight.png")
+
 
 def setup():
+    global tutbotbackground, Mafia_Highlight, Fed_Highlight, highlightMenu, Help_Highlight
+    
     size(1920, 1080)
     background(255)
+    tutbotbackground = loadImage("ChooseSide.png")
+    Mafia_Highlight = loadImage("MafiaButtonHighlight.png")
+    Fed_Highlight = loadImage("FedButtonHighlight.png")
+    highlightMenu = loadImage("MainMenuHighlight.png")
+    Help_Highlight = loadImage("HelpButtonHighlight.png")
 def draw():
-    fill(180)
-    main_menu = rect(main_menu_x, box_y, box_width, box_height)
-    fed = rect(fed_x, box_y, box_width, box_height)
-    maffia = rect(maffia_x, box_y, box_width, box_height)
-    help = rect(help_x, box_y, box_width, box_height)
-    fill(255)
-    textAlign(CENTER)
-    main_menu_text  = text("Main menu", main_menu_x + 0.5 * box_width, box_y + 0.5 * box_height)
-    fed_text  = text("Federal Agency", fed_x + 0.5 * box_width, box_y + 0.5 * box_height)
-    maffia_text  = text("Maffia", maffia_x + 0.5 * box_width, box_y + 0.5 * box_height)
-    help_text  = text("Help!", help_x + 0.5 * box_width, box_y + 0.5 * box_height)
+    
+    image(tutbotbackground, 0, 0)
+    
+    if functions.isMouseWithinSpace2(1070, 470, 370, 200):
+        image(Mafia_Highlight, 0, 0)
+        
+    if functions.isMouseWithinSpace2(510, 470, 360, 200):
+        image(Fed_Highlight, 0, 0)
+        
+    if functions.isMouseWithinSpace2(1700, 920, 170, 115):
+        image(Help_Highlight, 0, 0)
+        
+    if functions.isMouseWithinSpace2(30, 30, 280, 90):
+        image(highlightMenu, 0, 0)
+    
     
 # box clicker
 def isMouseWithinSpace(x, y, w, h):

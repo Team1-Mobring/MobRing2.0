@@ -1,13 +1,5 @@
-#<<<<<<< HEAD
- #<<<<<<< HEAD
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3
-#=======
+import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
 
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
-#>>>>>> 93001d1ff93383c05f6a0203f820341f14158c72
-#=======
-import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
-#>>>>>>> f412a2c3502cc3444d0a97d659cf902ad06ef860
 
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\
@@ -420,23 +412,23 @@ def mousePressed():
             
     if current_page == "Tutorial_Bot" and tutorial_load == True:    
         # box clicker
-        if isMouseWithinSpace(70, 550, 300, 100):
+        if isMouseWithinSpace(30, 30, 300, 90):
             current_page = "Main_Menu"
             main_menu_load = False
             tutorial_load = False
-        elif isMouseWithinSpace(TutorialBot.fed_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
+        elif isMouseWithinSpace(510, 470, 350, 200):
             current_page = "Card_selector_fed"
             main_menu_load = False
             tutorial_load = False
             card_selector_fed_load = False
             print("click2")
-        elif isMouseWithinSpace(TutorialBot.maffia_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
+        elif isMouseWithinSpace(1070, 470, 350, 200):
             current_page = "Card_selector_maffia"
             main_menu_load = False
             tutorial_load = False
             card_selector_maffia_load = False
             print("click3")
-        elif isMouseWithinSpace(TutorialBot.help_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
+        elif isMouseWithinSpace(1700, 920, 170, 115):
             current_page = "Handleiding"
             main_menu_load = False
             tutorial_load = False
