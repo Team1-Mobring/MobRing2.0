@@ -88,14 +88,34 @@ def draw():
             timer_load = True
         else:
             Timer.draw()
-            
     if current_page == "Handleiding":
         if handleiding_load == False:
             Handleiding.setup()
             handleiding_load = True
         else:
             Handleiding.draw()
-        
+                
+    if current_page == "Handleiding 1":
+        Handleiding.text1()
+    
+    if current_page == "Handleiding 2":
+        Handleiding.text2()
+    
+    if current_page == "Handleiding 3":
+        Handleiding.text3()
+    
+    if current_page == "Handleiding 4":
+        Handleiding.text4()
+    
+    if current_page == "Handleiding 5":
+        Handleiding.text5()
+    
+    if current_page == "Handleiding 6":
+        Handleiding.text6()
+    
+    if current_page == "Handleiding 7":
+        Handleiding.text7()
+    
     if current_page == "Card_selector_fed":
         if card_selector_fed_load == False:
             CardSelectorFed.setup()
@@ -210,38 +230,32 @@ def mousePressed():
     print(mouseX, mouseY)
       
     if current_page == "Handleiding":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text1()
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 1"
         
-    if current_page == "Handleding 1":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text2()
+    if current_page == "Handleiding 1":
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 2"
         
-    if current_page == "Handleding 2":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text3()
+    if current_page == "Handleiding 2":
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 3"
     
-    if current_page == "Handleding 3":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text4()
+    if current_page == "Handleiding 3":
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 4"
             
-    if current_page == "Handleding 4":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text5()
+    if current_page == "Handleiding 4":
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 5"
             
-    if current_page == "Handleding 5":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text6()
+    if current_page == "Handleiding 5":
+        if isMouseWithinSpace(1185, 855, 85, 80):
             current_page = "Handleiding 6"
         
-    if current_page == "Handleding 6":
-        if isMouseWithinSpace(0, 0, 1920, 1080):
-            Handleiding.text7()
+    if current_page == "Handleiding 6":
+        if isMouseWithinSpace(1185, 855, 85, 80):
+            print("click")
             current_page = "Handleiding 7"
 
             

@@ -7,12 +7,9 @@ def setup():
     global load_board
     background_colour_image = "MainMenuafb2.png"
     image(loadImage(background_colour_image), 0, 0)
-def draw():
-<<<<<<< HEAD
+def draw():    
     
     # Loads in the correct board for the Bot, playerboard will be the physical board of his choosing
-=======
->>>>>>> f191143391bc443f7455e49fe1690b64cad7150c
     if CardSelectorMaffia.current_card_page == "Blue_bot":
         image(loadImage("TutorialBotDesignFed.png"), 0, 0)
     if CardSelectorFed.current_card_page == "Red_bot":
@@ -43,8 +40,8 @@ def draw():
             TutorialBot.bot_mobster_field_cards[i].display(x, y)
             x = x + 890
     
-    if len(TutorialBot.bot_job_field_cards) > 0 :
-        pass
-    
     if len(TutorialBot.bot_trap_field_cards) > 0 :
-        pass
+        image(loadImage("CardBackBlueSideWays.png"), 3260, 1380)
+    
+    if len(TutorialBot.bot_job_field_cards) > 0 :
+        TutorialBot.bot_job_field_cards[0].display(2080, 1380)

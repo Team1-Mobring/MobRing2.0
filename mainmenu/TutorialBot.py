@@ -22,8 +22,8 @@ bot_deck = []
 bot_graveyard = [1, 2, 3, 4, 5, 6, 7]
 bot_held_cards = [1, 2, 3, 4, 5, 6, 7]
 bot_mobster_field_cards = [Cards.aivd1, Cards.aivd1, Cards.aivd1]
-bot_job_field_cards = []
-bot_trap_field_cards = []
+bot_job_field_cards = [Cards.aivd1]
+bot_trap_field_cards = [1]
 
 
 def setup():
