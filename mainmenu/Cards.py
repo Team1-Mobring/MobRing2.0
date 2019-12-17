@@ -16,6 +16,14 @@ class Mobster():
         self.y = y
         rimg = loadImage(self.img)
         image(rimg, x, y)
+        container = loadImage("Ringcontainer.png")
+        if self.hp1 == 0:
+            image(container, self.x + 406, self.y + 223)
+        if self.hp2 == 0:
+            image(container, self.x + 50, self.y + 745)
+        if self.hp2 == 0:
+            image(container, self.x + 406, self.y + 746)
+            
 # Base code voor origin kaarten        
 class Origin():
     def __init__(self, type, name, img):
