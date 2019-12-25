@@ -264,164 +264,164 @@ def mousePressed():
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[4])
-        if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+        if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[5])
             
      # Voegt origin + mobster kaarten toe aan de player_deck       
     if current_page == "Card_selector_maffia" and CardSelectorMaffia.current_card_page == "":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[4])
-        if len(Cards.maffia_origins) == 6 and isMouseWithinSpace(1050, 0, 205, 310):
+        if len(Cards.maffia_origins) == 6 and isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[5])
     
     # Voegt trap kaarten toe aan de player_deck
     if CardSelectorFed.current_card_page == "Card_selector_fed_trap":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[4])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(33, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[5])
-        if isMouseWithinSpace(210, 325, 205, 310):
+        if isMouseWithinSpace(243, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[6])
-        if isMouseWithinSpace(420, 325, 205, 310):
+        if isMouseWithinSpace(453, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[7])
-        if len(Cards.traps_Blue) == 9 and isMouseWithinSpace(630, 325, 205, 310):
+        if len(Cards.traps_Blue) >= 9 and isMouseWithinSpace(663, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[8])
-        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(840, 325, 205, 310):
+        if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(870, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[9])
 
      # Voegt  trap kaarten toe aan de player_deck       
     if CardSelectorMaffia.current_card_page == "Card_selector_maffia_trap":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[4])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(33, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[5])
-        if isMouseWithinSpace(210, 325, 205, 310):
+        if isMouseWithinSpace(243, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[6])
-        if isMouseWithinSpace(420, 325, 205, 310):
+        if isMouseWithinSpace(453, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[7])
-        if len(Cards.traps_Red) == 9 and isMouseWithinSpace(630, 325, 205, 310):
+        if len(Cards.traps_Red) >= 9 and isMouseWithinSpace(663, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[8])
-        if len(Cards.traps_Red) == 10 and isMouseWithinSpace(840, 325, 205, 310):
+        if len(Cards.traps_Red) == 10 and isMouseWithinSpace(873, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[9])
 
     # Voegt job kaarten toe aan de player_deck
     if CardSelectorFed.current_card_page == "Card_selector_fed_job":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[4])
-        if isMouseWithinSpace(1050, 0, 205, 310):
+        if isMouseWithinSpace(1083, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[5])
-        if isMouseWithinSpace(1260, 0, 205, 310):
+        if isMouseWithinSpace(1293, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[6])
-        if isMouseWithinSpace(1470, 0, 205, 310):
+        if isMouseWithinSpace(1503, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[7])
-        if isMouseWithinSpace(1680, 0, 205, 310):
+        if isMouseWithinSpace(1713, 0, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[8])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(33, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[9])
-        if isMouseWithinSpace(210, 325, 205, 310):
+        if isMouseWithinSpace(243, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[10])
-        if isMouseWithinSpace(420, 325, 205, 310):
+        if isMouseWithinSpace(453, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[11])
-        if isMouseWithinSpace(630, 325, 205, 310):
+        if isMouseWithinSpace(663, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[12])
-        if isMouseWithinSpace(840, 325, 205, 310):
+        if isMouseWithinSpace(873, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[13])
-        if isMouseWithinSpace(1050, 325, 205, 310):
+        if isMouseWithinSpace(1083, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[14])
-        if len(Cards.traps_Blue) == 16 and isMouseWithinSpace(1260, 325, 205, 310):
+        if len(Cards.jobs_Blue) >= 16 and isMouseWithinSpace(1293, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[15])
-        if len(Cards.traps_Blue) == 17 and isMouseWithinSpace(1470, 325, 205, 310):
+        if len(Cards.jobs_Blue) >= 17 and isMouseWithinSpace(1503, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[16])
-        if len(Cards.traps_Blue) == 18 and isMouseWithinSpace(1680, 325, 205, 310):
+        if len(Cards.jobs_Blue) >= 18 and isMouseWithinSpace(1713, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[17])
-        if len(Cards.traps_Blue) == 19 and isMouseWithinSpace(0, 650, 205, 310):
+        if len(Cards.jobs_Blue) >= 19 and isMouseWithinSpace(33, 784, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[18])
-        if len(Cards.traps_Blue) == 20 and isMouseWithinSpace(210, 650, 205, 310):
+        if len(Cards.jobs_Blue) == 20 and isMouseWithinSpace(243, 784, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[19])
         
         # Voegt job kaarten toe aan de player_deck
     if CardSelectorMaffia.current_card_page == "Card_selector_maffia_job":
-        if isMouseWithinSpace(0, 0, 205, 310):
+        if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[0])
-        if isMouseWithinSpace(210, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[1])
-        if isMouseWithinSpace(420, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[2])
-        if isMouseWithinSpace(630, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[3])
-        if isMouseWithinSpace(840, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[4])
-        if isMouseWithinSpace(1050, 0, 205, 310):
+        if isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[5])
-        if isMouseWithinSpace(1260, 0, 205, 310):
+        if isMouseWithinSpace(1293, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[6])
-        if isMouseWithinSpace(1470, 0, 205, 310):
+        if isMouseWithinSpace(1503, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[7])
-        if isMouseWithinSpace(1680, 0, 205, 310):
+        if isMouseWithinSpace(1713, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[8])
-        if isMouseWithinSpace(0, 325, 205, 310):
+        if isMouseWithinSpace(33, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[9])
-        if isMouseWithinSpace(210, 325, 205, 310):
+        if isMouseWithinSpace(243, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[10])
-        if isMouseWithinSpace(420, 325, 205, 310):
+        if isMouseWithinSpace(453, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[11])
-        if isMouseWithinSpace(630, 325, 205, 310):
+        if isMouseWithinSpace(663, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[12])
-        if isMouseWithinSpace(840, 325, 205, 310):
+        if isMouseWithinSpace(873, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[13])
-        if len(Cards.jobs_Red) == 15 and isMouseWithinSpace(1050, 325, 205, 310):
+        if len(Cards.jobs_Red) >= 15 and isMouseWithinSpace(1083, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[14])
-        if len(Cards.jobs_Red) == 16 and isMouseWithinSpace(1260, 325, 205, 310):
+        if len(Cards.jobs_Red) >= 16 and isMouseWithinSpace(1293, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[15])
-        if len(Cards.jobs_Red) == 17 and isMouseWithinSpace(1470, 325, 205, 310):
+        if len(Cards.jobs_Red) >= 17 and isMouseWithinSpace(1503, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[16])
-        if len(Cards.jobs_Red) == 18 and isMouseWithinSpace(1680, 325, 205, 310):
+        if len(Cards.jobs_Red) >= 18 and isMouseWithinSpace(1713, 459, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[17])
-        if len(Cards.jobs_Red) == 19 and isMouseWithinSpace(0, 650, 205, 310):
+        if len(Cards.jobs_Red) >= 19 and isMouseWithinSpace(33, 784, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[18])
-        if len(Cards.jobs_Red) == 20 and isMouseWithinSpace(210, 650, 205, 310):
+        if len(Cards.jobs_Red) == 20 and isMouseWithinSpace(243, 784, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[19])
             
     if current_page == "Tutorial_Bot" and tutorial_load == True:    

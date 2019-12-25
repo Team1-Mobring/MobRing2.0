@@ -218,8 +218,8 @@ maffia_origins = [china_Red, japan_Red, netherlands_Red, colombia_Red, italy_Red
 # Draw blue origin cards
 def DrawFedOriginCards():
     global fed_origins
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     def GetOrigin(i):
         return fed_origins[i]
@@ -230,8 +230,8 @@ def DrawFedOriginCards():
 
 # Draw red origin cards
 def DrawMaffiaOriginCards():
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     def GetOrigin(i):
         return maffia_origins[i]
@@ -242,55 +242,55 @@ def DrawMaffiaOriginCards():
 
 # Draw blue trap cards
 def DrawFedTrapCards():
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     for i in range(len(traps_Blue)):
         if i == 5:
-            x = 0
-            y = 1100
+            x = 100
+            y = 1550
         traps_Blue[i].display(x, y)
         x = x + 700
         
 # Draw red trap cards
 def DrawMaffiaTrapCards():
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     for i in range(len(traps_Red)):
         if i == 5:
-            x = 0
-            y = 1100
+            x = 10
+            y = 1550
         traps_Red[i].display(x, y)
         x = x + 700
         
 # Draw blue job cards
 def DrawFedJobCards():
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     for i in range(len(jobs_Blue)):
         if i == 9:
-            x = 0
-            y = 1100
+            x = 100
+            y = 1550
         if i == 18:
-            x = 0
-            y = 2200
+            x = 100
+            y = 2650
         jobs_Blue[i].display(x, y)
         x = x + 700
 
 # Draw red job cards
 def DrawMaffiaJobCards():
-    x = 0
-    y = 0
+    x = 100
+    y = 450
     scale(0.3)
     for i in range(len(jobs_Red)):
         if i == 9:
-            x = 0
-            y = 1100
+            x = 100
+            y = 1550
         if i == 18:
-            x = 0
-            y = 2200
+            x = 100
+            y = 2650
         jobs_Red[i].display(x, y)
         x = x + 700
 

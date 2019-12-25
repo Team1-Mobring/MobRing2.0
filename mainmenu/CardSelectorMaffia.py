@@ -3,11 +3,13 @@ import Cards, TutorialBot
 current_card_page = ""
 
 def setup():
-    background(0)
+    global backgroundimg
+    backgroundimg = loadImage("PickCards.png")
+    image(backgroundimg, 0, 0)
         
 def draw():
-    global current_card_page
-    background(0)
+    global current_card_page, backgroundimg
+    image(backgroundimg, 0, 0)
     # checkt welke kaarten wanneer getekend moet worden.
     if len(TutorialBot.player_deck) < 10:
         Cards.DrawMaffiaOriginCards()
