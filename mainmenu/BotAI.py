@@ -59,15 +59,88 @@ def draw():
             player = 0
         else:
             player = 1
+    
         
-    # Checks player turn    
+    # Red trap effect checker
+    if len(TutorialBot.bot_trap_field_cards) > 1:
+        if TutorialBot.bot_trap_field_cards[0] == Cards.ambushed_Red1 or TutorialBot.bot_trap_field_cards[0] == Cards.ambushed_Red2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.dodge_Red1 or TutorialBot.bot_trap_field_cards[0] == Cards.dodge_Red2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.revive_Red1 or TutorialBot.bot_trap_field_cards[0] == Cards.revive_Red2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.ricochet_Red1 or TutorialBot.bot_trap_field_cards[0] == Cards.ricochet_Red2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.sniped_Red1 or TutorialBot.bot_trap_field_cards[0] == Cards.sniped_Red2:
+            pass
+    
+    # Blue trap effect checker
+    if len(TutorialBot.bot_trap_field_cards) > 1:
+        if TutorialBot.bot_trap_field_cards[0] == Cards.ambushed_Blue1 or TutorialBot.bot_trap_field_cards[0] == Cards.ambushed_Blue2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.dodge_Blue1 or TutorialBot.bot_trap_field_cards[0] == Cards.dodge_Blue2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.revive_Blue1 or TutorialBot.bot_trap_field_cards[0] == Cards.revive_Blue2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.ricochet_Blue1 or TutorialBot.bot_trap_field_cards[0] == Cards.ricochet_Blue2:
+            pass
+        if TutorialBot.bot_trap_field_cards[0] == Cards.sniped_Blue1 or TutorialBot.bot_trap_field_cards[0] == Cards.sniped_Blue2:
+            pass
+    
+    # Red job effect checker
+    if len(TutorialBot.bot_job_field_cards) > 0:
+        if TutorialBot.bot_job_field_cards[0] == Cards.anti_Hit_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.anti_Hit_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.clairevoyance_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.clairevoyance_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.prophecy_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.prophecy_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.reroll_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.reroll_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.retaliate_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.retaliate_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.reveal_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.reveal_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.sacrifice_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.sacrifice_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.small_Hit_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.small_Hit_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.stun_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.stun_Red2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.the_Odds_Are_Against_You_Red1 or TutorialBot.bot_job_field_cards[0] == Cards.the_Odds_Are_Against_You_Red2:
+            pass
+    
+    # Blue job effect checker
+    if len(TutorialBot.bot_job_field_cards) > 0:
+        if TutorialBot.bot_job_field_cards[0] == Cards.anti_Hit_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.anti_Hit_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.clairevoyance_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.clairevoyance_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.prophecy_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.prophecy_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.reroll_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.reroll_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.retaliate_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.retaliate_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.reveal_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.reveal_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.sacrifice_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.sacrifice_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.small_Hit_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.small_Hit_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.stun_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.stun_Blue2:
+            pass
+        if TutorialBot.bot_job_field_cards[0] == Cards.the_Odds_Are_Against_You_Blue1 or TutorialBot.bot_job_field_cards[0] == Cards.the_Odds_Are_Against_You_Blue2:
+            pass
+            
+    # Checks player turn, if not players turn than executes bot discission maker    
     if player == 1:
         pass
     else:
         # Checks if the bot can get a card
         if len(TutorialBot.bot_deck) > 0:
             num = random(o, len(TutorialBot.bot_deck) - 1)
-            TutorialBot.bot_held_cards.append(TutorialBot.bot_deck[num]
+            TutorialBot.bot_held_cards.append(TutorialBot.bot_deck[num])
             del TutorialBot.bot_deck[num]
             
         # play Mobstercard check
@@ -83,4 +156,4 @@ def draw():
         if len(TutorialBot.player_mobster_field_cards) > 0 and random(0,1) == 1:
             pass
         else:
-            nextPlayerTurn():
+            nextPlayerTurn()
