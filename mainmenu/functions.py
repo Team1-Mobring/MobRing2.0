@@ -82,6 +82,7 @@ def drawScore(word, x, y, r, g, b, size):
 def roll():
     white_dice = int(random(1,6))
     red_dice = int(random(1,6))
+    total = white_dice + red_dice
     fill(87, 99, 211)
     textSize(20)
     text(white_dice, 100, 100)

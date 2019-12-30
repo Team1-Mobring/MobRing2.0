@@ -258,9 +258,6 @@ def mousePressed():
         if isMouseWithinSpace(1185, 855, 85, 80):
             print("click")
             current_page = "Handleiding 7"
-
-            
-          
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":

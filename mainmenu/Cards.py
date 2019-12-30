@@ -21,7 +21,7 @@ class Mobster():
             image(container, self.x + 406, self.y + 223)
         if self.hp2 == 0:
             image(container, self.x + 50, self.y + 745)
-        if self.hp2 == 0:
+        if self.hp3 == 0:
             image(container, self.x + 406, self.y + 746)
             
 # Base code voor origin kaarten        
@@ -259,7 +259,7 @@ def DrawMaffiaTrapCards():
     scale(0.3)
     for i in range(len(traps_Red)):
         if i == 5:
-            x = 10
+            x = 100
             y = 1550
         traps_Red[i].display(x, y)
         x = x + 700
@@ -297,7 +297,7 @@ def DrawMaffiaJobCards():
 # Adding fed origin cards to deck
 def DeckAdderFedOrigins(c):
     k = c
-    for i in range(len(c)):
+    for i in range(1, len(c)):
         TutorialBot.player_deck.append(k[i])
     fed_origins.remove(c)
     
@@ -314,7 +314,7 @@ def DeckAdderFedTraps(c):
 # Adding maffia cards to deck
 def DeckAdderMaffiaOrigins(c):
     k = c
-    for i in range(len(c)):
+    for i in range(1, len(c)):
         TutorialBot.player_deck.append(c)
     maffia_origins.remove(c)
 

@@ -13,17 +13,22 @@ box_x = 0
 # Player card sets
 player_deck = []
 player_graveyard = []
-player_held_cards = []
 player_mobster_field_cards = []
 player_job_field_cards = []
 player_trap_field_cards = []
+bot_held_mobster_cards = []
+bot_held_trap_cards = []
+bot_held_job_cards = []
 # Bot card sets
 bot_deck = []
 bot_graveyard = [1, 2, 3, 4, 5, 6, 7]
 bot_held_cards = [1, 2, 3, 4, 5, 6, 7]
-bot_mobster_field_cards = [Cards.aivd1, Cards.aivd1, Cards.aivd1]
-bot_job_field_cards = [Cards.aivd1]
+bot_mobster_field_cards = [Cards.aivd1, Cards.aivd2, Cards.aivd3]
+bot_job_field_cards = [Cards.aivd4]
 bot_trap_field_cards = [1]
+bot_held_mobster_cards = []
+bot_held_trap_cards = []
+bot_held_job_cards = []
 
 tutbotbackground = loadImage("ChooseSide.png")
 Mafia_Highlight = loadImage("MafiaButtonHighlight.png")
