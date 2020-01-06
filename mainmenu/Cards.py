@@ -315,7 +315,7 @@ def DeckAdderFedTraps(c):
 def DeckAdderMaffiaOrigins(c):
     k = c
     for i in range(1, len(c)):
-        TutorialBot.player_deck.append(c)
+        TutorialBot.player_deck.append(k[i])
     maffia_origins.remove(c)
 
 def DeckAdderMaffiaTraps(c):

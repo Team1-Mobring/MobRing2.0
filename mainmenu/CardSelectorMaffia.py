@@ -1,4 +1,4 @@
-import Cards, TutorialBot
+import Cards, TutorialBot, functions
 
 current_card_page = ""
 
@@ -21,3 +21,9 @@ def draw():
         Cards.DrawMaffiaJobCards()
     elif len(TutorialBot.player_deck) == 17:
         current_card_page = "Blue_bot"
+    scale(3.3333333)
+    if functions.isMouseWithinSpace2(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+        image(TutorialBot.Help_Highlight, 0, 0)
+        
+    if functions.isMouseWithinSpace2(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 90):
+        image(TutorialBot.highlightMenu, 0, 0)

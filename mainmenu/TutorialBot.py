@@ -1,11 +1,14 @@
-import Cards, functions
+import Cards, functions, CardSelectorMaffia, CardSelectorFed
 
 # Button cords
-main_menu_x = 70
-fed_x = 495
-maffia_x = 1125
-help_x = 1550
-box_y = 550
+main_menu_x = 35
+main_menu_y = 35
+fed_x = 510
+fed_y = 470
+maffia_x = 1070
+maffia_y = 470
+help_x = 1700
+help_y = 920
 box_width = 300
 box_height = 100
 box_x = 0
@@ -16,34 +19,39 @@ player_graveyard = []
 player_mobster_field_cards = []
 player_job_field_cards = []
 player_trap_field_cards = []
-bot_held_mobster_cards = []
-bot_held_trap_cards = []
-bot_held_job_cards = []
 # Bot card sets
 bot_deck = []
-bot_graveyard = [1, 2, 3, 4, 5, 6, 7]
-bot_held_cards = [1, 2, 3, 4, 5, 6, 7]
-bot_mobster_field_cards = [Cards.aivd1, Cards.aivd2, Cards.aivd3]
-bot_job_field_cards = [Cards.aivd4]
-bot_trap_field_cards = [1]
-bot_held_mobster_cards = []
-bot_held_trap_cards = []
-bot_held_job_cards = []
+bot_held_cards = []
+if CardSelectorMaffia.current_card_page == "Blue_bot":
+    bot_deck = [Cards.fsb3, Cards.fsb4, Cards.psia1, Cards.psia2, Cards.psia3, Cards.psia4, Cards.anit_Hit_Blue2, Cards.retaliate_Blue1, Cards.reroll_Blue1, Cards.the_Odds_Are_Against_You_Blue1, Cards.revive_Blue1]
+    bot_held_mobster_cards = [Cards.fsb1, Cards.fsb2, Cards.fsb3, Cards.fsb4, Cards.psia1, Cards.psia2, Cards.psia3, Cards.psia4]
+    bot_held_trap_cards = [Cards.dodge_Blue1, Cards.ricochet_Blue1, Cards.revive_Blue1]
+    bot_held_job_cards = [Cards.anit_Hit_Blue1, Cards.anit_Hit_Blue2, Cards.retaliate_Blue1, Cards.reroll_Blue1, Cards.the_Odds_Are_Against_You_Blue1]
+    bot_held_cards = [Cards.fsb1, Cards.fsb2, Cards.dodge_Blue1, Cards.ricochet_Blue1, Cards.anit_Hit_Blue1]
+if CardSelectorFed.current_card_page == "Red_bot":
+    bot_deck = [Cards.bratva3, Cards.bratva4, Cards.yakuza1, Cards.yakuza2, Cards.yakuza3, Cards.yakuza4, Cards.anti_Hit_Red2, Cards.reroll_Red1, Cards.the_Odds_Are_Against_You_Red1, Cards.revive_Red1]
+    bot_held_mobster_cards = [Cards.bratva1, Cards.bratva2, Cards.bratva3, Cards.bratva4, Cards.yakuza1, Cards.yakuza2, Cards.yakuza3, Cards.yakuza4]
+    bot_held_trap_cards = [Cards.dodge_Red1, Cards.ricochet_Red1, Cards.revive_Red1]
+    bot_held_job_cards = [Cards.anti_Hit_Red1, Cards.anti_Hit_Red2, Cards.retaliate_Red1, Cards.reroll_Red1, Cards.the_Odds_Are_Against_You_Red1]
+    bot_held_cards = [Cards.bratva1, Cards.bratva2, Cards.dodge_Red1, Cards.retaliate_Red1, Cards.anti_Hit_Red1]
+bot_graveyard = []
+bot_mobster_field_cards = [Cards.bratva1]
+bot_job_field_cards = []
+bot_trap_field_cards = []
+
 
 tutbotbackground = loadImage("ChooseSide.png")
-Mafia_Highlight = loadImage("MafiaButtonHighlight.png")
+Maffia_Highlight = loadImage("MafiaButtonHighlight.png")
 Fed_Highlight = loadImage("FedButtonHighlight.png")
 highlightMenu = loadImage("MainMenuHighlight.png")
 Help_Highlight = loadImage("HelpButtonHighlight.png")
 
 
 def setup():
-    global tutbotbackground, Mafia_Highlight, Fed_Highlight, highlightMenu, Help_Highlight
+    global tutbotbackground, Maffia_Highlight, Fed_Highlight, highlightMenu, Help_Highlight
     
-    size(1920, 1080)
-    background(255)
     tutbotbackground = loadImage("ChooseSide.png")
-    Mafia_Highlight = loadImage("MafiaButtonHighlight.png")
+    Maffia_Highlight = loadImage("MafiaButtonHighlight.png")
     Fed_Highlight = loadImage("FedButtonHighlight.png")
     highlightMenu = loadImage("MainMenuHighlight.png")
     Help_Highlight = loadImage("HelpButtonHighlight.png")
@@ -51,36 +59,14 @@ def draw():
     
     image(tutbotbackground, 0, 0)
     
-    if functions.isMouseWithinSpace2(1070, 470, 370, 200):
-        image(Mafia_Highlight, 0, 0)
+    if functions.isMouseWithinSpace2(maffia_x, maffia_y, 360, 195):
+        image(Maffia_Highlight, 0, 0)
         
-    if functions.isMouseWithinSpace2(510, 470, 360, 200):
+    if functions.isMouseWithinSpace2(fed_x, fed_y, 360, 195):
         image(Fed_Highlight, 0, 0)
         
-    if functions.isMouseWithinSpace2(1700, 920, 170, 115):
+    if functions.isMouseWithinSpace2(help_x, help_y, 170, 115):
         image(Help_Highlight, 0, 0)
         
-    if functions.isMouseWithinSpace2(30, 30, 280, 90):
+    if functions.isMouseWithinSpace2(main_menu_x, main_menu_y, 265, 90):
         image(highlightMenu, 0, 0)
-    
-    
-# box clicker
-def isMouseWithinSpace(x, y, w, h):
-    if x < mouseX < x + w and y < mouseY < y + h:
-        return True
-    else:
-        return False
-
-# mouseclcik registrater    
-def mousePressed():
-    global box_width, box_height, box_x, box_y
-    if isMouseWithinSpace(main_menu_x, box_y, box_width, box_height):
-        print("click")
-    elif isMouseWithinSpace(fed_x, box_y, box_width, box_height):
-        print("click2")
-    elif isMouseWithinSpace(maffia_x, box_y, box_width, box_height):
-        print("click3")
-    elif isMouseWithinSpace(help_x, box_y, box_width, box_height):
-        print("click4")
-    else:
-        print("wrong!")

@@ -4,10 +4,11 @@ import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, C
 def setup():
     global highlightQuit, highlightTutorial, highlightManual, highlightRandomDeck, highlightTimer, backgroundMenu, current_page, main_menu_load,\
     tutorial_load, generator_load, timer_load, handleiding_load, generator2_load, generator3_load, card_selector_fed_load, card_selector_maffia_load,\
-    botai_load
+    botai_load, clairevoyance_counter
 
     fullScreen()
     
+    clairevoyance_counter = 0
     current_page = "Main_Menu"
     main_menu_load = False
     tutorial_load = False
@@ -136,14 +137,28 @@ def draw():
     
     if  CardSelectorFed.current_card_page == "Red_bot":
         current_page = "Bot"
-    
+
     if current_page == "Bot":
         if botai_load == False:
             BotAI.setup()
             botai_load = True
         else:
             BotAI.draw()
+    if BotAI.current_scene == "Clairevoyance" or BotAI.current_scene == "Sacrifice" or BotAI.current_scene == "Select_deathcard" or BotAI.current_scene == "Play card":
+            scale(3.3333333)
+            functions.backgroundTint()
             
+    if BotAI.current_scene == "Play card":
+        scale(0.3)
+        x = 100
+        y = 450
+        for i in range(len(TutorialBot.player_deck)):
+            TutorialBot.player_deck[i].display(x, y)
+            if i == 9:
+                x = 100
+                y = 1550
+            x += 700   
+    
 def keyReleased():    
     if current_page == "Timer" and timer_load == True:
         # Zorgt ervoor dat "Spatie" niet timer 2 start, wanneer je een andere timed mode begint.
@@ -222,7 +237,7 @@ def keyReleased():
         key == " "
    
 def mousePressed():
-    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load, handleiding_load, card_selector_maffia_load, card_selector_fed_load
+    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, timer_load, handleiding_load, card_selector_maffia_load, card_selector_fed_load, clairevoyance_counter
     def isMouseWithinSpace(x, y, w, h):
         if x < mouseX < x + w and y < mouseY < y + h:
             return True
@@ -261,6 +276,10 @@ def mousePressed():
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[0])
         if isMouseWithinSpace(243, 134, 205, 310):
@@ -273,9 +292,18 @@ def mousePressed():
             Cards.DeckAdderFedOrigins(Cards.fed_origins[4])
         if len(Cards.fed_origins) == 6 and isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderFedOrigins(Cards.fed_origins[5])
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
             
      # Voegt origin + mobster kaarten toe aan de player_deck       
     if current_page == "Card_selector_maffia" and CardSelectorMaffia.current_card_page == "":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[0])
         if isMouseWithinSpace(243, 134, 205, 310):
@@ -288,9 +316,18 @@ def mousePressed():
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[4])
         if len(Cards.maffia_origins) == 6 and isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderMaffiaOrigins(Cards.maffia_origins[5])
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
     
     # Voegt trap kaarten toe aan de player_deck
     if CardSelectorFed.current_card_page == "Card_selector_fed_trap":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[0])
         if isMouseWithinSpace(243, 134, 205, 310):
@@ -311,9 +348,18 @@ def mousePressed():
             Cards.DeckAdderFedTraps(Cards.traps_Blue[8])
         if len(Cards.traps_Blue) == 10 and isMouseWithinSpace(870, 459, 205, 310):
             Cards.DeckAdderFedTraps(Cards.traps_Blue[9])
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
 
      # Voegt  trap kaarten toe aan de player_deck       
     if CardSelectorMaffia.current_card_page == "Card_selector_maffia_trap":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[0])
         if isMouseWithinSpace(243, 134, 205, 310):
@@ -334,9 +380,18 @@ def mousePressed():
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[8])
         if len(Cards.traps_Red) == 10 and isMouseWithinSpace(873, 459, 205, 310):
             Cards.DeckAdderMaffiaTraps(Cards.traps_Red[9])
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
 
     # Voegt job kaarten toe aan de player_deck
     if CardSelectorFed.current_card_page == "Card_selector_fed_job":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[0])
         if isMouseWithinSpace(243, 0, 205, 310):
@@ -377,9 +432,18 @@ def mousePressed():
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[18])
         if len(Cards.jobs_Blue) == 20 and isMouseWithinSpace(243, 784, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[19])
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
         
         # Voegt job kaarten toe aan de player_deck
     if CardSelectorMaffia.current_card_page == "Card_selector_maffia_job":
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[0])
         if isMouseWithinSpace(243, 134, 205, 310):
@@ -420,33 +484,115 @@ def mousePressed():
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[18])
         if len(Cards.jobs_Red) == 20 and isMouseWithinSpace(243, 784, 205, 310):
             Cards.DeckAdderMaffiaJobs(Cards.jobs_Red[19])
-            
-    if current_page == "Tutorial_Bot" and tutorial_load == True:    
-        # box clicker
-        if isMouseWithinSpace(70, 550, 300, 100):
-            current_page = "Main_Menu"
-            main_menu_load = False
-            tutorial_load = False
-        elif isMouseWithinSpace(TutorialBot.fed_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            current_page = "Card_selector_fed"
-            main_menu_load = False
-            tutorial_load = False
-            card_selector_fed_load = False
-            print("click2")
-        elif isMouseWithinSpace(TutorialBot.maffia_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
-            current_page = "Card_selector_maffia"
-            main_menu_load = False
-            tutorial_load = False
-            card_selector_maffia_load = False
-            print("click3")
-        elif isMouseWithinSpace(TutorialBot.help_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
+        if isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
             current_page = "Handleiding"
             main_menu_load = False
             tutorial_load = False
             handleiding_load = False
-            print("click4")
+    
+    if BotAI.current_scene == "Decissions":
+        if BotAI.can_attack == True and isMouseWithinSpace(552, 976, 238, 100):
+            functions.roll()
+            BotAI.can_attack = False
+            BotAI.can_reroll = True
+        if BotAI.can_reroll == True and isMouseWithinSpace(552, 976, 238, 100):
+            functions.reroll()
+            BotAI.can_reroll = False
+        if isMouseWithinSpace(829, 973, 238, 100):
+            BotAI.current_scene = "Play card"
+        if isMouseWithinSpace(1114, 969, 238, 100):
+            BotAI.nextPlayerTurn()
+    
+    if BotAI.current_scene == "Safe Dice":
+        if isMouseWithinSpace():
+            saved_dice_value = functions.white_dice
+        if isMouseWithinSpace():
+            saved_dice_value = functions.red_dice
+         
+    if BotAI.current_scene == "Play card":
+        x = 100 * 0.3
+        y = 450 * 0.3
+        for i in range(len(TutorialBot.player_deck)):
+            if i == 9:
+                x = 100 * 0.3
+                y = 1550 * 0.3
+            if functions.isMouseWithinSpace2(x, y, 205, 310):
+                if TutorialBot.player_deck[i].type == "Mobster" and len(TutorialBot.player_mobster_field_cards) < 3:
+                    TutorialBot.player_mobster_field_cards.append(TutorialBot.player_deck[i])
+                    TutorialBot.player_deck.pop(i)
+                elif TutorialBot.player_deck[i].type == "Job" and len(TutorialBot.player_job_field_cards) < 1:
+                    TutorialBot.player_job_field_cards.append(TutorialBot.player_deck[i])
+                    TutorialBot.player_deck.pop(i)
+                elif TutorialBot.player_deck[i].type == "Trap" and len(TutorialBot.player_trap_field_cards) < 1:
+                    TutorialBot.player_trap_field_cards.append(TutorialBot.player_deck[i])
+                    TutorialBot.player_deck.pop(i)
+            x += 700 * 0.3
+                    
+    if BotAI.current_scene == "Clairevoyance":
+        x = 519
+        y = -60
+        scale(0.6)
+        if clairevoyance_counter < 2:
+            for i in range(len(TutorialBot.bot_held_cards)):
+                if i == len(TutorialBot.bot_held_cards) - 1 and isMouseWithinSpace(x, y, 210, 310):
+                    TutorialBot.bot_held_cards[i].display(300, 400)
+                    clairevoyance_counter = clairevoyance_counter + 1
+                elif isMouseWithinSpace(x, y, 63, 310):
+                    TutorialBot.bot_held_cards[i].display(300, 400)
+                    clairevoyance_counter = clairevoyance_counter + 1
+                x = x + 63
         else:
-            print("wrong!")
+            BotAI.current_scene = "Decissions"
+    
+    if BotAI.current_scene == "Sacrifice":
+        x = 300
+        y = 400
+        scale(0.6)
+        if len(TutorialBot.player_mobster_field_cards) > 0:
+            for i in range(len(TutorialBot.player_mobster_field_cards)):
+                if TutorialBot.player_mobster_field_cards[i].hp1 > 0 and TutorialBot.player_mobster_field_cards[i].hp2 > 0 and TutorialBot.player_mobster_field_cards[i].hp3 > 0:
+                    if isMouseWithinSpace(x * 0.6, y * 0.6, 400, 600):
+                        TutorialBot.player_graveyard.append(TutorialBot.bot_mobster_field_cards[i])
+                        TutorialBot.player_mobster_field_cards.pop(i)
+                        BotAI.current_scene = "Select_deathcard"
+                x = x + 410
+        else:
+            BotAI.current_scene = "Decissions"
+    
+    if BotAI.current_scene == "Select_deathcard":
+        x = 300
+        y = 400
+        scale(0.6)
+        for i in range(len(TutorialBot.bot_mobster_field_cards)):
+            TutorialBot.bot_mobster_field_cards[i].display(x, y)
+            if isMouseWithinSpace(x * 0.6, y * 0.6, 400, 600):
+                TutorialBot.bot_graveyard.append(TutorialBot.bot_mobster_field_cards[i])
+                TutorialBot.bot_mobster_field_cards.pop(i)
+                BotAI.bluejob_activated = True
+            x = x + 410
+        
+    
+    if current_page == "Tutorial_Bot" and tutorial_load == True:
+        # box clicker
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            tutorial_load = False
+        elif isMouseWithinSpace(TutorialBot.fed_x, TutorialBot.fed_y, 360, 195):
+            current_page = "Card_selector_fed"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_fed_load = False
+        elif isMouseWithinSpace(TutorialBot.maffia_x, TutorialBot.maffia_y, 360, 195):
+            current_page = "Card_selector_maffia"
+            main_menu_load = False
+            tutorial_load = False
+            card_selector_maffia_load = False
+        elif isMouseWithinSpace(TutorialBot.help_x, TutorialBot.help_y, 170, 115):
+            current_page = "Handleiding"
+            main_menu_load = False
+            tutorial_load = False
+            handleiding_load = False
 
     if current_page == "Timer" and timer_load == True:     
         # Home menu button
