@@ -394,21 +394,21 @@ def mousePressed():
             tutorial_load = False
         if isMouseWithinSpace(33, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[0])
-        if isMouseWithinSpace(243, 0, 205, 310):
+        if isMouseWithinSpace(243, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[1])
-        if isMouseWithinSpace(453, 0, 205, 310):
+        if isMouseWithinSpace(453, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[2])
-        if isMouseWithinSpace(663, 0, 205, 310):
+        if isMouseWithinSpace(663, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[3])
-        if isMouseWithinSpace(873, 0, 205, 310):
+        if isMouseWithinSpace(873, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[4])
-        if isMouseWithinSpace(1083, 0, 205, 310):
+        if isMouseWithinSpace(1083, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[5])
-        if isMouseWithinSpace(1293, 0, 205, 310):
+        if isMouseWithinSpace(1293, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[6])
-        if isMouseWithinSpace(1503, 0, 205, 310):
+        if isMouseWithinSpace(1503, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[7])
-        if isMouseWithinSpace(1713, 0, 205, 310):
+        if isMouseWithinSpace(1713, 134, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[8])
         if isMouseWithinSpace(33, 459, 205, 310):
             Cards.DeckAdderFedJobs(Cards.jobs_Blue[9])
@@ -520,12 +520,15 @@ def mousePressed():
                 if TutorialBot.player_deck[i].type == "Mobster" and len(TutorialBot.player_mobster_field_cards) < 3:
                     TutorialBot.player_mobster_field_cards.append(TutorialBot.player_deck[i])
                     TutorialBot.player_deck.pop(i)
+                    BotAI.current_scene = "Decissions"
                 elif TutorialBot.player_deck[i].type == "Job" and len(TutorialBot.player_job_field_cards) < 1:
                     TutorialBot.player_job_field_cards.append(TutorialBot.player_deck[i])
                     TutorialBot.player_deck.pop(i)
+                    BotAI.current_scene = "Decissions"
                 elif TutorialBot.player_deck[i].type == "Trap" and len(TutorialBot.player_trap_field_cards) < 1:
                     TutorialBot.player_trap_field_cards.append(TutorialBot.player_deck[i])
                     TutorialBot.player_deck.pop(i)
+                    BotAI.current_scene = "Decissions"
             x += 700 * 0.3
                     
     if BotAI.current_scene == "Clairevoyance":
