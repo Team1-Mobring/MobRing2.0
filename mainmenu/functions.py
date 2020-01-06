@@ -103,6 +103,7 @@ def roll():
     total = white_dice + red_dice
     fill(87, 99, 211)
     textSize(20)
+    # FixDaDice
     text(white_dice, 100, 100)
     text(red_dice, 100, 200)
     
