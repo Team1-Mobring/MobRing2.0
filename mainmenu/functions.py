@@ -87,6 +87,11 @@ def drawScore(word, x, y, r, g, b, size):
 # Function to attack with dices
 def roll():
     global white_dice, red_dice, total
+
+    
+    WhiteDiceList = [TutorialBot.Dice_white_1, TutorialBot.Dice_white_2, TutorialBot.Dice_white_3, TutorialBot.Dice_white_4, TutorialBot.Dice_white_5, TutorialBot.Dice_white_6]
+    RedDiceList = [TutorialBot.Dice_red_1, TutorialBot.Dice_red_2, TutorialBot.Dice_red_3, TutorialBot.Dice_red_4, TutorialBot.Dice_red_5, TutorialBot.Dice_red_6]
+    
     if BotAI.red_saved_dice_value == 0 and BotAI.blue_saved_dice_value == 0:
         white_dice = int(random(1,6))
     else:
@@ -101,11 +106,12 @@ def roll():
             
     red_dice = int(random(1,6))
     total = white_dice + red_dice
-    fill(87, 99, 211)
-    textSize(20)
-    # FixDaDice
-    text(white_dice, 100, 100)
-    text(red_dice, 100, 200)
+    image(WhiteDiceList[white_dice -1], 0, 0)
+    image(RedDiceList[red_dice -1], 0, 0)
+    #fill(87, 99, 211)
+    #textSize(20)
+    #text(white_dice, 100, 100)
+    #text(red_dice, 100, 200)
     
 # Function part two of attack reroll(with origin effects)
 def reroll():
@@ -117,15 +123,12 @@ def reroll():
         text(red_dice, 100, 200)
     elif origin_colombia_active == True:
         if selected_dice == "white":
-                fill(87, 99, 211)
-                textSize(20)
-                text(dice.white_dice, 100, 100)
+            image(WhiteDiceList[white_dice -1], 0, 0)
         else:
-                fill(87, 99, 211)
-                textSize(20)
-                text(red_dice, 100, 200)
+            image(RedDiceList[red_dice -1], 0, 0)
+
     else:
-        text(red_dice, 100, 200)
+        image(RedDiceList[red_dice -1], 0, 0)
         
 def cardEffectActivator():
     global clairevoyance_counter

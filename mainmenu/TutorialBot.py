@@ -47,14 +47,30 @@ highlightMenu = loadImage("MainMenuHighlight.png")
 Help_Highlight = loadImage("HelpButtonHighlight.png")
 
 
+
 def setup():
-    global tutbotbackground, Maffia_Highlight, Fed_Highlight, highlightMenu, Help_Highlight
+    global tutbotbackground, Maffia_Highlight, Fed_Highlight, highlightMenu, Help_Highlight, Dice_white_1, Dice_white_2, Dice_white_3, Dice_white_4, Dice_white_5, Dice_white_6, Dice_red_1, Dice_red_2, Dice_red_3, Dice_red_4, Dice_red_5, Dice_red_6
     
     tutbotbackground = loadImage("ChooseSide.png")
     Maffia_Highlight = loadImage("MafiaButtonHighlight.png")
     Fed_Highlight = loadImage("FedButtonHighlight.png")
     highlightMenu = loadImage("MainMenuHighlight.png")
     Help_Highlight = loadImage("HelpButtonHighlight.png")
+    
+    Dice_white_1 = loadImage("DiceWhite1.png")
+    Dice_white_2 = loadImage("DiceWhite2.png")
+    Dice_white_3 = loadImage("DiceWhite3.png")
+    Dice_white_4 = loadImage("DiceWhite4.png")
+    Dice_white_5 = loadImage("DiceWhite5.png")
+    Dice_white_6 = loadImage("DiceWhite6.png")
+    
+    Dice_red_1 = loadImage("DiceRed1.png")
+    Dice_red_2 = loadImage("DiceRed2.png")
+    Dice_red_3 = loadImage("DiceRed3.png")
+    Dice_red_4 = loadImage("DiceRed4.png")
+    Dice_red_5 = loadImage("DiceRed5.png")
+    Dice_red_6 = loadImage("DiceRed6.png")
+    
 def draw():
     
     image(tutbotbackground, 0, 0)
