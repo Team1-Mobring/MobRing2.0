@@ -27,6 +27,7 @@ def setup():
     highlightTimer = loadImage("TimedModeHighlight.png")
     backgroundMenu = loadImage('MainMenuafb.png')
     image(backgroundMenu, 0, 0)
+    rdg_step_count = 0
 
 def draw():
     global current_page, tutorial_load, generator_load, timer_load, main_menu_load, handleiding_load, card_selector_fed_load, card_selector_maffia_load, generator2_load, generator3_load, botai_load
@@ -697,7 +698,8 @@ def mousePressed():
             current_page = "Main_Menu"
     if current_page == "Random Deck Generator 2" and generator_load == True:
         if ((790 < mouseX < 1160) and (540 <= mouseY <= 750)):
-            current_page = "Random Deck Generator 3"    
+            current_page = "Random Deck Generator 3"
+            Generator3.rdg_step_count = True
     if current_page == "Random Deck Generator 3" and generator_load == True:
         if ((30 < mouseX < 320) and (30 <= mouseY <= 120)):
             current_page = "Main_Menu"   
@@ -706,4 +708,5 @@ def mousePressed():
             current_page = "Tutorial_Bot"      
     if current_page == "Random Deck Generator 3" and generator_load == True:
         if ((1080 < mouseX < 1445) and (800 <= mouseY <= 1010)):
-            current_page = "Random Deck Generator 2" 
+            current_page = "Random Deck Generator 3"
+            Generator3.rdg_step_count = True
