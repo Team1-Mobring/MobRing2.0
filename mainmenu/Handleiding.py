@@ -51,19 +51,19 @@ def draw():
         image(highlightMenu_1, 0, 0)
         
     if handleiding_page == 8:
-        image(traps_image, 0, 0)
-        
-    if handleiding_page == 9:
         image(origins_image, 0, 0)
         
-    if handleiding_page == 10:
+    if handleiding_page == 9:
         image(classes_image, 0, 0)
         
-    if handleiding_page == 11:
+    if handleiding_page == 10:
         image(mobsters_image, 0, 0)
         
-    if handleiding_page == 12:
+    if handleiding_page == 11:
         image(jobs_image, 0, 0)
+        
+    if handleiding_page == 12:
+        image(traps_image, 0, 0)
         
         
 # def text1():
