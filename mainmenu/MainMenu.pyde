@@ -735,4 +735,5 @@ def mousePressed():
             current_page = "Tutorial_Bot"      
     if current_page == "Random Deck Generator 3" and generator_load == True:
         if ((1080 < mouseX < 1445) and (800 <= mouseY <= 1010)):
-            current_page = "Random Deck Generator 2" 
+            current_page = "Random Deck Generator 3"
+            Generator3.rdg_step_count = True 
