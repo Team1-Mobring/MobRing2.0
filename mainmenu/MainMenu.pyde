@@ -155,10 +155,10 @@ def draw():
         x = 100
         y = 450
         for i in range(len(TutorialBot.player_deck)):
-            TutorialBot.player_deck[i].display(x, y)
             if i == 9:
                 x = 100
                 y = 1550
+            TutorialBot.player_deck[i].display(x, y)
             x += 700   
     
 def keyReleased():    
@@ -561,12 +561,12 @@ def mousePressed():
         y = 100 * 0.6
         for i in range(len(TutorialBot.player_mobster_field_cards)):
             if isMouseWithinSpace(x, y, 420, 620):
-                TutorialBot.player_held_cards.append(TutorialBot.player_mobster_field_cards[i])
                 functions.hpResetter(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_deck.append(TutorialBot.player_mobster_field_cards[i])
                 TutorialBot.player_mobster_field_cards.pop(i)
                 BotAI.redjob_activated = True
             if BotAI.redjob_activated == True:
-                TutorialBot.player_graveyard.append(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_graveyard.append(TutorialBot.player_job_field_cards[i])
                 TutorialBot.player_job_field_cards.pop()
                 BotAI.current_scene = "Decissions"
             x += 700 * 0.6
