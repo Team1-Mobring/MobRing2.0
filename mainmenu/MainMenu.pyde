@@ -258,6 +258,21 @@ def mousePressed():
             current_page = "Main_Menu"
             main_menu_load = False
             handleiding_load = False
+            
+        if isMouseWithinSpace(515, 125, 150, 50):
+            Handleiding.handleiding_page = 8
+            
+        if isMouseWithinSpace(705, 125, 150, 50):
+            Handleiding.handleiding_page = 9
+            
+        if isMouseWithinSpace(900, 125, 150, 50):
+            Handleiding.handleiding_page = 10
+        
+        if isMouseWithinSpace(1095, 125, 150, 50):
+            Handleiding.handleiding_page = 11
+            
+        if isMouseWithinSpace(1285, 125, 150, 50):
+            Handleiding.handleiding_page = 12
         
     # if current_page == "Handleiding 1":
     #     if isMouseWithinSpace(1185, 855, 85, 80):
@@ -540,7 +555,22 @@ def mousePressed():
                     TutorialBot.player_deck.pop(i)
                     BotAI.current_scene = "Decissions"
             x += 700 * 0.3
-                    
+    
+    if BotAI.current_scene == "Retaliate":
+        x = 100 * 0.6
+        y = 100 * 0.6
+        for i in range(len(TutorialBot.player_mobster_field_cards)):
+            if isMouseWithinSpace(x, y, 420, 620):
+                TutorialBot.player_held_cards.append(TutorialBot.player_mobster_field_cards[i])
+                functions.hpResetter(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_mobster_field_cards.pop(i)
+                BotAI.redjob_activated = True
+            if BotAI.redjob_activated == True:
+                TutorialBot.player_graveyard.append(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_job_field_cards.pop()
+                BotAI.current_scene = "Decissions"
+            x += 700 * 0.6
+    
     if BotAI.current_scene == "Clairevoyance":
         x = 519
         y = -60
