@@ -259,19 +259,19 @@ def mousePressed():
             main_menu_load = False
             handleiding_load = False
             
-        if isMouseWithinSpace(580, 145, 150, 50):
+        if isMouseWithinSpace(515, 125, 150, 50):
             Handleiding.handleiding_page = 8
             
-        if isMouseWithinSpace(775, 145, 150, 50):
+        if isMouseWithinSpace(705, 125, 150, 50):
             Handleiding.handleiding_page = 9
             
-        if isMouseWithinSpace(975, 145, 150, 50):
+        if isMouseWithinSpace(900, 125, 150, 50):
             Handleiding.handleiding_page = 10
         
-        if isMouseWithinSpace(1175, 145, 150, 50):
+        if isMouseWithinSpace(1095, 125, 150, 50):
             Handleiding.handleiding_page = 11
             
-        if isMouseWithinSpace(1360, 145, 150, 50):
+        if isMouseWithinSpace(1285, 125, 150, 50):
             Handleiding.handleiding_page = 12
         
     # if current_page == "Handleiding 1":
