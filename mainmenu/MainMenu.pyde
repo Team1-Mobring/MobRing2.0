@@ -96,27 +96,29 @@ def draw():
             handleiding_load = True
         else:
             Handleiding.draw()
-                
-    if current_page == "Handleiding 1":
-        Handleiding.text1()
     
-    if current_page == "Handleiding 2":
-        Handleiding.text2()
+    # Almina Code
     
-    if current_page == "Handleiding 3":
-        Handleiding.text3()
+    # if current_page == "Handleiding 1":
+    #     Handleiding.text1()
     
-    if current_page == "Handleiding 4":
-        Handleiding.text4()
+    # if current_page == "Handleiding 2":
+    #     Handleiding.text2()
     
-    if current_page == "Handleiding 5":
-        Handleiding.text5()
+    # if current_page == "Handleiding 3":
+    #     Handleiding.text3()
     
-    if current_page == "Handleiding 6":
-        Handleiding.text6()
+    # if current_page == "Handleiding 4":
+    #     Handleiding.text4()
     
-    if current_page == "Handleiding 7":
-        Handleiding.text7()
+    # if current_page == "Handleiding 5":
+    #     Handleiding.text5()
+    
+    # if current_page == "Handleiding 6":
+    #     Handleiding.text6()
+    
+    # if current_page == "Handleiding 7":
+    #     Handleiding.text7()
     
     if current_page == "Card_selector_fed":
         if card_selector_fed_load == False:
@@ -246,33 +248,56 @@ def mousePressed():
     print(mouseX, mouseY)
       
     if current_page == "Handleiding":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 1"
+        if isMouseWithinSpace(1185, 855, 85, 80) and Handleiding.handleiding_page < 7:
+            Handleiding.handleiding_page += 1
         
-    if current_page == "Handleiding 1":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 2"
+        if isMouseWithinSpace(633, 854, 85, 80) and Handleiding.handleiding_page > 1:
+            Handleiding.handleiding_page -= 1
+            
+        if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.main_menu_y, 265, 195):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            handleiding_load = False
+            
+        if isMouseWithinSpace(580, 145, 150, 50):
+            Handleiding.handleiding_page = 8
+            
+        if isMouseWithinSpace(775, 145, 150, 50):
+            Handleiding.handleiding_page = 9
+            
+        if isMouseWithinSpace(975, 145, 150, 50):
+            Handleiding.handleiding_page = 10
         
-    if current_page == "Handleiding 2":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 3"
+        if isMouseWithinSpace(1175, 145, 150, 50):
+            Handleiding.handleiding_page = 11
+            
+        if isMouseWithinSpace(1360, 145, 150, 50):
+            Handleiding.handleiding_page = 12
+        
+    # if current_page == "Handleiding 1":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         current_page = "Handleiding 2"
+        
+    # if current_page == "Handleiding 2":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         current_page = "Handleiding 3"
     
-    if current_page == "Handleiding 3":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 4"
+    # if current_page == "Handleiding 3":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         current_page = "Handleiding 4"
             
-    if current_page == "Handleiding 4":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 5"
+    # if current_page == "Handleiding 4":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         current_page = "Handleiding 5"
             
-    if current_page == "Handleiding 5":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            current_page = "Handleiding 6"
+    # if current_page == "Handleiding 5":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         current_page = "Handleiding 6"
         
-    if current_page == "Handleiding 6":
-        if isMouseWithinSpace(1185, 855, 85, 80):
-            print("click")
-            current_page = "Handleiding 7"
+    # if current_page == "Handleiding 6":
+    #     if isMouseWithinSpace(1185, 855, 85, 80):
+    #         print("click")
+    #         current_page = "Handleiding 7"
     
     # Voegt origin + mobster kaarten toe aan de player_deck
     if current_page == "Card_selector_fed" and CardSelectorFed.current_card_page == "":
