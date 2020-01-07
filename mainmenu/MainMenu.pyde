@@ -1,4 +1,3 @@
-
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
 
 def setup():
