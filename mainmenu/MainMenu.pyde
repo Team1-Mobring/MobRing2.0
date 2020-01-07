@@ -530,7 +530,22 @@ def mousePressed():
                     TutorialBot.player_deck.pop(i)
                     BotAI.current_scene = "Decissions"
             x += 700 * 0.3
-                    
+    
+    if BotAI.current_scene == "Retaliate":
+        x = 100 * 0.6
+        y = 100 * 0.6
+        for i in range(len(TutorialBot.player_mobster_field_cards)):
+            if isMouseWithinSpace(x, y, 420, 620):
+                TutorialBot.player_held_cards.append(TutorialBot.player_mobster_field_cards[i])
+                functions.hpResetter(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_mobster_field_cards.pop(i)
+                BotAI.redjob_activated = True
+            if BotAI.redjob_activated == True:
+                TutorialBot.player_graveyard.append(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_job_field_cards.pop()
+                BotAI.current_scene = "Decissions"
+            x += 700 * 0.6
+    
     if BotAI.current_scene == "Clairevoyance":
         x = 519
         y = -60
