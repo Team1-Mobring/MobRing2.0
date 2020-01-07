@@ -20,6 +20,7 @@ def setup():
     classes_image = loadImage("classes.png")
     mobsters_image = loadImage("mobsters.png")
     jobs_image = loadImage("jobs.png")
+
     
 def draw():
     global handleiding_page, highlightMenu_1
