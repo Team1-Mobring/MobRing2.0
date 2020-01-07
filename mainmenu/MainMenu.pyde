@@ -155,10 +155,10 @@ def draw():
         x = 100
         y = 450
         for i in range(len(TutorialBot.player_deck)):
-            TutorialBot.player_deck[i].display(x, y)
             if i == 9:
                 x = 100
                 y = 1550
+            TutorialBot.player_deck[i].display(x, y)
             x += 700   
     
 def keyReleased():    
