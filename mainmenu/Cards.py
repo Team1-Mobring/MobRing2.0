@@ -1,5 +1,12 @@
 import TutorialBot
 
+# Base code voor hp reset cards
+class HpReset():
+    def __init__(self, hp1, hp2, hp3):
+        self.hp1 = hp1
+        self.hp2 = hp2
+        self.hp3 = hp3
+        
 # Base code voor mobster karten
 class Mobster():
     def __init__(self, type, name, origin, hp1, hp2, hp3, img):
@@ -53,6 +60,56 @@ class TrapJob():
         image(rimg, x, y)
 
 test_card = Mobster("testType", "TestName", "TestOrigin", 0, 0, 0, "settingsicon2.png")
+
+# Hp Resetters
+aivd1Hp = HpReset(0, 6, 6)
+aivd2Hp = HpReset(7, 9, 6)
+aivd3Hp = HpReset(0, 10, 5)
+aivd4Hp = HpReset(0, 11, 0)
+bratva1Hp = HpReset(7, 8, 8)
+bratva2Hp = HpReset(0, 9, 9)
+bratva3Hp = HpReset(0, 9, 10)
+bratva4Hp = HpReset(0, 10, 10)
+cosaNostra1Hp = HpReset(7, 6, 9)
+cosaNostra2Hp = HpReset( 0, 9, 10)
+cosaNostra3Hp = HpReset(0, 4, 5)
+cosaNostra4Hp = HpReset(0, 11, 0)
+dni1Hp = HpReset(5, 6, 6)
+dni2Hp = HpReset(0, 9, 5)
+dni3Hp = HpReset(0, 10, 4)
+dni4Hp = HpReset(0, 3, 0)
+farmer1Hp = HpReset(7, 9, 7)
+farmer2Hp = HpReset(6, 6, 6)
+farmer3Hp = HpReset(0, 10, 5)
+farmer4Hp = HpReset(0, 11, 0)
+fsb1Hp = HpReset(7, 8, 8,)
+fsb2Hp = HpReset(0, 9, 9)
+fsb3Hp = HpReset(0, 9, 10)
+fsb4Hp = HpReset(0, 10, 10)
+caliKartel1Hp = HpReset(5, 6, 6)
+caliKartel2Hp = HpReset(0, 9, 5)
+caliKartel3Hp = HpReset(0, 4, 10)
+caliKartel4Hp = HpReset(0, 3, 0)
+mss1Hp = HpReset(8, 8, 8)
+mss2Hp = HpReset(5, 6, 7)
+mss3Hp = HpReset(0, 9, 4)
+mss4Hp = HpReset(0, 3, 0)
+psia1Hp = HpReset(8, 6, 7)
+psia2Hp = HpReset(8, 6, 9)
+psia3Hp = HpReset(7, 7, 7)
+psia4Hp = HpReset(0, 3, 0)
+sismi1Hp = HpReset(7, 6, 9)
+sismi2Hp = HpReset(0, 5, 4)
+sismi3Hp = HpReset(0, 10, 9)
+sismi4Hp = HpReset(0, 11, 0)
+triad1Hp = HpReset(8, 8, 8)
+triad2Hp = HpReset(5, 6, 7)
+triad3Hp = HpReset(0, 9, 4)
+triad4Hp = HpReset(0, 3, 0)
+yakuza1Hp = HpReset(6, 8, 7)
+yakuza2Hp = HpReset(6, 8, 9)
+yakuza3Hp = HpReset(7, 7, 7)
+yakuza4Hp = HpReset(0, 3, 0)
 
 #Mobsters
 aivd1 = Mobster("Mobster", "AIVD1", "Netherlands", 0, 6, 6, "AIVD1.png")
