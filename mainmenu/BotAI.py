@@ -100,19 +100,23 @@ def setup():
     dice_red_5 = loadImage("DiceRed5.png")
     dice_red_6 = loadImage("DiceRed6.png")
     
+    
     if CardSelectorMaffia.current_card_page == "Blue_bot":
         bot_deck = [Cards.fsb3, Cards.fsb4, Cards.psia1, Cards.psia2, Cards.psia3, Cards.psia4, Cards.anti_Hit_Blue2, Cards.retaliate_Blue1, Cards.reroll_Blue1, Cards.the_Odds_Are_Against_You_Blue1, Cards.revive_Blue1]
-        bot_held_mobster_cards = [Cards.fsb1, Cards.fsb2, Cards.fsb3, Cards.fsb4, Cards.psia1, Cards.psia2, Cards.psia3, Cards.psia4]
+        bot_held_mobster_cards = [Cards.fsb3, Cards.fsb4, Cards.psia1, Cards.psia2, Cards.psia3, Cards.psia4]
         bot_held_trap_cards = [Cards.dodge_Blue1, Cards.ricochet_Blue1, Cards.revive_Blue1]
         bot_held_job_cards = [Cards.anti_Hit_Blue1, Cards.anti_Hit_Blue2, Cards.retaliate_Blue1, Cards.reroll_Blue1, Cards.the_Odds_Are_Against_You_Blue1]
-        bot_held_cards = [Cards.fsb1, Cards.fsb2, Cards.dodge_Blue1, Cards.ricochet_Blue1, Cards.anti_Hit_Blue1]
+        bot_held_cards = [Cards.dodge_Blue1, Cards.ricochet_Blue1, Cards.anti_Hit_Blue1]
+        TutorialBot.bot_mobster_field_cards = [Cards.fsb1, Cards.fsb2]
+    
     if CardSelectorFed.current_card_page == "Red_bot":
         bot_deck = [Cards.bratva3, Cards.bratva4, Cards.yakuza1, Cards.yakuza2, Cards.yakuza3, Cards.yakuza4, Cards.anti_Hit_Red2, Cards.reroll_Red1, Cards.the_Odds_Are_Against_You_Red1, Cards.revive_Red1]
-        bot_held_mobster_cards = [Cards.bratva1, Cards.bratva2, Cards.bratva3, Cards.bratva4, Cards.yakuza1, Cards.yakuza2, Cards.yakuza3, Cards.yakuza4]
+        bot_held_mobster_cards = [Cards.bratva3, Cards.bratva4, Cards.yakuza1, Cards.yakuza2, Cards.yakuza3, Cards.yakuza4]
         bot_held_trap_cards = [Cards.dodge_Red1, Cards.ricochet_Red1, Cards.revive_Red1]
         bot_held_job_cards = [Cards.anti_Hit_Red1, Cards.anti_Hit_Red2, Cards.retaliate_Red1, Cards.reroll_Red1, Cards.the_Odds_Are_Against_You_Red1]
-        bot_held_cards = [Cards.bratva1, Cards.bratva2, Cards.dodge_Red1, Cards.retaliate_Red1, Cards.anti_Hit_Red1]
-    
+        bot_held_cards = [Cards.dodge_Red1, Cards.retaliate_Red1, Cards.anti_Hit_Red1]
+        TutorialBot.bot_mobster_field_cards = [Cards.bratva1, Cards.bratva2]
+        
     can_reroll = False
     back_img = loadImage("BackButton.png")
     back_img_highlight = loadImage("BackButtonHighlight.png")
@@ -274,13 +278,7 @@ def draw():
             TutorialBot.bot_mobster_field_cards[i].display(x, y)
             x = x + 890
             
-    # Shows the trap card on the field
-    if len(TutorialBot.bot_trap_field_cards) > 0 :
-        image(loadImage("CardBackBlueSideWays.png"), 3260, 1380)
-        
-    # Shows the job card on the field
-    if len(TutorialBot.bot_job_field_cards) > 0 :
-        image(loadImage("CardBackBlueSideWays.png"),2080, 1380)
+    
     
     # Activates card effects
     functions.cardEffectActivator()
