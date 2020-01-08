@@ -150,17 +150,8 @@ def draw():
             scale(3.3333333)
             functions.backgroundTint()
             
-    if BotAI.current_scene == "Play card":
-        scale(0.3)
-        x = 100
-        y = 450
-        for i in range(len(TutorialBot.player_deck)):
-            TutorialBot.player_deck[i].display(x, y)
-            if i == 9:
-                x = 100
-                y = 1550
-            x += 700   
-    
+      
+
 def keyReleased():    
     if current_page == "Timer" and timer_load == True:
         # Zorgt ervoor dat "Spatie" niet timer 2 start, wanneer je een andere timed mode begint.
@@ -515,26 +506,99 @@ def mousePressed():
             tutorial_load = False
             handleiding_load = False
     
+    if BotAI.current_scene == "Reroll2":
+        if isMouseWithinSpace(10, 980, 95, 1070):
+            BotAI.current_scene = "Decissions"
+        if BotAI.can_reroll == True and isMouseWithinSpace(552, 976, 238, 100):
+            BotAI.current_scene = "Reroll2"
+            functions.reroll()
+        x = 60
+        y = 270
+        for i in range(len(TutorialBot.bot_mobster_field_cards)):
+            if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                if isMouseWithinSpace(x, y, 400, 600):
+                    if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp1 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp2 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp3 = 0
+                    BotAI.current_scene = "Decissions"
+            x += 430
+                
+    if BotAI.current_scene == "Reroll":
+        if isMouseWithinSpace(10, 980, 95, 1070):
+            BotAI.current_scene = "Decissions"
+        if BotAI.can_reroll == True and isMouseWithinSpace(552, 976, 238, 100):
+            BotAI.current_scene = "Reroll2"
+            functions.reroll()
+        
+        x = 60
+        y = 270
+        for i in range(len(TutorialBot.bot_mobster_field_cards)):
+            if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                if isMouseWithinSpace(x, y, 400, 600):
+                    if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp1 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp2 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp3 = 0
+                    BotAI.current_scene = "Decissions"
+            x += 430
+        
+    if BotAI.current_scene == "Attack":
+        if isMouseWithinSpace(10, 980, 95, 1070):
+            BotAI.current_scene = "Decissions"
+        if BotAI.can_reroll == True and isMouseWithinSpace(552, 976, 238, 100):
+            BotAI.current_scene = "Reroll"
+            functions.reroll()
+        x = 60
+        y = 270
+        for i in range(len(TutorialBot.bot_mobster_field_cards)):
+            if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total or TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                if isMouseWithinSpace(x, y, 400, 600):
+                    if TutorialBot.bot_mobster_field_cards[i].hp1 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp1 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp2 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp2 = 0
+                    elif TutorialBot.bot_mobster_field_cards[i].hp3 == functions.total:
+                        TutorialBot.bot_mobster_field_cards[i].hp3 = 0
+                    BotAI.current_scene = "Decissions"
+            x += 430
+    
     if BotAI.current_scene == "Decissions":
         if BotAI.can_attack == True and isMouseWithinSpace(552, 976, 238, 100):
             functions.roll()
+            BotAI.current_scene = "Attack"
             BotAI.can_attack = False
             BotAI.can_reroll = True
-        if BotAI.can_reroll == True and isMouseWithinSpace(552, 976, 238, 100):
-            functions.reroll()
-            BotAI.can_reroll = False
         if isMouseWithinSpace(829, 973, 238, 100):
             BotAI.current_scene = "Play card"
         if isMouseWithinSpace(1114, 969, 238, 100):
             BotAI.nextPlayerTurn()
     
     if BotAI.current_scene == "Safe Dice":
-        if isMouseWithinSpace():
-            saved_dice_value = functions.white_dice
-        if isMouseWithinSpace():
-            saved_dice_value = functions.red_dice
+        if isMouseWithinSpace(1512, 705, 120, 120):
+            if BotAI.player == 1:
+                if CardSelectorMaffia.current_card_page == "Blue_bot":
+                    BotAI.red_saved_dice_value = functions.white_dice
+                    BotAI.current_scene = "Decissions"
+                elif CardSelectorFed.current_card_page == "Red_bot":
+                    BotAI.blue_saved_dice_value = functions.white_dice
+                    BotAI.current_scene = "Decissions"
+        if isMouseWithinSpace(1700, 615, 120, 120):
+            if BotAI.player == 1:
+                if CardSelectorMaffia.current_card_page == "Blue_bot":
+                    BotAI.red_saved_dice_value = functions.red_dice
+                    BotAI.current_scene = "Decissions"
+                elif CardSelectorFed.current_card_page == "Red_bot":
+                    BotAI.blue_saved_dice_value = functions.red_dice
+                    BotAI.current_scene = "Decissions"
          
     if BotAI.current_scene == "Play card":
+        if isMouseWithinSpace(10, 980, 95, 1070):
+            BotAI.current_scene = "Decissions"
         x = 100 * 0.3
         y = 450 * 0.3
         for i in range(len(TutorialBot.player_deck)):
@@ -557,19 +621,21 @@ def mousePressed():
             x += 700 * 0.3
     
     if BotAI.current_scene == "Retaliate":
-        x = 100 * 0.6
-        y = 100 * 0.6
+        x = 300
+        y = 400
         for i in range(len(TutorialBot.player_mobster_field_cards)):
-            if isMouseWithinSpace(x, y, 420, 620):
-                TutorialBot.player_held_cards.append(TutorialBot.player_mobster_field_cards[i])
-                functions.hpResetter(TutorialBot.player_mobster_field_cards[i])
+            if isMouseWithinSpace(x, y, 410, 620):
+                for k in range(3):
+                    functions.hpResetter(TutorialBot.player_mobster_field_cards[i])
+                TutorialBot.player_deck.append(TutorialBot.player_mobster_field_cards[i])
                 TutorialBot.player_mobster_field_cards.pop(i)
-                BotAI.redjob_activated = True
-            if BotAI.redjob_activated == True:
-                TutorialBot.player_graveyard.append(TutorialBot.player_mobster_field_cards[i])
-                TutorialBot.player_job_field_cards.pop()
-                BotAI.current_scene = "Decissions"
-            x += 700 * 0.6
+                if TutorialBot.player_job_field_cards[0] == Cards.retaliate_Red1 or TutorialBot.player_job_field_cards[0] == Cards.retaliate_Red2:
+                    BotAI.redjob_activated = True
+                else:
+                    BotAI.bluejob_activated = True
+            x += 420
+            
+            
     
     if BotAI.current_scene == "Clairevoyance":
         x = 519
@@ -587,33 +653,65 @@ def mousePressed():
         else:
             BotAI.current_scene = "Decissions"
     
-    if BotAI.current_scene == "Sacrifice":
-        x = 300
-        y = 400
-        scale(0.6)
-        if len(TutorialBot.player_mobster_field_cards) > 0:
-            for i in range(len(TutorialBot.player_mobster_field_cards)):
-                if TutorialBot.player_mobster_field_cards[i].hp1 > 0 and TutorialBot.player_mobster_field_cards[i].hp2 > 0 and TutorialBot.player_mobster_field_cards[i].hp3 > 0:
-                    if isMouseWithinSpace(x * 0.6, y * 0.6, 400, 600):
-                        TutorialBot.player_graveyard.append(TutorialBot.bot_mobster_field_cards[i])
-                        TutorialBot.player_mobster_field_cards.pop(i)
-                        BotAI.current_scene = "Select_deathcard"
-                x = x + 410
-        else:
-            BotAI.current_scene = "Decissions"
-    
     if BotAI.current_scene == "Select_deathcard":
         x = 300
         y = 400
-        scale(0.6)
         for i in range(len(TutorialBot.bot_mobster_field_cards)):
-            TutorialBot.bot_mobster_field_cards[i].display(x, y)
-            if isMouseWithinSpace(x * 0.6, y * 0.6, 400, 600):
+            if isMouseWithinSpace(x, y, 400, 600):
                 TutorialBot.bot_graveyard.append(TutorialBot.bot_mobster_field_cards[i])
                 TutorialBot.bot_mobster_field_cards.pop(i)
-                BotAI.bluejob_activated = True
+                TutorialBot.player_graveyard.append(TutorialBot.player_job_field_cards[0])
+                TutorialBot.player_job_field_cards.pop()
+                BotAI.current_scene = "Decissions"
             x = x + 410
-        
+    
+    if BotAI.current_scene == "Sacrifice":
+        x = 300
+        y = 400
+        if len(TutorialBot.player_mobster_field_cards) > 0:
+            for i in range(len(TutorialBot.player_mobster_field_cards)):
+                if TutorialBot.player_mobster_field_cards[i].hp1 > 0 and TutorialBot.player_mobster_field_cards[i].hp2 > 0 and TutorialBot.player_mobster_field_cards[i].hp3 > 0:
+                    if isMouseWithinSpace(x, y, 400, 620):
+                        TutorialBot.player_graveyard.append(TutorialBot.bot_mobster_field_cards[i])
+                        TutorialBot.player_mobster_field_cards.pop(i)
+                        BotAI.current_scene = "Select_deathcard"
+                        if TutorialBot.player_job_field_cards[0] == Cards.sacrifice_Red1 or TutorialBot.player_job_field_cards[0] == Cards.sacrifice_Red2:
+                            BotAI.redjob_activated = True
+                        else:
+                            BotAI.bluejob_activated = True
+                    x += 410
+        else:
+            BotAI.current_scene = "Decissions"
+    
+    if BotAI.current_scene == "Damage card":
+        x = 180
+        y = 240
+        for i in TutorialBot.player_mobster_field_cards:
+            if i.hp1 > 0 or i.hp2 > 0 or i.hp3 > 0:
+                if isMouseWithinSpace(x, y, 410, 620):
+                    if i.hp1 > 0:
+                        i.hp1 = 0
+                    elif i.hp2 > 0:
+                        i.hp2 = 0
+                    elif i.hp3 > 0:
+                        i.hp3 = 0
+                    BotAI.current_scene = "Decissions"
+                x += 420
+    
+    if BotAI.current_scene == "TOAAY":
+        x = 180
+        y = 240
+        for i in TutorialBot.player_mobster_field_cards:
+            if i.hp1 == 0 or i.hp2 == 0 or i.hp3 == 0:
+                if isMouseWithinSpace(x, y, 410, 620):
+                    if i.hp1 == 0:
+                        functions.hpResetter(i)
+                    elif i.hp2 == 0:
+                        functions.hpResetter(i)
+                    elif i.hp3 == 0:
+                        functions.hpResetter(i)
+                    BotAI.current_scene = "Damage card"
+                x += 420
     
     if current_page == "Tutorial_Bot" and tutorial_load == True:
         # box clicker
