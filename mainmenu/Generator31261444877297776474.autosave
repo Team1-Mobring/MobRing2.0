@@ -58,7 +58,6 @@ def draw():
         rdg_step_count = False
         
 
-
     functions.drawScore("Your deck has been Generated!", 960, 300, 255, 255, 255, 40)
     functions.drawScore("Your origins drawn are \n" + randomOrigin + '\n' + randomOrigin2, 570, 400, 255, 255, 255, 23)
     functions.drawScore("Your traps drawn are \n" + randomTrap + '\n' + randomTrap2 + '\n' + randomTrap3, 960, 400, 255, 255, 255, 23)

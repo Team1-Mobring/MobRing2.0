@@ -1,4 +1,3 @@
-
 import TutorialBot, functions, Generator, Timer, Handleiding, CardSelectorFed, CardSelectorMaffia, Cards, Generator2, Generator3, BotAI
 
 def setup():
@@ -150,7 +149,17 @@ def draw():
             scale(3.3333333)
             functions.backgroundTint()
             
-      
+    if BotAI.current_scene == "Play card":
+        scale(0.3)
+        x = 100
+        y = 450
+        for i in range(len(TutorialBot.player_deck)):
+            if i == 9:
+                x = 100
+                y = 1550
+            TutorialBot.player_deck[i].display(x, y)
+            x += 700   
+    
 
 def keyReleased():    
     if current_page == "Timer" and timer_load == True:
@@ -834,4 +843,5 @@ def mousePressed():
             current_page = "Tutorial_Bot"      
     if current_page == "Random Deck Generator 3" and generator_load == True:
         if ((1080 < mouseX < 1445) and (800 <= mouseY <= 1010)):
-            current_page = "Random Deck Generator 2" 
+            current_page = "Random Deck Generator 3"
+            Generator3.rdg_step_count = True 
